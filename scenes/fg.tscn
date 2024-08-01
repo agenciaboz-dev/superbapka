@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn3lqcyn6fy02"]
+
+[ext_resource type="Texture2D" uid="uid://dpjsa4o6cmjiw" path="res://assets/scenario/açaí/layer4-0.png" id="1_dqqer"]
+
+[node name="Fg" type="ParallaxBackground"]
+
+[node name="Layer-4" type="ParallaxLayer" parent="."]
+z_index = 9
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(320, 0)
+
+[node name="0" type="Sprite2D" parent="Layer-4"]
+z_index = 9
+texture_filter = 1
+position = Vector2(0, 177)
+texture = ExtResource("1_dqqer")
+centered = false

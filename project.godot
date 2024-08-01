@@ -14,6 +14,14 @@ config/name="Superbapka"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=200
+window/size/initial_position_type=0
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -22,3 +30,4 @@ version_control/autoload_on_startup=true
 [rendering]
 
 renderer/rendering_method="mobile"
+renderer/rendering_method.web="mobile"

@@ -1,7 +1,10 @@
-CollisionShape2D
+Camera2D
+ParallaxBackground
+CanvasLayer
 Sprite2D
+Node
+CollisionShape2D
 StaticBody2D
 AnimatedSprite2D
 CharacterBody2D
 ParallaxLayer
-ParallaxBackground

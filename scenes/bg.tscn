@@ -1,78 +1,79 @@
-[gd_scene load_steps=11 format=3 uid="uid://crmmsuoy4ieq8"]
+[gd_scene load_steps=10 format=3 uid="uid://crmmsuoy4ieq8"]
 
-[ext_resource type="Texture2D" uid="uid://mrtgk8mpcc4x" path="res://assets/scenario/açaí/background.png" id="1_mx8ig"]
-[ext_resource type="Texture2D" uid="uid://b48hvib6ulndt" path="res://assets/scenario/açaí/layer0-0.png" id="2_qbnkv"]
-[ext_resource type="Texture2D" uid="uid://d3iueeumuargw" path="res://assets/scenario/açaí/layer0-1.png" id="3_e6ajp"]
-[ext_resource type="Texture2D" uid="uid://ii70i3v1rfai" path="res://assets/scenario/açaí/layer1-1.png" id="4_2n7al"]
-[ext_resource type="Texture2D" uid="uid://dkxa41omy8ok0" path="res://assets/scenario/açaí/layer1-0.png" id="5_evf3y"]
-[ext_resource type="Texture2D" uid="uid://cnt03vjcmmpru" path="res://assets/scenario/açaí/layer2-0.png" id="6_w3ede"]
-[ext_resource type="Texture2D" uid="uid://n783vj36mp6e" path="res://assets/scenario/açaí/layer2-1.png" id="7_o1qg6"]
-[ext_resource type="Texture2D" uid="uid://cwoqejaamhyxm" path="res://assets/scenario/açaí/layer2-2.png" id="8_21nsv"]
-[ext_resource type="Texture2D" uid="uid://cn3p2d6y8d7r2" path="res://assets/scenario/açaí/layer3-1.png" id="9_cxwea"]
-[ext_resource type="Texture2D" uid="uid://4u2pfks5lvs0" path="res://assets/scenario/açaí/layer3-0.png" id="10_jdrif"]
+[ext_resource type="Texture2D" uid="uid://dhg5ahc2bcbcx" path="res://assets/scenario/açaí/background.png" id="1_mx8ig"]
+[ext_resource type="Texture2D" uid="uid://xehixjicchkq" path="res://assets/scenario/açaí/layer0-0.png" id="2_qbnkv"]
+[ext_resource type="Texture2D" uid="uid://ctc2iuwjhbldl" path="res://assets/scenario/açaí/layer0-1.png" id="3_e6ajp"]
+[ext_resource type="Texture2D" uid="uid://b2lya4snhgs72" path="res://assets/scenario/açaí/layer1-1.png" id="4_2n7al"]
+[ext_resource type="Texture2D" uid="uid://bgiumfyh5j5x1" path="res://assets/scenario/açaí/layer1-0.png" id="5_evf3y"]
+[ext_resource type="Texture2D" uid="uid://cktgmi37w0qcb" path="res://assets/scenario/açaí/mockup.jpg" id="6_b7r63"]
+[ext_resource type="Texture2D" uid="uid://ds321oi6gsfpx" path="res://assets/scenario/açaí/layer2-0.png" id="6_w3ede"]
+[ext_resource type="Texture2D" uid="uid://iwmj4mbd86gn" path="res://assets/scenario/açaí/layer2-1.png" id="7_o1qg6"]
+[ext_resource type="Texture2D" uid="uid://b28v538jvy4tj" path="res://assets/scenario/açaí/layer2-2.png" id="8_21nsv"]
 
 [node name="Bg" type="ParallaxBackground"]
 
 [node name="Static-bg" type="Sprite2D" parent="."]
+z_index = 5
+texture_filter = 1
 texture = ExtResource("1_mx8ig")
 centered = false
 
 [node name="Layer-0" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.6, 1)
-motion_mirroring = Vector2(163, 0)
+motion_mirroring = Vector2(320, 0)
 
 [node name="0" type="Sprite2D" parent="Layer-0"]
-position = Vector2(16, 8)
+texture_filter = 1
+position = Vector2(53, 43)
 texture = ExtResource("2_qbnkv")
-centered = false
 
 [node name="1" type="Sprite2D" parent="Layer-0"]
-position = Vector2(104, 8)
+texture_filter = 1
+position = Vector2(160, 65)
 texture = ExtResource("3_e6ajp")
-centered = false
+
+[node name="2" type="Sprite2D" parent="Layer-0"]
+texture_filter = 1
+position = Vector2(260, 35)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_qbnkv")
 
 [node name="Layer-1" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.7, 1)
-motion_mirroring = Vector2(163, 0)
+motion_mirroring = Vector2(320, 0)
 
 [node name="1" type="Sprite2D" parent="Layer-1"]
-position = Vector2(56, 64)
+texture_filter = 1
+position = Vector2(261, 138)
 texture = ExtResource("4_2n7al")
-centered = false
 
 [node name="0" type="Sprite2D" parent="Layer-1"]
-position = Vector2(-8, 72)
+texture_filter = 1
+position = Vector2(92, 142)
 texture = ExtResource("5_evf3y")
-centered = false
 
 [node name="Layer-2" type="ParallaxLayer" parent="."]
+position = Vector2(24, 32)
 motion_scale = Vector2(0.8, 1)
-motion_mirroring = Vector2(163, 0)
+motion_mirroring = Vector2(320, 0)
 
 [node name="0" type="Sprite2D" parent="Layer-2"]
-position = Vector2(56, 24)
+texture_filter = 1
+position = Vector2(6, 90)
 texture = ExtResource("6_w3ede")
-centered = false
 
 [node name="1" type="Sprite2D" parent="Layer-2"]
-position = Vector2(112, 15)
-texture = ExtResource("7_o1qg6")
-centered = false
+texture_filter = 1
+position = Vector2(108, 88)
+texture = ExtResource("8_21nsv")
 
 [node name="2" type="Sprite2D" parent="Layer-2"]
-position = Vector2(-8, 25)
-texture = ExtResource("8_21nsv")
-centered = false
+texture_filter = 1
+position = Vector2(263, 93)
+texture = ExtResource("7_o1qg6")
 
-[node name="Layer-3" type="ParallaxLayer" parent="."]
+[node name="Mockup" type="Sprite2D" parent="."]
 visible = false
-
-[node name="0" type="Sprite2D" parent="Layer-3"]
-position = Vector2(1, 83)
-texture = ExtResource("9_cxwea")
-centered = false
-
-[node name="1" type="Sprite2D" parent="Layer-3"]
-position = Vector2(14, 46)
-texture = ExtResource("10_jdrif")
+texture_filter = 1
+texture = ExtResource("6_b7r63")
 centered = false
