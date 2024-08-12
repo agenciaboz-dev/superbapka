@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://goev6rg32evj"]
+[gd_scene load_steps=22 format=3 uid="uid://goev6rg32evj"]
 
 [ext_resource type="Texture2D" uid="uid://d2px4ex0k03on" path="res://assets/characters/açai1.png" id="1_4aci6"]
+[ext_resource type="Script" path="res://Scripts/acai.gd" id="1_ppva4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4qre"]
 atlas = ExtResource("1_4aci6")
@@ -134,20 +135,31 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 12.0
+"speed": 14.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vv5xd"]
-radius = 14.0
-height = 44.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_wj26f"]
+radius = 13.0384
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k2qmv"]
+radius = 8.0
+height = 16.0
 
 [node name="Acai" type="CharacterBody2D"]
 texture_filter = 1
+script = ExtResource("1_ppva4")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bhxdl")
-animation = &"run"
+animation = &"jump"
 autoplay = "run"
+frame_progress = 0.140529
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_vv5xd")
+visible = false
+shape = SubResource("CircleShape2D_wj26f")
+
+[node name="Hitbox2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 14)
+shape = SubResource("CapsuleShape2D_k2qmv")

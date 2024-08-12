@@ -18,6 +18,13 @@ texture_filter = 1
 texture = ExtResource("1_mx8ig")
 centered = false
 
+[node name="Static-bg2" type="Sprite2D" parent="."]
+z_index = 5
+texture_filter = 1
+position = Vector2(320, 0)
+texture = ExtResource("1_mx8ig")
+centered = false
+
 [node name="Layer-0" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.6, 1)
 motion_mirroring = Vector2(320, 0)

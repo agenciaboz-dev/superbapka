@@ -20,7 +20,7 @@ window/size/viewport_width=320
 window/size/viewport_height=200
 window/size/initial_position_type=0
 window/stretch/mode="viewport"
-window/stretch/aspect="ignore"
+window/stretch/aspect="expand"
 
 [editor]
 
