@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://3aqu40718bhh"]
+[gd_scene load_steps=8 format=3 uid="uid://3aqu40718bhh"]
 
 [ext_resource type="PackedScene" uid="uid://crmmsuoy4ieq8" path="res://scenes/bg.tscn" id="1_q5ql8"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_t8rr1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhh0w3iw5ckn7" path="res://scenes/ground.tscn" id="3_dflgr"]
 [ext_resource type="PackedScene" uid="uid://cn3lqcyn6fy02" path="res://scenes/fg.tscn" id="4_kw8wr"]
 [ext_resource type="Texture2D" uid="uid://cktgmi37w0qcb" path="res://assets/scenario/açaí/mockup.jpg" id="4_niorc"]
+[ext_resource type="PackedScene" uid="uid://c5es716vjhyof" path="res://scenes/hud.tscn" id="7_4gitb"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_t8rr1")
@@ -30,3 +31,5 @@ centered = false
 [node name="Camera" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
+
+[node name="HUD" parent="." instance=ExtResource("7_4gitb")]

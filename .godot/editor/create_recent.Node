@@ -1,9 +1,10 @@
+Label
+CanvasLayer
 CollisionShape2D
 Sprite2D
 Area2D
 Camera2D
 ParallaxBackground
-CanvasLayer
 Node
 StaticBody2D
 AnimatedSprite2D

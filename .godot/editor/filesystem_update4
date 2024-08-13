@@ -7,3 +7,5 @@ res://scenes/main.tscn
 res://scenes/kiwi.tscn
 res://scenes/banana.tscn
 res://scenes/strawberry.tscn
+res://scenes/hud.tscn
+res://scenes/player.gd

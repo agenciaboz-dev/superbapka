@@ -16,7 +16,7 @@ centered = false
 
 [node name="Ground-2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(421, 153)
+position = Vector2(420, 153)
 scale = Vector2(1.316, 1)
 texture = ExtResource("2_j0sv4")
 centered = false
