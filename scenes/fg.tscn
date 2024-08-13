@@ -7,8 +7,8 @@
 [node name="Layer-4" type="ParallaxLayer" parent="."]
 z_index = 9
 position = Vector2(0, -2)
-motion_scale = Vector2(1.2, 1)
-motion_mirroring = Vector2(320, 0)
+motion_scale = Vector2(1.5, 1)
+motion_mirroring = Vector2(430, 0)
 
 [node name="0" type="Sprite2D" parent="Layer-4"]
 z_index = 9

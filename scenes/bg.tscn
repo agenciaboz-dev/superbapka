@@ -17,17 +17,12 @@ z_index = 5
 texture_filter = 1
 texture = ExtResource("1_mx8ig")
 centered = false
-
-[node name="Static-bg2" type="Sprite2D" parent="."]
-z_index = 5
-texture_filter = 1
-position = Vector2(320, 0)
-texture = ExtResource("1_mx8ig")
-centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 420, 200)
 
 [node name="Layer-0" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.6, 1)
-motion_mirroring = Vector2(320, 0)
+motion_mirroring = Vector2(430, 0)
 
 [node name="0" type="Sprite2D" parent="Layer-0"]
 texture_filter = 1
@@ -47,7 +42,7 @@ texture = ExtResource("2_qbnkv")
 
 [node name="Layer-1" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.7, 1)
-motion_mirroring = Vector2(320, 0)
+motion_mirroring = Vector2(430, 0)
 
 [node name="1" type="Sprite2D" parent="Layer-1"]
 texture_filter = 1
@@ -62,7 +57,7 @@ texture = ExtResource("5_evf3y")
 [node name="Layer-2" type="ParallaxLayer" parent="."]
 position = Vector2(24, 32)
 motion_scale = Vector2(0.8, 1)
-motion_mirroring = Vector2(320, 0)
+motion_mirroring = Vector2(430, 0)
 
 [node name="0" type="Sprite2D" parent="Layer-2"]
 texture_filter = 1

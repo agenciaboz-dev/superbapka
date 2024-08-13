@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://crmmsuoy4ieq8" path="res://scenes/bg.tscn" id="1_q5ql8"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_t8rr1"]
-[ext_resource type="PackedScene" uid="uid://goev6rg32evj" path="res://scenes/acai.tscn" id="3_86w8b"]
+[ext_resource type="PackedScene" uid="uid://goev6rg32evj" path="res://scenes/player.tscn" id="3_86w8b"]
 [ext_resource type="PackedScene" uid="uid://dhh0w3iw5ckn7" path="res://scenes/ground.tscn" id="3_dflgr"]
 [ext_resource type="PackedScene" uid="uid://cn3lqcyn6fy02" path="res://scenes/fg.tscn" id="4_kw8wr"]
 [ext_resource type="Texture2D" uid="uid://cktgmi37w0qcb" path="res://assets/scenario/açaí/mockup.jpg" id="4_niorc"]
@@ -13,12 +13,13 @@ script = ExtResource("1_t8rr1")
 [node name="Bg" parent="." instance=ExtResource("1_q5ql8")]
 
 [node name="Ground" parent="." instance=ExtResource("3_dflgr")]
+scale = Vector2(2, 1)
 
 [node name="Fg" parent="." instance=ExtResource("4_kw8wr")]
 layer = 0
 
-[node name="Acai" parent="." instance=ExtResource("3_86w8b")]
-position = Vector2(80, 138)
+[node name="player" parent="." instance=ExtResource("3_86w8b")]
+position = Vector2(80, 85)
 
 [node name="Mockup" type="Sprite2D" parent="."]
 visible = false
@@ -26,6 +27,6 @@ texture_filter = 1
 texture = ExtResource("4_niorc")
 centered = false
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0

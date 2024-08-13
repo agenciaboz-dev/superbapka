@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://yms1lmkc2y7g"]
+
+[ext_resource type="Texture2D" uid="uid://cv12b3f1en8qe" path="res://assets/items/fruit1.png" id="1_ekgnp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3v3k"]
+radius = 8.0
+
+[node name="Kiwi" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ekgnp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_q3v3k")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

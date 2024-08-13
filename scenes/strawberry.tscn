@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://lqodjvg2d7h1"]
+
+[ext_resource type="Texture2D" uid="uid://cowj13bc3wqyx" path="res://assets/items/fruit3.png" id="1_1aetb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur20n"]
+height = 20.0
+
+[node name="strawberry" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_1aetb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ur20n")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

@@ -1,6 +1,9 @@
-res://scenes/main.tscn
 res://scenes/bg.tscn
+res://scenes/main.gd
 res://scenes/fg.tscn
-res://scenes/acai.tscn
+res://scenes/player.tscn
 res://scenes/ground.tscn
-res://Scripts/acai.gd
+res://scenes/main.tscn
+res://scenes/kiwi.tscn
+res://scenes/banana.tscn
+res://scenes/strawberry.tscn

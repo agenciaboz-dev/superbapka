@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://goev6rg32evj"]
 
 [ext_resource type="Texture2D" uid="uid://d2px4ex0k03on" path="res://assets/characters/açai1.png" id="1_4aci6"]
-[ext_resource type="Script" path="res://Scripts/acai.gd" id="1_ppva4"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_k8dhw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4qre"]
 atlas = ExtResource("1_4aci6")
@@ -145,9 +145,9 @@ radius = 13.0384
 radius = 8.0
 height = 16.0
 
-[node name="Acai" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D"]
 texture_filter = 1
-script = ExtResource("1_ppva4")
+script = ExtResource("1_k8dhw")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bhxdl")

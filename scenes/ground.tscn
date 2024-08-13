@@ -3,22 +3,24 @@
 [ext_resource type="Texture2D" uid="uid://bxqsla2mrwj6u" path="res://assets/scenario/açaí/layer3-0.png" id="2_j0sv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kd40"]
-size = Vector2(640, 8)
+size = Vector2(842, 8)
 
 [node name="Ground" type="StaticBody2D"]
 
 [node name="Ground-1" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, 153)
+scale = Vector2(1.31563, 1)
 texture = ExtResource("2_j0sv4")
 centered = false
 
 [node name="Ground-2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(320, 153)
+position = Vector2(421, 153)
+scale = Vector2(1.316, 1)
 texture = ExtResource("2_j0sv4")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(320, 165)
+position = Vector2(421, 165)
 shape = SubResource("RectangleShape2D_4kd40")
