@@ -1,5 +1,6 @@
-Label
+TextureRect
 CanvasLayer
+Label
 CollisionShape2D
 Sprite2D
 Area2D

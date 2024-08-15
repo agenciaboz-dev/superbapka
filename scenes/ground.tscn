@@ -10,14 +10,12 @@ size = Vector2(842, 8)
 [node name="Ground-1" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, 153)
-scale = Vector2(1.31563, 1)
 texture = ExtResource("2_j0sv4")
 centered = false
 
 [node name="Ground-2" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(420, 153)
-scale = Vector2(1.316, 1)
 texture = ExtResource("2_j0sv4")
 centered = false
 
