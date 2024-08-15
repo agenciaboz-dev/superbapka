@@ -14,12 +14,13 @@ script = ExtResource("1_t8rr1")
 [node name="Bg" parent="." instance=ExtResource("1_q5ql8")]
 
 [node name="Ground" parent="." instance=ExtResource("3_dflgr")]
-scale = Vector2(2, 1)
+z_index = 1
 
 [node name="Fg" parent="." instance=ExtResource("4_kw8wr")]
 layer = 0
 
 [node name="player" parent="." instance=ExtResource("3_86w8b")]
+z_index = 1
 position = Vector2(80, 85)
 
 [node name="Mockup" type="Sprite2D" parent="."]
