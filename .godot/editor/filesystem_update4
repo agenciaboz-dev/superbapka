@@ -1,6 +1,5 @@
 res://scenes/bg.tscn
 res://scenes/main.gd
-res://scenes/Sunshine.gd
 res://scenes/fg.tscn
 res://scenes/player.tscn
 res://scenes/ground.tscn
@@ -9,3 +8,4 @@ res://scenes/kiwi.tscn
 res://scenes/banana.tscn
 res://scenes/strawberry.tscn
 res://scenes/hud.tscn
+res://scenes/player.gd

@@ -153,7 +153,7 @@ script = ExtResource("1_k8dhw")
 sprite_frames = SubResource("SpriteFrames_bhxdl")
 animation = &"run"
 autoplay = "default"
-frame_progress = 0.871882
+frame_progress = 0.394245
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false

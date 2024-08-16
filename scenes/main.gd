@@ -24,7 +24,6 @@ func new_game():
 	$Camera.position = CAM_START_POS
 	$Ground.position = Vector2(0, 0)
 	$player.set_physics_process(false)
-	$Bg/Sunshine.set_process(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,10 +43,9 @@ func _process(delta):
 			$Ground.position.x += screen_size.x
 	else:
 		if Input.is_action_pressed("ui_accept"):
-			$Bg/Sunshine.set_process(true)
 			game_running = true
 
 func show_score():
 	$HUD/ScoreLabel.text = "SCORE: " + str(score / SCORE_MODIFIER)
-	$HUD/StartLabel.visible_characters = 0
+	$HUD/StartLabel.text = ""
 	#$HUD/HighScoreLabel.text = "HIGHSCORE: " + str(score)
