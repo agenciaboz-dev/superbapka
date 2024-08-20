@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://3aqu40718bhh"]
 
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_bwdyh"]
 [ext_resource type="PackedScene" uid="uid://crmmsuoy4ieq8" path="res://scenes/bg.tscn" id="1_q5ql8"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_t8rr1"]
 [ext_resource type="PackedScene" uid="uid://goev6rg32evj" path="res://scenes/player.tscn" id="3_86w8b"]
 [ext_resource type="PackedScene" uid="uid://dhh0w3iw5ckn7" path="res://scenes/ground.tscn" id="3_dflgr"]
 [ext_resource type="PackedScene" uid="uid://cn3lqcyn6fy02" path="res://scenes/fg.tscn" id="4_kw8wr"]
@@ -9,20 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://c5es716vjhyof" path="res://scenes/hud.tscn" id="7_4gitb"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_bwdyh")
+script = ExtResource("1_t8rr1")
 
 [node name="Bg" parent="." instance=ExtResource("1_q5ql8")]
 
-[node name="Ground1" parent="." instance=ExtResource("3_dflgr")]
+[node name="Ground" parent="." instance=ExtResource("3_dflgr")]
 z_index = 1
-
-[node name="Ground2" parent="." instance=ExtResource("3_dflgr")]
-z_index = 1
-position = Vector2(420, 0)
-
-[node name="Ground3" parent="." instance=ExtResource("3_dflgr")]
-z_index = 1
-position = Vector2(840, 0)
 
 [node name="Fg" parent="." instance=ExtResource("4_kw8wr")]
 layer = 0
@@ -43,7 +35,3 @@ limit_top = 0
 drag_horizontal_enabled = true
 
 [node name="HUD" parent="." instance=ExtResource("7_4gitb")]
-
-[node name="Timer" type="Timer" parent="."]
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

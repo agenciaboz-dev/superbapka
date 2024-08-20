@@ -1,3 +1,6 @@
+Timer
+Control
+Node2D
 TextureRect
 CanvasLayer
 Label
@@ -10,4 +13,3 @@ Node
 StaticBody2D
 AnimatedSprite2D
 CharacterBody2D
-ParallaxLayer

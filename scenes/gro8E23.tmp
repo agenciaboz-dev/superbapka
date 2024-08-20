@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Colision.gd" id="2_ugs5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kd40"]
-size = Vector2(420, 8)
+size = Vector2(838, 8)
 
 [node name="Ground" type="StaticBody2D"]
 
@@ -14,7 +14,13 @@ position = Vector2(0, 153)
 texture = ExtResource("2_j0sv4")
 centered = false
 
+[node name="Ground-2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(420, 153)
+texture = ExtResource("2_j0sv4")
+centered = false
+
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(210, 165)
+position = Vector2(421, 165)
 shape = SubResource("RectangleShape2D_4kd40")
 script = ExtResource("2_ugs5a")

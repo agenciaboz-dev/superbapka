@@ -1,6 +1,5 @@
 res://scenes/bg.tscn
-res://scenes/main.gd
-res://scenes/Sunshine.gd
+res://Scripts/main.gd
 res://scenes/fg.tscn
 res://scenes/player.tscn
 res://scenes/ground.tscn
