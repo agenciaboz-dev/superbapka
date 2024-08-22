@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://3aqu40718bhh"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_bwdyh"]
+[ext_resource type="PackedScene" uid="uid://crmmsuoy4ieq8" path="res://scenes/bg.tscn" id="1_q5ql8"]
+[ext_resource type="PackedScene" uid="uid://goev6rg32evj" path="res://scenes/player.tscn" id="3_86w8b"]
+[ext_resource type="PackedScene" uid="uid://dhh0w3iw5ckn7" path="res://scenes/ground.tscn" id="3_dflgr"]
+[ext_resource type="PackedScene" uid="uid://cn3lqcyn6fy02" path="res://scenes/fg.tscn" id="4_kw8wr"]
+[ext_resource type="PackedScene" uid="uid://c5es716vjhyof" path="res://scenes/hud.tscn" id="7_4gitb"]
+[ext_resource type="Texture2D" uid="uid://c5wfge7d2yj3i" path="res://References/mockup açai.png" id="7_qmkrr"]
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("sub_viewport_container", "target_node")]
+script = ExtResource("1_bwdyh")
+sub_viewport_container = NodePath("SubViewportContainer")
+target_node = NodePath("Camera")
+viewport_size = null
+
+[node name="Camera" type="Camera2D" parent="."]
+ignore_rotation = false
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(420, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -100.0
+offset_right = 210.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(420, 200)
+render_target_update_mode = 4
+
+[node name="Bg" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_q5ql8")]
+
+[node name="Ground1" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_dflgr")]
+z_index = 1
+
+[node name="Ground2" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_dflgr")]
+z_index = 1
+position = Vector2(420, 0)
+
+[node name="Ground3" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_dflgr")]
+z_index = 1
+position = Vector2(840, 0)
+
+[node name="Fg" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_kw8wr")]
+layer = 0
+
+[node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_86w8b")]
+z_index = 1
+position = Vector2(100, 85)
+
+[node name="HUD" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_4gitb")]
+
+[node name="Timer" type="Timer" parent="SubViewportContainer/SubViewport"]
+
+[node name="MockupAçai" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+texture = ExtResource("7_qmkrr")
+centered = false
+
+[connection signal="timeout" from="SubViewportContainer/SubViewport/Timer" to="." method="_on_timer_timeout"]

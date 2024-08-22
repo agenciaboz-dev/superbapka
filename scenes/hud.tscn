@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5es716vjhyof"]
+[gd_scene load_steps=3 format=3 uid="uid://c5es716vjhyof"]
 
+[ext_resource type="Script" path="res://scenes/hud.gd" id="1_7m711"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/fonts/retro.ttf" id="1_gvk5n"]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_7m711")
 
 [node name="ScoreLabel" type="Label" parent="."]
 texture_filter = 1

@@ -8,3 +8,6 @@ res://scenes/kiwi.tscn
 res://scenes/banana.tscn
 res://scenes/strawberry.tscn
 res://scenes/hud.tscn
+res://scenes/ground.gd
+res://scenes/bg.gd
+res://scenes/hud.gd

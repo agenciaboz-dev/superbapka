@@ -1,6 +1,11 @@
-Timer
-Control
+StaticBody2D
 Node2D
+SubViewportContainer
+SubViewport
+Container
+Control
+Node
+Timer
 TextureRect
 CanvasLayer
 Label
@@ -8,8 +13,3 @@ CollisionShape2D
 Sprite2D
 Area2D
 Camera2D
-ParallaxBackground
-Node
-StaticBody2D
-AnimatedSprite2D
-CharacterBody2D

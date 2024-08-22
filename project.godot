@@ -18,8 +18,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=320
 window/size/viewport_height=200
-window/size/window_width_override=420
-window/size/window_height_override=200
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

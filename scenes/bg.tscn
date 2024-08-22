@@ -1,5 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://crmmsuoy4ieq8"]
 
+[ext_resource type="Script" path="res://scenes/bg.gd" id="1_0digi"]
 [ext_resource type="Texture2D" uid="uid://dhg5ahc2bcbcx" path="res://assets/scenario/açaí/background.png" id="1_mx8ig"]
 [ext_resource type="Texture2D" uid="uid://c6mi1d408piht" path="res://assets/scenario/açaí/sunshine.png" id="2_fsca4"]
 [ext_resource type="Texture2D" uid="uid://xehixjicchkq" path="res://assets/scenario/açaí/layer0-0.png" id="2_qbnkv"]
@@ -8,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://b2lya4snhgs72" path="res://assets/scenario/açaí/layer1-1.png" id="4_2n7al"]
 [ext_resource type="Script" path="res://Scripts/Layer-0.gd" id="4_euh0g"]
 [ext_resource type="Texture2D" uid="uid://bgiumfyh5j5x1" path="res://assets/scenario/açaí/layer1-0.png" id="5_evf3y"]
-[ext_resource type="Texture2D" uid="uid://cktgmi37w0qcb" path="res://assets/scenario/açaí/mockup.jpg" id="6_b7r63"]
 [ext_resource type="Texture2D" uid="uid://ds321oi6gsfpx" path="res://assets/scenario/açaí/layer2-0.png" id="6_w3ede"]
 [ext_resource type="Texture2D" uid="uid://blosnii87fqrh" path="res://assets/scenario/açaí/layer1-2.png" id="7_ne4sr"]
 [ext_resource type="Texture2D" uid="uid://iwmj4mbd86gn" path="res://assets/scenario/açaí/layer2-1.png" id="7_o1qg6"]
@@ -20,14 +20,16 @@
 [ext_resource type="Script" path="res://Scripts/Layer-1,4.gd" id="13_wecdr"]
 [ext_resource type="Script" path="res://Scripts/Layer-2.gd" id="15_yycyl"]
 
-[node name="Bg" type="ParallaxBackground"]
+[node name="Bg" type="ParallaxBackground" node_paths=PackedStringArray("sunshine")]
+script = ExtResource("1_0digi")
+sunshine = NodePath("Sunshine")
 
 [node name="Static-bg" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_mx8ig")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 420, 200)
+region_rect = Rect2(0, 0, 700, 200)
 
 [node name="Sunshine" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.196078)
@@ -117,9 +119,3 @@ texture = ExtResource("8_21nsv")
 texture_filter = 1
 position = Vector2(263, 93)
 texture = ExtResource("7_o1qg6")
-
-[node name="Mockup" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-texture = ExtResource("6_b7r63")
-centered = false

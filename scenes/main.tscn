@@ -5,11 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://goev6rg32evj" path="res://scenes/player.tscn" id="3_86w8b"]
 [ext_resource type="PackedScene" uid="uid://dhh0w3iw5ckn7" path="res://scenes/ground.tscn" id="3_dflgr"]
 [ext_resource type="PackedScene" uid="uid://cn3lqcyn6fy02" path="res://scenes/fg.tscn" id="4_kw8wr"]
-[ext_resource type="Texture2D" uid="uid://cktgmi37w0qcb" path="res://assets/scenario/açaí/mockup.jpg" id="4_niorc"]
 [ext_resource type="PackedScene" uid="uid://c5es716vjhyof" path="res://scenes/hud.tscn" id="7_4gitb"]
+[ext_resource type="Texture2D" uid="uid://c5wfge7d2yj3i" path="res://References/mockup açai.png" id="7_qmkrr"]
 
-[node name="Main" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("timer", "ground_array", "player", "bg", "hud", "cam")]
 script = ExtResource("1_bwdyh")
+timer = NodePath("Timer")
+ground_array = [NodePath("Ground1"), NodePath("Ground2"), NodePath("Ground3")]
+player = NodePath("player")
+bg = NodePath("Bg")
+hud = NodePath("HUD")
+cam = NodePath("Camera")
 
 [node name="Bg" parent="." instance=ExtResource("1_q5ql8")]
 
@@ -24,26 +30,28 @@ position = Vector2(420, 0)
 z_index = 1
 position = Vector2(840, 0)
 
+[node name="Ground0" parent="." instance=ExtResource("3_dflgr")]
+z_index = 1
+position = Vector2(-420, 0)
+
 [node name="Fg" parent="." instance=ExtResource("4_kw8wr")]
 layer = 0
 
 [node name="player" parent="." instance=ExtResource("3_86w8b")]
 z_index = 1
-position = Vector2(80, 85)
-
-[node name="Mockup" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-texture = ExtResource("4_niorc")
-centered = false
-
-[node name="Camera" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
-drag_horizontal_enabled = true
+position = Vector2(100, 85)
 
 [node name="HUD" parent="." instance=ExtResource("7_4gitb")]
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="MockupAçai" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_qmkrr")
+centered = false
+
+[node name="Camera" type="Camera2D" parent="."]
+offset = Vector2(210, 100)
+ignore_rotation = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
