@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1724343701
+::res://::1724689868
 icon.svg::CompressedTexture2D::4414769116607275185::1721752844::1721752848::1::::<><>::
 test.txt::TextFile::-1::1721664716::0::1::::<><>::
 ::res://addons/::1721751136
@@ -9,7 +9,7 @@ plugin.cfg::TextFile::-1::1721751136::0::1::::<><>::
 THIRDPARTY.md::TextFile::-1::1721751136::0::1::::<><>::
 ::res://addons/godot-git-plugin/linux/::1721751136
 ::res://addons/godot-git-plugin/macos/::1721751136
-::res://addons/godot-git-plugin/win64/::1724343697
+::res://addons/godot-git-plugin/win64/::1724689864
 ::res://assets/::1723569574
 ::res://assets/characters/::1721756265
 açai1.png::CompressedTexture2D::9086775021248111393::1721664650::1721753401::1::::<><>::
@@ -107,18 +107,22 @@ layer4-0.png::CompressedTexture2D::417181937805975141::1724191449::1724191512::1
 ::res://References/::1724266780
 aspect ratio.png::CompressedTexture2D::4649303959437491576::1724266496::1724266780::1::::<><>::
 mockup açai.png::CompressedTexture2D::6924237546544234292::1724266482::1724266780::1::::<><>::
-::res://scenes/::1724343651
-banana.tscn::PackedScene::6923919919131948230::1724343651::0::1::::<><>::uid://bgqf440psvkwq::::res://assets/items/fruit2.png
+::res://scenes/::1724444299
+bg.gd::GDScript::-1::1724434615::0::1::::<>ParallaxBackground<>::
 bg.gdshader::Shader::-1::1723839506::0::1::::<><>::
-bg.tscn::PackedScene::5991586063708743905::1724343650::0::1::::<><>::uid://dhg5ahc2bcbcx::::res://assets/scenario/açaí/background.png<>uid://c6mi1d408piht::::res://assets/scenario/açaí/sunshine.png<>uid://xehixjicchkq::::res://assets/scenario/açaí/layer0-0.png<>uid://ctc2iuwjhbldl::::res://assets/scenario/açaí/layer0-1.png<>res://Scripts/Sunshine.gd<>uid://b2lya4snhgs72::::res://assets/scenario/açaí/layer1-1.png<>res://Scripts/Layer-0.gd<>uid://bgiumfyh5j5x1::::res://assets/scenario/açaí/layer1-0.png<>uid://ds321oi6gsfpx::::res://assets/scenario/açaí/layer2-0.png<>uid://blosnii87fqrh::::res://assets/scenario/açaí/layer1-2.png<>uid://iwmj4mbd86gn::::res://assets/scenario/açaí/layer2-1.png<>res://Scripts/Layer-1,1.gd<>uid://b28v538jvy4tj::::res://assets/scenario/açaí/layer2-2.png<>uid://cu1c365c6dfmj::::res://assets/scenario/açaí/layer1-3.png<>res://Scripts/Layer-1,2.gd<>res://Scripts/Layer-1,3.gd<>res://Scripts/Layer-1,4.gd<>res://Scripts/Layer-2.gd
-fg.tscn::PackedScene::5743795514171524613::1724343650::0::1::::<><>::uid://dpjsa4o6cmjiw::::res://assets/scenario/açaí/layer4-0.png
-ground.tscn::PackedScene::7666593297161017010::1724343650::0::1::::<><>::uid://bxqsla2mrwj6u::::res://assets/scenario/açaí/layer3-0.png<>res://Scripts/Colision.gd
-hud.tscn::PackedScene::6887915653280680681::1724343651::0::1::::<><>::uid://s15272omc2m3::::res://assets/fonts/retro.ttf
-kiwi.tscn::PackedScene::1710444713625439710::1724343651::0::1::::<><>::uid://cv12b3f1en8qe::::res://assets/items/fruit1.png
-main.tscn::PackedScene::1966296372914509409::1724343650::0::1::::<><>::res://Scripts/main.gd<>uid://crmmsuoy4ieq8::::res://scenes/bg.tscn<>uid://goev6rg32evj::::res://scenes/player.tscn<>uid://dhh0w3iw5ckn7::::res://scenes/ground.tscn<>uid://cn3lqcyn6fy02::::res://scenes/fg.tscn<>uid://c5es716vjhyof::::res://scenes/hud.tscn<>uid://c5wfge7d2yj3i::::res://References/mockup açai.png
-player.tscn::PackedScene::450316374824725883::1724343650::0::1::::<><>::uid://d2px4ex0k03on::::res://assets/characters/açai1.png<>res://Scripts/player.gd
-strawberry.tscn::PackedScene::805963224823650640::1724343651::0::1::::<><>::uid://cowj13bc3wqyx::::res://assets/items/fruit3.png
-::res://Scripts/::1724343628
+bg.tscn::PackedScene::5991586063708743905::1724443855::0::1::::<><>::res://scenes/bg.gd<>uid://dhg5ahc2bcbcx::::res://assets/scenario/açaí/background.png<>uid://c6mi1d408piht::::res://assets/scenario/açaí/sunshine.png<>uid://xehixjicchkq::::res://assets/scenario/açaí/layer0-0.png<>uid://ctc2iuwjhbldl::::res://assets/scenario/açaí/layer0-1.png<>res://Scripts/Sunshine.gd<>uid://b2lya4snhgs72::::res://assets/scenario/açaí/layer1-1.png<>res://Scripts/Layer-0.gd<>uid://bgiumfyh5j5x1::::res://assets/scenario/açaí/layer1-0.png<>uid://ds321oi6gsfpx::::res://assets/scenario/açaí/layer2-0.png<>uid://blosnii87fqrh::::res://assets/scenario/açaí/layer1-2.png<>uid://iwmj4mbd86gn::::res://assets/scenario/açaí/layer2-1.png<>res://Scripts/Layer-1,1.gd<>uid://b28v538jvy4tj::::res://assets/scenario/açaí/layer2-2.png<>uid://cu1c365c6dfmj::::res://assets/scenario/açaí/layer1-3.png<>res://Scripts/Layer-1,2.gd<>res://Scripts/Layer-1,3.gd<>res://Scripts/Layer-1,4.gd<>res://Scripts/Layer-2.gd
+fg.tscn::PackedScene::5743795514171524613::1724443855::0::1::::<><>::uid://dpjsa4o6cmjiw::::res://assets/scenario/açaí/layer4-0.png
+ground.gd::GDScript::-1::1724434732::0::1::::<>StaticBody2D<>::
+ground.tscn::PackedScene::7666593297161017010::1724443855::0::1::::<><>::res://scenes/ground.gd<>uid://bxqsla2mrwj6u::::res://assets/scenario/açaí/layer3-0.png<>res://Scripts/Colision.gd
+hud.gd::GDScript::-1::1724360128::0::1::::<>CanvasLayer<>::
+hud.tscn::PackedScene::6887915653280680681::1724443855::0::1::::<><>::res://scenes/hud.gd<>uid://s15272omc2m3::::res://assets/fonts/retro.ttf
+main.tscn::PackedScene::1966296372914509409::1724444299::0::1::::<><>::res://Scripts/main.gd<>uid://crmmsuoy4ieq8::::res://scenes/bg.tscn<>uid://goev6rg32evj::::res://scenes/player.tscn<>uid://dhh0w3iw5ckn7::::res://scenes/ground.tscn<>uid://cn3lqcyn6fy02::::res://scenes/fg.tscn<>uid://c5es716vjhyof::::res://scenes/hud.tscn<>uid://c5wfge7d2yj3i::::res://References/mockup açai.png
+player.tscn::PackedScene::450316374824725883::1724443855::0::1::::<><>::uid://d2px4ex0k03on::::res://assets/characters/açai1.png<>res://Scripts/player.gd
+::res://scenes/acai/::1724443855
+1.tscn::PackedScene::2574100879075943557::1724443855::0::1::::<><>::uid://bgqf440psvkwq::::res://assets/items/fruit2.png
+2.tscn::PackedScene::9135426955829954788::1724443855::0::1::::<><>::uid://cv12b3f1en8qe::::res://assets/items/fruit1.png
+3.tscn::PackedScene::2337109913530447897::1724443855::0::1::::<><>::uid://cowj13bc3wqyx::::res://assets/items/fruit3.png
+::res://Scripts/::1724444299
 acai.gd::GDScript::-1::1723235993::0::1::::<>CharacterBody2D<>::
 Colision.gd::GDScript::-1::1724099972::0::1::::<>CollisionShape2D<>::
 Layer-0.gd::GDScript::-1::1724190820::0::1::::<>ParallaxLayer<>::
@@ -127,6 +131,6 @@ Layer-1,2.gd::GDScript::-1::1724190820::0::1::::<>ParallaxLayer<>::
 Layer-1,3.gd::GDScript::-1::1724190820::0::1::::<>ParallaxLayer<>::
 Layer-1,4.gd::GDScript::-1::1724190820::0::1::::<>ParallaxLayer<>::
 Layer-2.gd::GDScript::-1::1724190820::0::1::::<>ParallaxLayer<>::
-main.gd::GDScript::-1::1724343628::0::1::::<>Node<>::
+main.gd::GDScript::-1::1724444299::0::1::::<>Node<>::
 player.gd::GDScript::-1::1724096128::0::1::::<>CharacterBody2D<>::
 Sunshine.gd::GDScript::-1::1724096132::0::1::::<>Sprite2D<>::

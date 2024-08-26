@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://lqodjvg2d7h1"]
+[gd_scene load_steps=3 format=3 uid="uid://8kd4g2b3oovh"]
 
-[ext_resource type="Texture2D" uid="uid://cowj13bc3wqyx" path="res://assets/items/fruit3.png" id="1_1aetb"]
+[ext_resource type="Texture2D" uid="uid://cowj13bc3wqyx" path="res://assets/items/fruit3.png" id="1_utvvx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur20n"]
 height = 20.0
@@ -9,7 +9,7 @@ height = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_1aetb")
+texture = ExtResource("1_utvvx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ur20n")

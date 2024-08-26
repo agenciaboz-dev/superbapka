@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://yms1lmkc2y7g"]
+[gd_scene load_steps=4 format=3 uid="uid://d3fjfah50xo8c"]
 
-[ext_resource type="Texture2D" uid="uid://cv12b3f1en8qe" path="res://assets/items/fruit1.png" id="1_ekgnp"]
+[ext_resource type="Script" path="res://scenes/acai/2.gd" id="1_bm1ql"]
+[ext_resource type="Texture2D" uid="uid://cv12b3f1en8qe" path="res://assets/items/fruit1.png" id="1_qny8f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3v3k"]
 radius = 8.0
 
 [node name="Kiwi" type="Area2D"]
+script = ExtResource("1_bm1ql")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_ekgnp")
+texture = ExtResource("1_qny8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708

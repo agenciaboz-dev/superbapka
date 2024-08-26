@@ -1,6 +1,4 @@
 extends StaticBody2D
 
 @export var collision : CollisionShape2D
-
-func _ready():
-	collision = $Collision
+@export var ground_texture : Sprite2D
