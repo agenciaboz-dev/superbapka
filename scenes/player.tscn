@@ -151,9 +151,7 @@ script = ExtResource("1_gos47")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bhxdl")
-animation = &"run"
 autoplay = "default"
-frame_progress = 0.871882
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false

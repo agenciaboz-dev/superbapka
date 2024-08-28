@@ -34,7 +34,7 @@ region_rect = Rect2(0, 0, 700, 200)
 [node name="Sunshine" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.196078)
 texture_filter = 1
-position = Vector2(210, 280)
+position = Vector2(190, 280)
 texture = ExtResource("2_fsca4")
 script = ExtResource("3_v2qe4")
 

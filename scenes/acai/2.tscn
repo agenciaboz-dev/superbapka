@@ -7,6 +7,8 @@
 radius = 8.0
 
 [node name="Kiwi" type="Area2D"]
+position = Vector2(0, -8)
+collision_layer = 4
 script = ExtResource("1_bm1ql")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
