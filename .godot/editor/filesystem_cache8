@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1724864875
+::res://::1725033965
 icon.svg::CompressedTexture2D::4414769116607275185::1721752844::1721752848::1::::<><>::
 test.txt::TextFile::-1::1721664716::0::1::::<><>::
 ::res://addons/::1721751136
@@ -9,13 +9,13 @@ plugin.cfg::TextFile::-1::1721751136::0::1::::<><>::
 THIRDPARTY.md::TextFile::-1::1721751136::0::1::::<><>::
 ::res://addons/godot-git-plugin/linux/::1721751136
 ::res://addons/godot-git-plugin/macos/::1721751136
-::res://addons/godot-git-plugin/win64/::1724864871
+::res://addons/godot-git-plugin/win64/::1725033961
 ::res://assets/::1723569574
-::res://assets/characters/::1721756265
-açai1.png::CompressedTexture2D::9086775021248111393::1721664650::1721753401::1::::<><>::
-açai2.png::CompressedTexture2D::2121473861686804965::1721664650::1721753401::1::::<><>::
-açai3.png::CompressedTexture2D::4248739313228482984::1721664650::1721753401::1::::<><>::
-açai4.png::CompressedTexture2D::6009975566548993371::1721664650::1721753401::1::::<><>::
+::res://assets/characters/::1724951877
+acai1.png::CompressedTexture2D::9086775021248111393::1721664650::1724951877::1::::<><>::
+acai2.png::CompressedTexture2D::2121473861686804965::1721664650::1724951831::1::::<><>::
+acai3.png::CompressedTexture2D::4248739313228482984::1721664650::1724951855::1::::<><>::
+acai4.png::CompressedTexture2D::6009975566548993371::1721664650::1724951849::1::::<><>::
 ituzinho1.png::CompressedTexture2D::8795770510581347109::1721664650::1721753401::1::::<><>::
 ituzinho2.png::CompressedTexture2D::1064409840343838662::1721664650::1721753401::1::::<><>::
 ituzinho3.png::CompressedTexture2D::4395777100438432802::1721664650::1721753401::1::::<><>::
@@ -33,8 +33,9 @@ sorvete5.png::CompressedTexture2D::8226563385076246518::1721664650::1721753401::
 sorvete6.png::CompressedTexture2D::1640567057003191269::1721664650::1721753401::1::::<><>::
 sorvete7.png::CompressedTexture2D::4742672230880209836::1721664650::1721753401::1::::<><>::
 sorvete8.png::CompressedTexture2D::4810970850031045986::1721664650::1721753401::1::::<><>::
-::res://assets/collectable/::1722271782
-potes de sorvete.png::CompressedTexture2D::37938323095259339::1722271736::1722271782::1::::<><>::
+::res://assets/collectable/::1724962878
+::res://assets/collectable/tubs/::1724964329
+potes de sorvete.png::CompressedTexture2D::37938323095259339::1722271736::1724962879::1::::<><>::
 ::res://assets/fonts/::1723569577
 retro.ttf::FontFile::1318944456417729264::1723569574::1723569577::1::::<><>::
 ::res://assets/items/::1721838972
@@ -138,32 +139,49 @@ layer4-0.png::CompressedTexture2D::7257101129049993085::1724710999::1724774380::
 ::res://References/::1724266780
 aspect ratio.png::CompressedTexture2D::4649303959437491576::1724266496::1724266780::1::::<><>::
 mockup açai.png::CompressedTexture2D::6924237546544234292::1724266482::1724266780::1::::<><>::
-::res://scenes/::1724797069
+::res://scenes/::1724969384
 bg.gd::GDScript::-1::1724434615::0::1::::<>ParallaxBackground<>::
 bg.gdshader::Shader::-1::1723839506::0::1::::<><>::
-bg.tscn::PackedScene::5991586063708743905::1724797068::0::1::::<><>::res://scenes/bg.gd<>uid://dhg5ahc2bcbcx::::res://assets/scenario/açaí/background.png<>uid://c6mi1d408piht::::res://assets/scenario/açaí/sunshine.png<>uid://xehixjicchkq::::res://assets/scenario/açaí/layer0-0.png<>uid://ctc2iuwjhbldl::::res://assets/scenario/açaí/layer0-1.png<>res://Scripts/Sunshine.gd<>uid://b2lya4snhgs72::::res://assets/scenario/açaí/layer1-1.png<>res://Scripts/Layer-0.gd<>uid://bgiumfyh5j5x1::::res://assets/scenario/açaí/layer1-0.png<>uid://ds321oi6gsfpx::::res://assets/scenario/açaí/layer2-0.png<>uid://blosnii87fqrh::::res://assets/scenario/açaí/layer1-2.png<>uid://iwmj4mbd86gn::::res://assets/scenario/açaí/layer2-1.png<>res://Scripts/Layer-1,1.gd<>uid://b28v538jvy4tj::::res://assets/scenario/açaí/layer2-2.png<>uid://cu1c365c6dfmj::::res://assets/scenario/açaí/layer1-3.png<>res://Scripts/Layer-1,2.gd<>res://Scripts/Layer-1,3.gd<>res://Scripts/Layer-1,4.gd<>res://Scripts/Layer-2.gd
-fg.tscn::PackedScene::5743795514171524613::1724797068::0::1::::<><>::uid://dpjsa4o6cmjiw::::res://assets/scenario/açaí/layer4-0.png
+bg.tscn::PackedScene::5991586063708743905::1724968820::0::1::::<><>::res://scenes/bg.gd<>uid://dhg5ahc2bcbcx::::res://assets/scenario/açaí/background.png<>uid://c6mi1d408piht::::res://assets/scenario/açaí/sunshine.png<>uid://xehixjicchkq::::res://assets/scenario/açaí/layer0-0.png<>uid://ctc2iuwjhbldl::::res://assets/scenario/açaí/layer0-1.png<>res://Scripts/Sunshine.gd<>uid://b2lya4snhgs72::::res://assets/scenario/açaí/layer1-1.png<>res://Scripts/Layer-0.gd<>uid://bgiumfyh5j5x1::::res://assets/scenario/açaí/layer1-0.png<>uid://ds321oi6gsfpx::::res://assets/scenario/açaí/layer2-0.png<>uid://blosnii87fqrh::::res://assets/scenario/açaí/layer1-2.png<>uid://iwmj4mbd86gn::::res://assets/scenario/açaí/layer2-1.png<>res://Scripts/Layer-1,1.gd<>uid://b28v538jvy4tj::::res://assets/scenario/açaí/layer2-2.png<>uid://cu1c365c6dfmj::::res://assets/scenario/açaí/layer1-3.png<>res://Scripts/Layer-1,2.gd<>res://Scripts/Layer-1,3.gd<>res://Scripts/Layer-1,4.gd<>res://Scripts/Layer-2.gd
+fg.tscn::PackedScene::5743795514171524613::1724968820::0::1::::<><>::uid://dpjsa4o6cmjiw::::res://assets/scenario/açaí/layer4-0.png
 ground.gd::GDScript::-1::1724434732::0::1::::<>StaticBody2D<>::
-ground.tscn::PackedScene::7666593297161017010::1724797068::0::1::::<><>::res://scenes/ground.gd<>uid://bxqsla2mrwj6u::::res://assets/scenario/açaí/layer3-0.png<>res://Scripts/Colision.gd
+ground.tscn::PackedScene::7666593297161017010::1724968820::0::1::::<><>::res://scenes/ground.gd<>uid://bxqsla2mrwj6u::::res://assets/scenario/açaí/layer3-0.png<>res://Scripts/Colision.gd
 hud.gd::GDScript::-1::1724360128::0::1::::<>CanvasLayer<>::
-hud.tscn::PackedScene::6887915653280680681::1724797069::0::1::::<><>::res://scenes/hud.gd<>uid://s15272omc2m3::::res://assets/fonts/retro.ttf
-main.tscn::PackedScene::1966296372914509409::1724797069::0::1::::<><>::res://Scripts/main.gd<>uid://crmmsuoy4ieq8::::res://scenes/bg.tscn<>uid://goev6rg32evj::::res://scenes/player.tscn<>uid://dhh0w3iw5ckn7::::res://scenes/ground.tscn<>uid://cn3lqcyn6fy02::::res://scenes/fg.tscn<>uid://c5es716vjhyof::::res://scenes/hud.tscn<>uid://c5wfge7d2yj3i::::res://References/mockup açai.png<>res://Scripts/Obst_Spawner.gd<>uid://vp7mgu6nd1rm::::res://assets/scenario/paleta/layer0-0.png
-player.tscn::PackedScene::450316374824725883::1724797068::0::1::::<><>::uid://d2px4ex0k03on::::res://assets/characters/açai1.png<>res://Scripts/player.gd
-::res://scenes/acai/::1724797069
-1.tscn::PackedScene::2574100879075943557::1724797069::0::1::::<><>::uid://bgqf440psvkwq::::res://assets/items/fruit2.png
-2.gd::GDScript::-1::1724780048::0::1::::<>Area2D<>::
-2.tscn::PackedScene::9135426955829954788::1724797069::0::1::::<><>::res://scenes/acai/2.gd<>uid://cv12b3f1en8qe::::res://assets/items/fruit1.png
-3.tscn::PackedScene::2337109913530447897::1724797069::0::1::::<><>::uid://cowj13bc3wqyx::::res://assets/items/fruit3.png
-::res://Scripts/::1724797068
-acai.gd::GDScript::-1::1723235993::0::1::::<>CharacterBody2D<>::
+hud.tscn::PackedScene::6887915653280680681::1724968820::0::1::::<><>::res://scenes/hud.gd<>uid://s15272omc2m3::::res://assets/fonts/retro.ttf
+main.tscn::PackedScene::1966296372914509409::1724969384::0::1::::<><>::res://Scripts/main.gd<>uid://crmmsuoy4ieq8::::res://scenes/bg.tscn<>uid://dhh0w3iw5ckn7::::res://scenes/ground.tscn<>uid://cn3lqcyn6fy02::::res://scenes/fg.tscn<>uid://211dyxnhynka::::res://scenes/characters/acai.tscn<>uid://c5es716vjhyof::::res://scenes/hud.tscn<>uid://c5wfge7d2yj3i::::res://References/mockup açai.png<>res://Scripts/Obst_Spawner.gd<>uid://vp7mgu6nd1rm::::res://assets/scenario/paleta/layer0-0.png<>res://Scripts/Item_Spawner.gd<>uid://cavkf7fjdwuya::::res://assets/scenario/premium/layer1-1.png
+player.tscn::PackedScene::450316374824725883::1724951877::0::1::::<><>::uid://d2px4ex0k03on::::res://assets/characters/acai1.png<>res://Scripts/player.gd
+::res://scenes/acai/::1724968820
+1.tscn::PackedScene::2574100879075943557::1724968820::0::1::::<><>::uid://bgqf440psvkwq::::res://assets/items/fruit2.png
+2.gd::GDScript::-1::1724963311::0::1::::<>Area2D<>::
+2.tscn::PackedScene::9135426955829954788::1724968820::0::1::::<><>::res://scenes/acai/2.gd<>uid://cv12b3f1en8qe::::res://assets/items/fruit1.png
+3.tscn::PackedScene::2337109913530447897::1724968820::0::1::::<><>::uid://cowj13bc3wqyx::::res://assets/items/fruit3.png
+::res://scenes/characters/::1724968820
+acai.tres::SpriteFrames::9062081527571569213::1724962221::0::1::::<><>::uid://d2px4ex0k03on::::res://assets/characters/acai1.png
+acai.tscn::PackedScene::1950357895717949848::1724968820::0::1::::<><>::res://Scripts/acai.gd<>uid://d2d0fnsnkl8qb::::res://scenes/characters/acai.tres
+::res://scenes/collectables/::1724964292
+::res://scenes/collectables/tubs/::1724968821
+1l.gd::GDScript::-1::1724968650::0::1::::<>Area2D<>::
+1l.tscn::PackedScene::6364257421423540807::1724968820::0::1::::<><>::res://scenes/collectables/tubs/1l.gd<>uid://sm3rp330788::::res://assets/collectable/tubs/potes de sorvete.png
+2l.gd::GDScript::-1::1724968698::0::1::::<>Area2D<>::
+2l.tscn::PackedScene::7440134734521500046::1724968820::0::1::::<><>::res://scenes/collectables/tubs/2l.gd<>uid://sm3rp330788::::res://assets/collectable/tubs/potes de sorvete.png
+premium.gd::GDScript::-1::1724968698::0::1::::<>Area2D<>::
+premium.tscn::PackedScene::3396584908303477201::1724968821::0::1::::<><>::res://scenes/collectables/tubs/premium.gd<>uid://sm3rp330788::::res://assets/collectable/tubs/potes de sorvete.png
+::res://Scripts/::1724968650
+acai.gd::GDScript::-1::1724962638::0::1::::<>CharacterBody2D<>::
 Colision.gd::GDScript::-1::1724099972::0::1::::<>CollisionShape2D<>::
+Item_Spawner.gd::GDScript::-1::1724968448::0::1::::<>Node2D<>::
 Layer-0.gd::GDScript::-1::1724190820::0::1::::<>ParallaxLayer<>::
 Layer-1,1.gd::GDScript::-1::1724190820::0::1::::<>ParallaxLayer<>::
 Layer-1,2.gd::GDScript::-1::1724190820::0::1::::<>ParallaxLayer<>::
 Layer-1,3.gd::GDScript::-1::1724190820::0::1::::<>ParallaxLayer<>::
 Layer-1,4.gd::GDScript::-1::1724190820::0::1::::<>ParallaxLayer<>::
 Layer-2.gd::GDScript::-1::1724190820::0::1::::<>ParallaxLayer<>::
-main.gd::GDScript::-1::1724792739::0::1::::<>Node<>::
-Obst_Spawner.gd::GDScript::-1::1724797068::0::1::::<>Node2D<>::
-player.gd::GDScript::-1::1724710775::0::1::::<>CharacterBody2D<>::
+main.gd::GDScript::-1::1724968650::0::1::::<>Node<>::
+Obst_Spawner.gd::GDScript::-1::1724968448::0::1::::<>Node2D<>::
+player.gd::GDScript::-1::1724960001::0::1::::<>CharacterBody2D<>::
 Sunshine.gd::GDScript::-1::1724096132::0::1::::<>Sprite2D<>::
+::res://Scripts/background/::1724963038
+::res://Scripts/character/::1724963068
+::res://Scripts/scenario/::1724963107
+::res://Scripts/scenario/items/::1724963097
+::res://Scripts/scenario/obstacles/::1724963103

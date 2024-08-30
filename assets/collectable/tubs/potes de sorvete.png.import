@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2px4ex0k03on"
-path="res://.godot/imported/açai1.png-60d4f0905a27cd479c517ac72e9019f7.ctex"
+uid="uid://sm3rp330788"
+path="res://.godot/imported/potes de sorvete.png-c08044ca6f9a1822a7feebbe21616f8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/açai1.png"
-dest_files=["res://.godot/imported/açai1.png-60d4f0905a27cd479c517ac72e9019f7.ctex"]
+source_file="res://assets/collectable/tubs/potes de sorvete.png"
+dest_files=["res://.godot/imported/potes de sorvete.png-c08044ca6f9a1822a7feebbe21616f8a.ctex"]
 
 [params]
 

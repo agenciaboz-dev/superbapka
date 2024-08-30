@@ -1,11 +1,13 @@
 extends Node2D
 
+@export var last_position : Vector2
+
 var obst_path: Array = []
 var screen_size: Vector2
-var last_obst
+var last_obst_pos : Vector2
 var obst_name: String
 var spawn_distance: float
-var last_obst_position_x: float = 0.0
+var last_obst_position_x : float = 0.0
 var range : int
 var pos : int
 var min_distance := 10
@@ -42,20 +44,19 @@ func spawn_obstacle():
 			var obst_scale = obst.get_node("Sprite2D").scale
 			var sprite_height = obst.get_node("Sprite2D").texture.get_height()
 			
-			
-			
-			
 			# Defina a posição do obstáculo
 			obst.position = Vector2i(self.position.x * i + overposition_x + last_obst_x * i, self.position.y - obst_size.y)
 			get_parent().add_child(obst)
 			obstacles.append(obst)
 			#print(obst.position)
-			last_obst_position_x = self.position.x
-			
+			last_obst_pos = self.position
 			overposition_x = min_distance
 			last_obst_x = obst_size.x
 		else:
 			print("Erro ao carregar o obstáculo: ", obst_path)
+		
+		last_obst_position_x = last_obst_pos.x
+		last_position = last_obst_pos
 	
 func set_path(array_path):
 	obst_path = array_path

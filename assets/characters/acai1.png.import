@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crvjoi7r315br"
-path="res://.godot/imported/açai4.png-217105b873b2afcffcc35c7c2e59cfd0.ctex"
+uid="uid://d2px4ex0k03on"
+path="res://.godot/imported/acai1.png-c4f5d43b46d6196342183fc05982baf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/açai4.png"
-dest_files=["res://.godot/imported/açai4.png-217105b873b2afcffcc35c7c2e59cfd0.ctex"]
+source_file="res://assets/characters/acai1.png"
+dest_files=["res://.godot/imported/acai1.png-c4f5d43b46d6196342183fc05982baf1.ctex"]
 
 [params]
 

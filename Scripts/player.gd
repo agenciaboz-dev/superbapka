@@ -14,6 +14,9 @@ const states = [
 	{"const_hp": 100, "const_state": 4, "const_max_hp": false},
 	{"const_hp": MAX_HP, "const_state": 4, "const_max_hp": true}
 ]
+const skins = [{"id" : 1, "path" : "res://assets/characters/acai1.png"}, {"id" : 2, "path" : "res://assets/characters/acai2.png"}, {"id" : 3, "path" : "res://assets/characters/acai3.png"}, {"id" : 4, "path" : "res://assets/characters/acai4.png"}]
+
+#var
 
 @export var hp : float
 
@@ -24,7 +27,8 @@ const states = [
 var state : int
 var previous_state := -320000
 var freeze_input_jump := false
-var is_dead := false
+var is_alive := true
+var animation_name : String
 
 @onready var texture := $Animation as AnimatedSprite2D
 
@@ -33,9 +37,9 @@ func _ready():
 	state = INITIAL_STATE
 
 func _physics_process(delta):
-	if is_dead:
+	if not is_alive:
 		hp = 0
-		texture.play("hurt")
+		animation_name = "s" + str(state) + "_hurt"
 	else:
 		hp -= delta
 	velocity.y += GRAVITY * delta
@@ -48,17 +52,22 @@ func _physics_process(delta):
 	get_all_stages()
 	
 	previous_state = state
-	if not is_dead:
+	if is_alive:
 		if is_on_floor():
-			texture.play("run")
+			animation_name = "s" + str(state) + "_run"
+			
 			
 			if Input.is_action_just_pressed("ui_accept"):
 				velocity.y = JUMP_SPEED
 				#freeze_input_jump = true
 		else:
-			texture.play("jump")
-		
-		move_and_slide()
+			animation_name = "s" + str(state) + "_jump"
+	
+	else:
+		animation_name = "s0"
+	
+	texture.play(animation_name)
+	move_and_slide()
 	
 func get_all_stages():
 #	for item in states:
@@ -67,10 +76,13 @@ func get_all_stages():
 #			if item["const_max_hp"]:
 #				hp = MAX_HP
 #			break
-	
+
+	#moreninha derreterá mais rápido conforme colide com obstáculos, alterando o multiplicador de hp drop, continuando assim, até o final do jogo
+	#até então, ela é ÚNICA no jogo com essa feature
+
 	if hp <= 0:
 		state = 0
-		is_dead = true
+		is_alive = false
 	elif hp <= 25:
 		state = 1
 	elif hp <= 50:
@@ -80,10 +92,11 @@ func get_all_stages():
 	elif hp <= 100:
 		state = 4
 	elif hp >= MAX_HP:
-		state = 4
+		state = 5
 		hp = MAX_HP
 	
 	print("hp: ", hp, " state: ", state)
 
 func is_player_dead():
+	var is_dead = not is_alive
 	return is_dead

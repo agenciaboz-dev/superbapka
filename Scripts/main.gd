@@ -40,7 +40,6 @@ var obstacle_path : Array[String]
 func _ready():
 	timer.start()
 	
-	obst_spawner.position = Vector2i(0, 0)
 	ground_width = ground_array[0].collision.properties.size.x
 	ground_height = ground_array[0].collision.position.y
 	screen_size = get_window().size
@@ -53,7 +52,6 @@ func _ready():
 
 func new_game():
 	player.position = PLAYER_START_POS
-	obst_spawner.position = Vector2i(screen_size.x +20, ground_height)
 	player.velocity = Vector2(0, 0)
 	player.set_physics_process(false)
 	bg.sunshine.set_process(false)
@@ -82,7 +80,7 @@ func _process(delta):
 				ground_pieces[0].position.x = ground_pieces[2].position.x + ground_width
 			
 			order_by_position()
-					   
+			
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			bg.sunshine.set_process(true)

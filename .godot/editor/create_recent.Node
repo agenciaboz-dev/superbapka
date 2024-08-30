@@ -1,4 +1,9 @@
+Area2D
+CollisionShape2D
+AnimatedSprite2D
 Sprite2D
+AnimationPlayer
+AnimatableBody2D
 Container
 StaticBody2D
 Node2D
@@ -7,8 +12,3 @@ SubViewport
 Control
 Node
 Timer
-TextureRect
-CanvasLayer
-Label
-CollisionShape2D
-Area2D

@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://bonli0kxt7m14"]
+
+[ext_resource type="Script" path="res://scenes/collectables/tubs/premium.gd" id="1_31q65"]
+[ext_resource type="Texture2D" uid="uid://sm3rp330788" path="res://assets/collectable/tubs/potes de sorvete.png" id="2_qfsni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmdi7"]
+atlas = ExtResource("2_qfsni")
+region = Rect2(0, 54, 30, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljip7"]
+atlas = ExtResource("2_qfsni")
+region = Rect2(30, 54, 30, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3v7s"]
+atlas = ExtResource("2_qfsni")
+region = Rect2(60, 54, 30, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gry3"]
+atlas = ExtResource("2_qfsni")
+region = Rect2(90, 54, 30, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqv7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmdi7")
+}],
+"loop": true,
+"name": &"1",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljip7")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3v7s")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gry3")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewhoh"]
+height = 28.0
+
+[node name="Premium" type="Area2D"]
+texture_filter = 1
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_31q65")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_jqv7i")
+animation = &"1"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ewhoh")
