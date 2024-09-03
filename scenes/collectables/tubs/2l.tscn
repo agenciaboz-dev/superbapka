@@ -57,17 +57,19 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewhoh"]
 height = 28.0
 
-[node name="2L" type="Area2D"]
+[node name="2L" type="Area2D" groups=["2l"]]
 texture_filter = 1
+position = Vector2(14, -10)
 collision_layer = 8
-collision_mask = 5
 script = ExtResource("1_2q1pc")
 
-[node name="Animation" type="AnimatedSprite2D" parent="."]
+[node name="Animation" type="AnimatedSprite2D" parent="." groups=["2l"]]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jqv7i")
 animation = &"2"
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="." groups=["2l"]]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ewhoh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

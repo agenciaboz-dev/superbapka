@@ -1,12 +1,7 @@
 extends CanvasLayer
 
-@export var score : int
-@export var started : bool
-@export var high_score : int
-
-
 func _process(delta):
-	$ScoreLabel.text = "SCORE: " + str(score)
-	#$HighScoreLabel.text = "HIGHSCORE: " + str(high_score)
-	if started:
+	$ScoreLabel.text = "SCORE: " + str(round(Global.score))
+	#$HighScoreLabel.text = "HIGHSCORE: " + str(Global.high_score)
+	if Global.game_running:
 		$StartLabel.visible_characters = 0

@@ -1,14 +1,14 @@
 Area2D
+StaticBody2D
+Node
 CollisionShape2D
 AnimatedSprite2D
 Sprite2D
 AnimationPlayer
 AnimatableBody2D
 Container
-StaticBody2D
 Node2D
 SubViewportContainer
 SubViewport
 Control
-Node
 Timer

@@ -7,10 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kd40"]
 size = Vector2(420, 8)
 
-[node name="Ground" type="StaticBody2D" node_paths=PackedStringArray("collision", "ground_texture")]
+[node name="Ground" type="StaticBody2D"]
 script = ExtResource("1_o0wki")
-collision = NodePath("Collision")
-ground_texture = NodePath("Ground_Texture")
 
 [node name="Ground_Texture" type="Sprite2D" parent="."]
 texture_filter = 1

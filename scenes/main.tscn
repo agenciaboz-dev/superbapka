@@ -1,28 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://3aqu40718bhh"]
+[gd_scene load_steps=10 format=3 uid="uid://3aqu40718bhh"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_bwdyh"]
 [ext_resource type="PackedScene" uid="uid://crmmsuoy4ieq8" path="res://scenes/bg.tscn" id="1_q5ql8"]
 [ext_resource type="PackedScene" uid="uid://dhh0w3iw5ckn7" path="res://scenes/ground.tscn" id="3_dflgr"]
 [ext_resource type="PackedScene" uid="uid://cn3lqcyn6fy02" path="res://scenes/fg.tscn" id="4_kw8wr"]
-[ext_resource type="PackedScene" uid="uid://211dyxnhynka" path="res://scenes/characters/acai.tscn" id="4_v2cki"]
 [ext_resource type="PackedScene" uid="uid://c5es716vjhyof" path="res://scenes/hud.tscn" id="7_4gitb"]
 [ext_resource type="Texture2D" uid="uid://c5wfge7d2yj3i" path="res://References/mockup açai.png" id="7_qmkrr"]
-[ext_resource type="Script" path="res://Scripts/Obst_Spawner.gd" id="8_lf3uj"]
-[ext_resource type="Texture2D" uid="uid://vp7mgu6nd1rm" path="res://assets/scenario/paleta/layer0-0.png" id="9_nhcqh"]
-[ext_resource type="Script" path="res://Scripts/Item_Spawner.gd" id="10_67rwj"]
-[ext_resource type="Texture2D" uid="uid://cavkf7fjdwuya" path="res://assets/scenario/premium/layer1-1.png" id="10_b4fig"]
+[ext_resource type="PackedScene" uid="uid://crp0u3c8w3hwl" path="res://scenes/obst_spawner.tscn" id="8_p4e1o"]
+[ext_resource type="PackedScene" uid="uid://d2j4o33xywh0x" path="res://scenes/item_spawner.tscn" id="9_ygda1"]
+[ext_resource type="PackedScene" uid="uid://bonli0kxt7m14" path="res://scenes/collectables/tubs/premium.tscn" id="10_4x5ri"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk05s"]
-
-[node name="Game" type="Node2D" node_paths=PackedStringArray("timer", "ground_array", "player", "bg", "hud", "cam", "obst_spawner")]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_bwdyh")
-timer = NodePath("Timer")
-ground_array = [NodePath("Ground1"), NodePath("Ground2"), NodePath("Ground3")]
-player = NodePath("acai")
-bg = NodePath("Bg")
-hud = NodePath("HUD")
-cam = NodePath("Camera")
-obst_spawner = NodePath("Obst_Spawner")
 
 [node name="Bg" parent="." instance=ExtResource("1_q5ql8")]
 
@@ -44,10 +33,6 @@ position = Vector2(-420, 0)
 [node name="Fg" parent="." instance=ExtResource("4_kw8wr")]
 layer = 0
 
-[node name="acai" parent="." instance=ExtResource("4_v2cki")]
-z_index = 1
-position = Vector2(105, 56)
-
 [node name="HUD" parent="." instance=ExtResource("7_4gitb")]
 
 [node name="Timer" type="Timer" parent="."]
@@ -61,25 +46,12 @@ centered = false
 offset = Vector2(210, 100)
 ignore_rotation = false
 
-[node name="Obst_Spawner" type="Area2D" parent="."]
-position = Vector2(480, 165)
-script = ExtResource("8_lf3uj")
+[node name="Obst_Spawner" parent="." instance=ExtResource("8_p4e1o")]
+position = Vector2(613, 165)
 
-[node name="Sprite2D" type="Sprite2D" parent="Obst_Spawner"]
-position = Vector2(0, -13)
-texture = ExtResource("9_nhcqh")
+[node name="Item_Spawner" parent="." instance=ExtResource("9_ygda1")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obst_Spawner"]
-shape = SubResource("RectangleShape2D_uk05s")
-
-[node name="Item_Spawner" type="Area2D" parent="."]
-position = Vector2(480, 165)
-script = ExtResource("10_67rwj")
-
-[node name="Sprite2D" type="Sprite2D" parent="Item_Spawner"]
-position = Vector2(0, -23)
-scale = Vector2(0.2, 1)
-texture = ExtResource("10_b4fig")
+[node name="Premium" parent="." instance=ExtResource("10_4x5ri")]
+position = Vector2(340, 144)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer" to="Obst_Spawner" method="_on_timer_timeout"]

@@ -6,17 +6,19 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3v3k"]
 radius = 8.0
 
-[node name="Kiwi" type="Area2D"]
-position = Vector2(0, -8)
+[node name="Kiwi" type="Area2D" groups=["dmg"]]
+position = Vector2(15, -8)
 collision_layer = 4
-collision_mask = 9
+collision_mask = 33
 script = ExtResource("1_bm1ql")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["dmg"]]
 texture_filter = 1
 texture = ExtResource("1_qny8f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dmg"]]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_q3v3k")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

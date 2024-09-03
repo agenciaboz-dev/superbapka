@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2j4o33xywh0x"]
+
+[ext_resource type="Script" path="res://Scripts/Item_Spawner.gd" id="1_p11ek"]
+[ext_resource type="Texture2D" uid="uid://cavkf7fjdwuya" path="res://assets/scenario/premium/layer1-1.png" id="2_p0ld4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk05s"]
+size = Vector2(52.5, 24.75)
+
+[node name="Item_Spawner" type="Area2D"]
+position = Vector2(480, 165)
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("1_p11ek")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -23)
+scale = Vector2(0.2, 1)
+texture = ExtResource("2_p0ld4")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(2, -24.375)
+shape = SubResource("RectangleShape2D_uk05s")

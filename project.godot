@@ -14,12 +14,21 @@ config/name="Superbapka"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
+[debug]
+
+settings/layer_6="spawner"
+
 [display]
 
 window/size/viewport_width=267
 window/size/viewport_height=180
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [editor]
 
@@ -33,6 +42,7 @@ version_control/autoload_on_startup=true
 2d_physics/layer_3="obstacle"
 2d_physics/layer_4="item"
 2d_physics/layer_5="npc"
+2d_physics/layer_6="spawner"
 
 [rendering]
 

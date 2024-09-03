@@ -5,7 +5,8 @@ const JUMP_SPEED : int = -450
 const INITIAL_HP : int =  100
 const INITIAL_STATE : int = 3
 const STATE_HP : int = 25
-const MAX_HP : int = 125
+const MAX_HP : int = 100
+const MAX_OVERHP := 125
 const states = [
 	{"const_hp": 0, "const_state": 0, "const_max_hp": false},
 	{"const_hp": 25, "const_state": 1, "const_max_hp": false},
@@ -24,42 +25,48 @@ const skins = [
 
 @export var hp : float
 
-#reiniciar o game (quando morre)
-#trocar o estado do sprite
 
 #var hp : float
 var state : int
 var previous_state := -320000
 var freeze_input_jump := false
-var is_alive := true
 var animation_name : String
+var mark_overheal := false
+var texture_load = load("res://assets/characters/sorvete1.png")
 
 @onready var texture := $Animation as AnimatedSprite2D
 
 func _ready():
+	Global.is_overheal = false
+	Global.is_alive = true
 	hp = INITIAL_HP
 	state = INITIAL_STATE
 
 func _physics_process(delta):
-	if not is_alive:
+	if not Global.is_alive:
 		hp = 0
 		animation_name = "s" + str(state) + "_hurt"
 	else:
 		hp -= delta
 	velocity.y += GRAVITY * delta
+	
+	if Global.call_dmg:
+		get_dmg()
+	
+	if Global.player_heal > 0:
+		heal()
 	#freeze_input_jump = Input.is_action_just_released("ui_accept") and freeze_input_jump
 	
 	if Input.is_action_just_pressed("ui_down"):
-		hp -= 10
+		get_dmg()
 	if Input.is_action_just_pressed("ui_up"):
-		hp += 10
+		Global.player_heal = 25
 	get_all_stages()
 	
 	previous_state = state
-	if is_alive:
+	if Global.is_alive and not Global.call_dmg:
 		if is_on_floor():
 			animation_name = "s" + str(state) + "_run"
-			
 			
 			if Input.is_action_just_pressed("ui_accept"):
 				velocity.y = JUMP_SPEED
@@ -86,7 +93,8 @@ func get_all_stages():
 
 	if hp <= 0:
 		state = 0
-		is_alive = false
+		Global.is_alive = false
+			
 	elif hp <= 25:
 		state = 1
 	elif hp <= 50:
@@ -97,10 +105,42 @@ func get_all_stages():
 		state = 4
 	elif hp >= MAX_HP:
 		state = 5
-		hp = MAX_HP
 	
-	print("hp: ", hp, " state: ", state)
+	#print("hp: ", hp, " state: ", state)
 
 func is_player_dead():
-	var is_dead = not is_alive
+	var is_dead = not Global.is_alive
 	return is_dead
+
+func get_dmg():
+	animation_name = "s" + str(state) + "_hurt"
+	hp -= 25
+	print("dmg")
+	Global.call_dmg = false
+
+func heal():
+	if Global.is_overheal:
+		mark_overheal = true
+		if (hp + Global.player_heal) > MAX_OVERHP:
+			hp = MAX_OVERHP
+		else:
+			hp += Global.player_heal
+	else:
+		if not mark_overheal:
+			if hp > MAX_HP:
+				hp = MAX_HP
+			else:
+				hp += Global.player_heal
+	
+	if mark_overheal and hp < MAX_HP:
+		mark_overheal = false
+	
+	print("heal: ", Global.player_heal)
+	Global.player_heal = 0
+	Global.is_overheal = false
+
+func _on_hitbox_body_entered(body):
+	print(body.name)
+	#Global.player_heal = 25
+	#has_obst = true
+	pass # Replace with function body.
