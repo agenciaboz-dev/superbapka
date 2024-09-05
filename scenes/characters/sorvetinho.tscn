@@ -1,40 +1,50 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlagynvip2avr"]
+[gd_scene load_steps=7 format=3 uid="uid://dlagynvip2avr"]
 
-[ext_resource type="Script" path="res://Scripts/acai.gd" id="1_ysotm"]
-[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="2_skl38"]
+[ext_resource type="Script" path="res://Scripts/ituzinho.gd" id="1_lus5f"]
 [ext_resource type="SpriteFrames" uid="uid://c141e5xj8ym3k" path="res://scenes/characters/sorvetinho.tres" id="3_k0qqb"]
+[ext_resource type="SpriteFrames" uid="uid://b6gjh21emsina" path="res://scenes/characters/moreninha_recolor-1.tres" id="3_m802i"]
+[ext_resource type="SpriteFrames" uid="uid://clc6jfo61jl7g" path="res://scenes/characters/moreninha_recolor-2.tres" id="4_quc3v"]
+[ext_resource type="SpriteFrames" uid="uid://dk73is0k2u2" path="res://scenes/characters/moreninha_recolor-3.tres" id="5_r1nu6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k2qmv"]
 radius = 7.0
 height = 36.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wj26f"]
-radius = 14.0
-
 [node name="sorvetinho" type="CharacterBody2D"]
 texture_filter = 1
 collision_mask = 3
-script = ExtResource("1_ysotm")
+script = ExtResource("1_lus5f")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 z_index = 3
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_k2qmv")
 
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 64
-collision_mask = 28
-script = ExtResource("2_skl38")
-
-[node name="shape" type="CollisionShape2D" parent="Hitbox"]
-z_index = 3
-position = Vector2(0, 6)
-shape = SubResource("CircleShape2D_wj26f")
-
-[node name="Animation" type="AnimatedSprite2D" parent="."]
+[node name="Skin_default" type="AnimatedSprite2D" parent="."]
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("3_k0qqb")
 animation = &"initial"
 
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[node name="Skin_recolor" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("3_m802i")
+animation = &"s1_hurt"
+autoplay = "initial"
+
+[node name="Skin_recolor2" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("4_quc3v")
+animation = &"initial"
+autoplay = "initial"
+
+[node name="Skin_recolor3" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("5_r1nu6")
+animation = &"s5_run"

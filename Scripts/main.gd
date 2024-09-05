@@ -9,12 +9,13 @@ extends Node
 @onready var cam := $Camera as Camera2D
 @onready var obst_spawner := $Obst_Spawner as Area2D
 @onready var item_spawner := $Item_Spawner as Area2D 
+@onready var npc_spawner := $Npc_Spawner as Area2D
 
 #constants
 const PLAYER_START_POS := Vector2(125, 80)
 const CAM_START_POS := Vector2(0, 0)
-const START_SPEED  := 300
-const MAX_SPEED := 350
+const START_SPEED  := 120
+const MAX_SPEED := 300
 
 #variables
 var speed : float
@@ -36,6 +37,8 @@ var obstacle_path : Array[String]
 func _ready():
 	timer.start()
 	
+	Global.collected_coins = 0
+	Global.skin_id = 3
 	player = load("res://scenes/characters/ituzinho.tscn").instantiate()
 	add_child(player)
 	
@@ -47,6 +50,7 @@ func _ready():
 	
 	obst_spawner.set_path(["res://scenes/acai/3.tscn", "res://scenes/acai/2.tscn", "res://scenes/acai/1.tscn"])
 	item_spawner.set_path(["res://scenes/collectables/tubs/1l.tscn", "res://scenes/collectables/tubs/2l.tscn", "res://scenes/collectables/tubs/premium.tscn"])
+	npc_spawner.set_path(["res://scenes/npc/npc.tscn"])
 	
 	order_by_position()
 	new_game()
@@ -55,11 +59,19 @@ func new_game():
 	player.position = PLAYER_START_POS
 	player.velocity = Vector2(0, 0)
 	player.set_physics_process(false)
+	Global.player_x = 0
 	bg.sunshine.set_process(false)
 	Global.game_running = false
 	speed = 0
 
 func _process(delta):
+	if Input.is_action_just_pressed("ui_left"):
+		Global.skin_id +=1
+		print("skin_id: ", Global.skin_id)
+	if Input.is_action_just_pressed("ui_right"):
+		Global.skin_id -=1
+		print("skin_id: ", Global.skin_id)
+	
 	if Global.game_running:
 		if not Global.is_alive:
 			Global.game_running = false
@@ -74,6 +86,9 @@ func _process(delta):
 			cam.position.x += speed
 			obst_spawner.position.x += speed
 			item_spawner.position.x += speed
+			npc_spawner.position.x += speed
+			Global.player_x = player.position.x
+			
 			Global.score += speed / 30
 			show_score()
 			

@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://yxwxtaujoivp"]
+
+[ext_resource type="Script" path="res://Scripts/ituzinho.gd" id="1_03q0t"]
+[ext_resource type="SpriteFrames" uid="uid://bvdi5cfn7y1u2" path="res://scenes/characters/moreninha.tres" id="3_myy4h"]
+[ext_resource type="SpriteFrames" uid="uid://b6gjh21emsina" path="res://scenes/characters/moreninha_recolor-1.tres" id="4_q707d"]
+[ext_resource type="SpriteFrames" uid="uid://clc6jfo61jl7g" path="res://scenes/characters/moreninha_recolor-2.tres" id="5_7p0yc"]
+[ext_resource type="SpriteFrames" uid="uid://dk73is0k2u2" path="res://scenes/characters/moreninha_recolor-3.tres" id="6_cblkv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k2qmv"]
+radius = 7.0
+height = 36.0
+
+[node name="moreninha" type="CharacterBody2D"]
+texture_filter = 1
+collision_mask = 3
+script = ExtResource("1_03q0t")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 3
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_k2qmv")
+
+[node name="Skin_default" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("3_myy4h")
+animation = &"initial"
+autoplay = "initial"
+
+[node name="Skin_recolor" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("4_q707d")
+animation = &"s1_hurt"
+autoplay = "initial"
+
+[node name="Skin_recolor2" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("5_7p0yc")
+animation = &"initial"
+autoplay = "initial"
+
+[node name="Skin_recolor3" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("6_cblkv")
+animation = &"s5_run"

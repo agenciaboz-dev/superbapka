@@ -1,7 +1,10 @@
-res://scenes/characters
-res://assets/characters
-res://
 res://Scripts
+res://assets/temp
 res://scenes
-res://assets/collectable/tubs
+res://assets/npc
+res://scenes/npc
 res://scenes/collectables/tubs
+res://scenes/characters
+res://
+res://assets/characters
+res://assets/collectable/tubs

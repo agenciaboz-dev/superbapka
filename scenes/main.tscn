@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c5es716vjhyof" path="res://scenes/hud.tscn" id="7_4gitb"]
 [ext_resource type="Texture2D" uid="uid://c5wfge7d2yj3i" path="res://References/mockup açai.png" id="7_qmkrr"]
 [ext_resource type="PackedScene" uid="uid://crp0u3c8w3hwl" path="res://scenes/obst_spawner.tscn" id="8_p4e1o"]
+[ext_resource type="PackedScene" uid="uid://bbaxnvbum3cl7" path="res://scenes/npc_spawner.tscn" id="9_perqw"]
 [ext_resource type="PackedScene" uid="uid://d2j4o33xywh0x" path="res://scenes/item_spawner.tscn" id="9_ygda1"]
-[ext_resource type="PackedScene" uid="uid://bonli0kxt7m14" path="res://scenes/collectables/tubs/premium.tscn" id="10_4x5ri"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_bwdyh")
@@ -51,7 +51,7 @@ position = Vector2(613, 165)
 
 [node name="Item_Spawner" parent="." instance=ExtResource("9_ygda1")]
 
-[node name="Premium" parent="." instance=ExtResource("10_4x5ri")]
-position = Vector2(340, 144)
+[node name="Npc_Spawner" parent="." instance=ExtResource("9_perqw")]
+position = Vector2(548, 165)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

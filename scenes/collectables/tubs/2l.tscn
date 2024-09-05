@@ -3,27 +3,27 @@
 [ext_resource type="Script" path="res://scenes/collectables/tubs/2l.gd" id="1_2q1pc"]
 [ext_resource type="Texture2D" uid="uid://sm3rp330788" path="res://assets/collectable/tubs/potes de sorvete.png" id="2_yyadr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gmdi7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x4lp"]
 atlas = ExtResource("2_yyadr")
-region = Rect2(0, 54, 30, 27)
+region = Rect2(0, 81, 30, 27)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ljip7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2828h"]
 atlas = ExtResource("2_yyadr")
-region = Rect2(30, 54, 30, 27)
+region = Rect2(30, 81, 30, 27)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v3v7s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7kaj"]
 atlas = ExtResource("2_yyadr")
-region = Rect2(60, 54, 30, 27)
+region = Rect2(60, 81, 30, 27)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gry3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_56ojw"]
 atlas = ExtResource("2_yyadr")
-region = Rect2(90, 54, 30, 27)
+region = Rect2(90, 81, 30, 27)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jqv7i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gmdi7")
+"texture": SubResource("AtlasTexture_5x4lp")
 }],
 "loop": true,
 "name": &"1",
@@ -31,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ljip7")
+"texture": SubResource("AtlasTexture_2828h")
 }],
 "loop": true,
 "name": &"2",
@@ -39,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v3v7s")
+"texture": SubResource("AtlasTexture_e7kaj")
 }],
 "loop": true,
 "name": &"3",
@@ -47,7 +47,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8gry3")
+"texture": SubResource("AtlasTexture_56ojw")
 }],
 "loop": true,
 "name": &"4",
@@ -66,7 +66,7 @@ script = ExtResource("1_2q1pc")
 [node name="Animation" type="AnimatedSprite2D" parent="." groups=["2l"]]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jqv7i")
-animation = &"2"
+animation = &"4"
 
 [node name="Collision" type="CollisionShape2D" parent="." groups=["2l"]]
 rotation = 1.5708

@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://chssomw0uopam"]
+
+[ext_resource type="Script" path="res://Scripts/acai.gd" id="1_hve1k"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="2_7aujt"]
+[ext_resource type="SpriteFrames" uid="uid://bd6bltbw1yh1o" path="res://scenes/characters/ituzinho_recolor-1.tres" id="3_d240w"]
+[ext_resource type="SpriteFrames" uid="uid://cvgd1k1ym6yeq" path="res://scenes/characters/ituzinho.tres" id="4_u1gqo"]
+[ext_resource type="SpriteFrames" uid="uid://pywvgslqn1m" path="res://scenes/characters/ituzinho_recolor-2.tres" id="5_061ah"]
+[ext_resource type="SpriteFrames" uid="uid://b3v2cvg321ikp" path="res://scenes/characters/ituzinho_recolor-3.tres" id="6_mn71o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k2qmv"]
+radius = 7.0
+height = 36.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wj26f"]
+radius = 14.0
+
+[node name="ituzinho" type="CharacterBody2D"]
+texture_filter = 1
+collision_mask = 3
+script = ExtResource("1_hve1k")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 3
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_k2qmv")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 28
+script = ExtResource("2_7aujt")
+
+[node name="shape" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+z_index = 3
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_wj26f")
+
+[node name="Skin_default" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("4_u1gqo")
+animation = &"initial"
+
+[node name="Skin_recolor" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("3_d240w")
+animation = &"s3_hurt"
+autoplay = "initial"
+
+[node name="Skin_recolor2" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("5_061ah")
+animation = &"initial"
+autoplay = "initial"
+
+[node name="Skin_recolor3" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("6_mn71o")
+animation = &"s5_run"
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

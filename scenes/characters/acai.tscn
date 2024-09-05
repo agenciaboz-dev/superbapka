@@ -1,41 +1,49 @@
-[gd_scene load_steps=6 format=3 uid="uid://211dyxnhynka"]
+[gd_scene load_steps=7 format=3 uid="uid://211dyxnhynka"]
 
-[ext_resource type="Script" path="res://Scripts/acai.gd" id="1_hcqhl"]
+[ext_resource type="Script" path="res://Scripts/ituzinho.gd" id="1_mrvll"]
 [ext_resource type="SpriteFrames" uid="uid://d2d0fnsnkl8qb" path="res://scenes/characters/acai.tres" id="2_j4pag"]
-[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="2_qqa0g"]
+[ext_resource type="SpriteFrames" uid="uid://cdvxg6irsrwmv" path="res://scenes/characters/acai_recolor-1.tres" id="3_ij7n5"]
+[ext_resource type="SpriteFrames" uid="uid://bu1sb07vgyxnd" path="res://scenes/characters/acai_recolor-2.tres" id="4_vwrb1"]
+[ext_resource type="SpriteFrames" uid="uid://cs8a6gn40v6aw" path="res://scenes/characters/acai_recolor-3.tres" id="5_k5lmw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k2qmv"]
 radius = 7.0
 height = 36.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wj26f"]
-radius = 14.0
-
 [node name="acai" type="CharacterBody2D"]
 texture_filter = 1
 collision_mask = 3
-script = ExtResource("1_hcqhl")
+script = ExtResource("1_mrvll")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 z_index = 3
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_k2qmv")
 
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 64
-collision_mask = 28
-script = ExtResource("2_qqa0g")
-
-[node name="shape" type="CollisionShape2D" parent="Hitbox"]
-z_index = 3
-position = Vector2(0, 6)
-shape = SubResource("CircleShape2D_wj26f")
-
-[node name="Animation" type="AnimatedSprite2D" parent="."]
+[node name="Skin_default" type="AnimatedSprite2D" parent="."]
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("2_j4pag")
+animation = &"initial"
+autoplay = "initial"
+
+[node name="Skin_recolor" type="AnimatedSprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("3_ij7n5")
 animation = &"s5_run"
 autoplay = "initial"
 
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[node name="Skin_recolor2" type="AnimatedSprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("4_vwrb1")
+animation = &"s5_run"
+autoplay = "initial"
+
+[node name="Skin_recolor3" type="AnimatedSprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("5_k5lmw")
+animation = &"s5_run"
+autoplay = "initial"

@@ -15,16 +15,11 @@ const states = [
 	{"const_hp": 100, "const_state": 4, "const_max_hp": false},
 	{"const_hp": MAX_HP, "const_state": 4, "const_max_hp": true}
 	]
-const skins = [
-	{"id" : 1, "path" : "res://assets/characters/acai1.png"},
-	{"id" : 2, "path" : "res://assets/characters/acai2.png"},
-	{"id" : 3, "path" : "res://assets/characters/acai3.png"},
-	{"id" : 4, "path" : "res://assets/characters/acai4.png"}
-	]
+
+@onready var texture : AnimatedSprite2D
+
 #var
-
 @export var hp : float
-
 
 #var hp : float
 var state : int
@@ -32,17 +27,20 @@ var previous_state := -320000
 var freeze_input_jump := false
 var animation_name : String
 var mark_overheal := false
-var texture_load = load("res://assets/characters/sorvete1.png")
+var skinid := 0
 
-@onready var texture := $Animation as AnimatedSprite2D
 
 func _ready():
+	#print(skins)
+	#apply_skin()
+	apply_skin()
 	Global.is_overheal = false
 	Global.is_alive = true
 	hp = INITIAL_HP
 	state = INITIAL_STATE
 
 func _physics_process(delta):
+	
 	if not Global.is_alive:
 		hp = 0
 		animation_name = "s" + str(state) + "_hurt"
@@ -79,6 +77,8 @@ func _physics_process(delta):
 	
 	texture.play(animation_name)
 	move_and_slide()
+	if skinid != Global.skin_id:
+		apply_skin()
 	
 func get_all_stages():
 #	for item in states:
@@ -138,6 +138,32 @@ func heal():
 	print("heal: ", Global.player_heal)
 	Global.player_heal = 0
 	Global.is_overheal = false
+
+func apply_skin():
+	if texture:
+	texture.visible = false
+	
+	skinid = Global.skin_id
+	
+	if skinid == 1:
+		texture = $Skin_default
+	elif skinid == 2:
+		texture = $Skin_recolor
+	elif skinid == 3:
+		texture = $Skin_recolor2
+	elif skinid == 4:
+		texture = $Skin_recolor3
+	
+	texture.visible = true
+	
+#	if texture:
+#		texture.visible = false
+#	
+#	texture = skins[Global.skin_id]
+#	texture.visible = true
+#	print("Texture set to:", skins[Global.skin_id].name)
+#	skinid = Global.skin_id
+	pass
 
 func _on_hitbox_body_entered(body):
 	print(body.name)

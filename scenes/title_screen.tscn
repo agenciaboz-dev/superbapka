@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7stga5lo0vmm"]
+
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_a7axw"]
+[ext_resource type="Texture2D" uid="uid://d1ykq5nb1ovvk" path="res://assets/interface/play.png" id="1_efwkr"]
+[ext_resource type="Texture2D" uid="uid://cvsah7w82cmc" path="res://assets/interface/play_pressed.png" id="2_437g5"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a7axw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Bg" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Play" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+texture_filter = 1
+position = Vector2(-19, -25)
+texture_normal = ExtResource("1_efwkr")
+texture_pressed = ExtResource("2_437g5")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/Play" to="." method="_on_play_pressed"]
