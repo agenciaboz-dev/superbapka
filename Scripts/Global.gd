@@ -19,7 +19,7 @@ var is_overheal : bool
 var player_path : String
 var player_x : int
 var skin_id : int
-
+var start_msg : String
 
 #Tarefas
 #reiniciar o game (quando morre) - FEITO

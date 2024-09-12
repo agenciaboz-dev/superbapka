@@ -26,14 +26,14 @@ visible = false
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("3_8fbxm")
-animation = &"initial"
+animation = &"s5_hurt"
 
 [node name="Skin_recolor" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("4_bcnog")
-animation = &"initial"
+animation = &"s5_hurt"
 autoplay = "initial"
 
 [node name="Skin_recolor2" type="AnimatedSprite2D" parent="."]
@@ -41,7 +41,7 @@ visible = false
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("5_7p1mk")
-animation = &"initial"
+animation = &"s5_hurt"
 autoplay = "initial"
 
 [node name="Skin_recolor3" type="AnimatedSprite2D" parent="."]
@@ -49,4 +49,8 @@ visible = false
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("6_ureo0")
-animation = &"s5_run"
+animation = &"s5_hurt"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

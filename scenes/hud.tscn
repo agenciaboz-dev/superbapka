@@ -1,42 +1,117 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5es716vjhyof"]
+[gd_scene load_steps=8 format=3 uid="uid://c5es716vjhyof"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_7m711"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/fonts/retro.ttf" id="1_gvk5n"]
+[ext_resource type="Texture2D" uid="uid://5ac012152q1n" path="res://assets/interface/pause.png" id="3_tp4ph"]
+[ext_resource type="Texture2D" uid="uid://cmrt3xoknb7jk" path="res://assets/interface/pause_pressed.png" id="4_lu3ij"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8jrle"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i6dc0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lecd8"]
+font_size = 13
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_7m711")
 
-[node name="ScoreLabel" type="Label" parent="."]
-texture_filter = 1
-offset_right = 73.0
-offset_bottom = 21.0
-theme_override_fonts/font = ExtResource("1_gvk5n")
-horizontal_alignment = 1
-
-[node name="StartLabel" type="Label" parent="."]
-texture_filter = 1
+[node name="Center" type="MarginContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.5
+offset_left = -34.5
 offset_top = -10.5
-offset_right = 36.5
+offset_right = 34.5
 offset_bottom = 10.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_gvk5n")
-text = "TOUCH TO START"
-horizontal_alignment = 1
 
-[node name="HighScoreLabel" type="Label" parent="."]
+[node name="Jump_button" type="TouchScreenButton" parent="Center"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-128, -51)
+scale = Vector2(331, 152.5)
+texture_normal = SubResource("PlaceholderTexture2D_8jrle")
+action = "ui_accept"
+
+[node name="Game_Info_Label" type="Label" parent="Center"]
 texture_filter = 1
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_gvk5n")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Top_left" type="MarginContainer" parent="."]
+offset_right = 69.0
+offset_bottom = 21.0
+
+[node name="ScoreLabel" type="Label" parent="Top_left"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_gvk5n")
+
+[node name="Top_right" type="MarginContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -73.0
+offset_left = -69.0
 offset_bottom = 21.0
 grow_horizontal = 0
+
+[node name="HighScoreLabel" type="Label" parent="Top_right"]
+texture_filter = 1
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gvk5n")
-horizontal_alignment = 1
+horizontal_alignment = 2
+
+[node name="CoinLabel" type="Label" parent="Top_right"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_gvk5n")
+horizontal_alignment = 2
+
+[node name="Top_center" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="pause_button" type="TouchScreenButton" parent="Top_center"]
+z_index = 1
+position = Vector2(-18, 0)
+texture_normal = ExtResource("3_tp4ph")
+action = "ui_cancel"
+
+[node name="unpause_button" type="TouchScreenButton" parent="Top_center"]
+visible = false
+z_index = 1
+position = Vector2(-18, 0)
+texture_normal = ExtResource("4_lu3ij")
+action = "ui_cancel"
+
+[node name="title_screen_button" type="TouchScreenButton" parent="Top_center"]
+visible = false
+modulate = Color(0, 0, 0, 0.2)
+position = Vector2(-23.5, 0)
+scale = Vector2(45, 23)
+texture_normal = SubResource("PlaceholderTexture2D_i6dc0")
+
+[node name="leave_msg" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.0
+offset_right = 19.0
+offset_bottom = 18.0
+grow_horizontal = 2
+text = "Voltar"
+label_settings = SubResource("LabelSettings_lecd8")
+vertical_alignment = 1
+
+[connection signal="pressed" from="Top_center/pause_button" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Top_center/unpause_button" to="." method="_on_unpause_button_pressed"]
+[connection signal="pressed" from="Top_center/title_screen_button" to="." method="_on_title_screen_button_pressed"]
