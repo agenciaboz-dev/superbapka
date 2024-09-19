@@ -21,8 +21,10 @@ func _on_body_entered(body):
 	tween.tween_property($Coin, "position", Vector2($Coin.position.x, -50) , 0.3)
 	tween.tween_property($Coin, "modulate:a", 0.0 , 0.3)
 	
+	if not animation.frame == 2:
+		Global.collected_coins += 1
 	animation.frame = 2
-	Global.collected_coins += 1
+	
 	print("coins: ", Global.collected_coins)
 	#has_obst = true
 	pass # Replace with function body.

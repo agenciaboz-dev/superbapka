@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
+signal is_damage
+
+@onready var timer := $Timer as Timer
+
 const GRAVITY : int = 1500
 const JUMP_SPEED : int = -450
 const INITIAL_HP : int =  100
 const INITIAL_STATE : int = 3
-const STATE_HP : int = 25
 const MAX_HP : int = 100
 const MAX_OVERHP := 125
 const states = [
@@ -23,16 +26,17 @@ const states = [
 
 #var hp : float
 var state : int
-var previous_state := -320000
-var freeze_input_jump := false
 var animation_name : String
 var mark_overheal := false
 var skinid := 0
-
+var is_jump := false
+var is_damage_boost := false
+var time_dmg := 0
+var is_on_ground := false
+var is_knockback := false
+var is_timer_stop := false
 
 func _ready():
-	#print(skins)
-	#apply_skin()
 	apply_skin()
 	Global.is_overheal = false
 	Global.is_alive = true
@@ -40,45 +44,44 @@ func _ready():
 	state = INITIAL_STATE
 
 func _physics_process(delta):
-	
+	is_on_ground = is_on_floor()
+
 	if not Global.is_alive:
 		hp = 0
-		animation_name = "s" + str(state) + "_hurt"
+		animation_name = "s0"
 	else:
 		hp -= delta
+	
 	velocity.y += GRAVITY * delta
 	
-	if Global.call_dmg:
-		get_dmg()
+	if is_knockback:
+		if is_on_ground:
+			hp -= 25
+			is_knockback = false
 	
 	if Global.player_heal > 0:
 		heal()
-	#freeze_input_jump = Input.is_action_just_released("ui_accept") and freeze_input_jump
 	
-	if Input.is_action_just_pressed("ui_down"):
-		get_dmg()
+	# Apenas permite que o personagem tome dano se o damage boost não estiver ativo
+	if is_damage_boost:
+		Global.call_dmg = false
+	else:
+		if Input.is_action_just_pressed("ui_down") or Global.call_dmg:
+			get_dmg()
+
 	if Input.is_action_just_pressed("ui_up"):
 		Global.player_heal = 25
+	
 	get_all_stages()
 	
+	if Input.is_action_just_pressed("ui_accept"):
+		is_jump = true
 	
-	
-	previous_state = state
-	if Global.is_alive and not Global.call_dmg:
-		if is_on_floor():
-			animation_name = "s" + str(state) + "_run"
-			
-			if Input.is_action_just_pressed("ui_accept"):
-				velocity.y = JUMP_SPEED
-				#freeze_input_jump = true
-		else:
-			animation_name = "s" + str(state) + "_jump"
-	
-	else:
-		animation_name = "s0"
+	action_move(false)
 	
 	texture.play(animation_name)
 	move_and_slide()
+	
 	if skinid != Global.skin_id:
 		apply_skin()
 	
@@ -107,18 +110,34 @@ func get_all_stages():
 		state = 4
 	elif hp >= MAX_HP:
 		state = 5
-	
-	#print("hp: ", hp, " state: ", state)
 
 func is_player_dead():
 	var is_dead = not Global.is_alive
 	return is_dead
 
 func get_dmg():
-	animation_name = "s" + str(state) + "_hurt"
-	hp -= 25
-	print("dmg")
-	Global.call_dmg = false
+	is_knockback = true
+	velocity.y = -300
+	is_damage.emit()
+	
+	Global.call_dmg = false  # Resetar após o hit
+	dmg_boost()  # Ativa o damage boost
+
+func action_move(jump):
+	if Global.is_alive:
+		if is_on_ground:
+			animation_name = "s" + str(state) + "_run"
+			
+			if is_jump or jump:
+				velocity.y = JUMP_SPEED
+		
+		else:
+			animation_name = "s" + str(state) + "_jump"
+		
+		if is_knockback:
+			animation_name = "s" + str(state) + "_hurt"
+	
+	is_jump = false
 
 func heal():
 	if Global.is_overheal:
@@ -158,4 +177,17 @@ func apply_skin():
 	
 	texture.visible = true
 	
+	texture.connect("animation_finished", Callable(self, "_on_animation_finished"))
+	
 	pass
+
+func dmg_boost():
+	if not is_damage_boost:  # Apenas ativa o boost se não estiver ativo
+		is_damage_boost = true
+		time_dmg = 0
+		timer.start(2.0)  # Inicia o timer de 2 segundos para invulnerabilidade
+
+func _on_timer_timeout():
+	if is_damage_boost:
+		is_damage_boost = false  # Desativa o damage boost
+		timer.stop()

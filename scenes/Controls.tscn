@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca7vawae0rlcj"]
+
+[ext_resource type="Texture2D" uid="uid://5ac012152q1n" path="res://assets/interface/pause.png" id="1_i43ip"]
+[ext_resource type="Texture2D" uid="uid://cmrt3xoknb7jk" path="res://assets/interface/pause_pressed.png" id="2_ks7e7"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rlrf4"]
+
+[node name="Controls" type="CanvasLayer"]
+
+[node name="Jump_button" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(77, 96)
+scale = Vector2(267, 85)
+texture_normal = SubResource("PlaceholderTexture2D_rlrf4")
+action = "ui_accept"
+
+[node name="pause_button" type="TouchScreenButton" parent="."]
+z_index = 1
+position = Vector2(143, 11)
+texture_normal = ExtResource("1_i43ip")
+
+[node name="unpause_button" type="TouchScreenButton" parent="."]
+visible = false
+z_index = 1
+position = Vector2(143, 11)
+texture_normal = ExtResource("2_ks7e7")
