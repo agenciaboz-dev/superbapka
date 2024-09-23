@@ -30,8 +30,8 @@ grow_vertical = 2
 
 [node name="Jump_button" type="TouchScreenButton" parent="Center"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(-128, -51)
-scale = Vector2(331, 152.5)
+position = Vector2(-362, -51)
+scale = Vector2(791, 152.5)
 texture_normal = SubResource("PlaceholderTexture2D_8jrle")
 action = "ui_accept"
 

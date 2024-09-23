@@ -1,10 +1,11 @@
+TextureRect
+Label
 ParallaxBackground
 Node
 Node2D
 Timer
 Sprite2D
 AnimatedSprite2D
-Label
 TouchScreenButton
 HBoxContainer
 VBoxContainer

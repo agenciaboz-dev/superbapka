@@ -1,12 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7stga5lo0vmm"]
+[gd_scene load_steps=13 format=3 uid="uid://b7stga5lo0vmm"]
 
 [ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_a7axw"]
 [ext_resource type="Texture2D" uid="uid://d1ykq5nb1ovvk" path="res://assets/interface/play.png" id="1_efwkr"]
+[ext_resource type="Texture2D" uid="uid://be4e1h8h5dqea" path="res://assets/interface/title_bg.png" id="2_01ee3"]
 [ext_resource type="Texture2D" uid="uid://cvsah7w82cmc" path="res://assets/interface/play_pressed.png" id="2_437g5"]
 [ext_resource type="Texture2D" uid="uid://d0o7lc1w6tqub" path="res://assets/interface/title.png" id="2_d5e2b"]
-[ext_resource type="Texture2D" uid="uid://d1t37egxf4di6" path="res://assets/temp/mockup (1).jpg" id="2_dyny7"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qxw0v"]
+[ext_resource type="Texture2D" uid="uid://xbqmqb5l3mxl" path="res://assets/interface/mockup-menu.png" id="3_f7ey7"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/fonts/retro.ttf" id="3_iwsdt"]
+[ext_resource type="Texture2D" uid="uid://b1lwmlxw2xvp4" path="res://assets/interface/marshmallow_menu.png" id="4_uhoga"]
+[ext_resource type="Texture2D" uid="uid://boq7nh37dgc43" path="res://assets/interface/sorvetinho_menu.png" id="5_enhag"]
+[ext_resource type="Texture2D" uid="uid://cu27x0a7s45wm" path="res://assets/interface/exit.png" id="8_ijaak"]
+[ext_resource type="Texture2D" uid="uid://ds5tmcv1sccw8" path="res://assets/interface/exit_pressed.png" id="9_sbqw3"]
+[ext_resource type="Texture2D" uid="uid://brmmy5cwr4khr" path="res://assets/interface/store.png" id="10_ocqdg"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -21,13 +26,78 @@ script = ExtResource("1_a7axw")
 
 [node name="Bg" type="TextureRect" parent="."]
 layout_mode = 1
-offset_left = -180.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
 offset_top = -100.0
-offset_right = 140.0
+offset_right = 210.0
 offset_bottom = 100.0
-scale = Vector2(1.2, 1)
-texture = ExtResource("2_dyny7")
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_01ee3")
 stretch_mode = 6
+
+[node name="Mockup" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -100.0
+offset_right = 1050.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("3_f7ey7")
+stretch_mode = 6
+
+[node name="Bg2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = -33.0
+offset_right = -71.5
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_uhoga")
+stretch_mode = 6
+
+[node name="Bg3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 69.5
+offset_top = -49.0
+offset_right = 147.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_enhag")
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+offset_left = -63.0
+offset_top = -4.5
+offset_right = 63.0
+offset_bottom = 18.5
+theme_override_fonts/font = ExtResource("3_iwsdt")
+text = "Versão beta"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -52,31 +122,27 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="Quit" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+texture_filter = 1
+position = Vector2(-65.5, 19)
+texture_normal = ExtResource("8_ijaak")
+texture_pressed = ExtResource("9_sbqw3")
+
+[node name="Store" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0.458824)
+texture_filter = 1
+position = Vector2(29.5, 20)
+texture_normal = ExtResource("10_ocqdg")
+
 [node name="Play" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 texture_filter = 1
-position = Vector2(-52, 20)
+position = Vector2(-23.5, 12)
 texture_normal = ExtResource("1_efwkr")
 texture_pressed = ExtResource("2_437g5")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Quit" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
-modulate = Color(0, 0, 0, 0.360784)
-texture_filter = 1
-position = Vector2(11.5, 22)
-scale = Vector2(50, 29)
-texture_normal = SubResource("PlaceholderTexture2D_qxw0v")
-
-[node name="Label" type="Label" parent="."]
-clip_contents = true
-layout_mode = 2
-offset_left = 22.0
-offset_top = 25.5
-offset_right = 52.0
-offset_bottom = 48.5
-text = "Sair"
-justification_flags = 0
-
+[connection signal="released" from="MarginContainer/HBoxContainer/VBoxContainer2/Quit" to="." method="_on_quit_released"]
+[connection signal="released" from="MarginContainer/HBoxContainer/VBoxContainer2/Store" to="." method="_on_play_released"]
 [connection signal="released" from="MarginContainer/HBoxContainer/VBoxContainer2/Play" to="." method="_on_play_released"]
-[connection signal="released" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Quit" to="." method="_on_quit_released"]

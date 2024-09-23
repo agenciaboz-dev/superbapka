@@ -14,3 +14,5 @@ res://scenes/hud.tscn
 res://scenes/hud.gd
 res://scenes/acai/3.tscn
 res://scenes/acai/2.tscn
+res://scenes/title_screen.tscn
+res://Scripts/title_screen.gd
