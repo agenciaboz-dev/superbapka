@@ -17,6 +17,7 @@ texture_filter = 1
 texture = ExtResource("1_x0rrf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dmg"]]
+z_index = 5
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_q3v3k")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
