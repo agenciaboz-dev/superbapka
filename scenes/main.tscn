@@ -34,6 +34,7 @@ position = Vector2(-420, 0)
 layer = 0
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
 
 [node name="MockupAçai" type="Sprite2D" parent="."]
 visible = false

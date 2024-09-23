@@ -26,13 +26,17 @@ func _process(delta):
 			# Verificar se o spawner está longe o suficiente para spawnar um novo obstáculo
 			if self.position.x - last_obst_position_x >= spawn_distance:
 				#print(obst_path.size())
-				spawn_obstacle()
+				spawn_item()
 
-func spawn_obstacle():
+func spawn_scenario_trigger():
+	#var scenario_trigger = load()
+	pass
+
+func spawn_item():
 	var max_obst = 3
 	var range = randi_range(0, max_obst)
 	var last_obst_x = 0
-	#print(range)
+	
 	for i in range:
 		var obstacle_object = load(obst_path[randi() % obst_path.size()])
 		var attempt = true

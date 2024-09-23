@@ -31,7 +31,6 @@ var mark_overheal := false
 var skinid := 0
 var is_jump := false
 var is_damage_boost := false
-var time_dmg := 0
 var is_on_ground := false
 var is_knockback := false
 var is_timer_stop := false
@@ -117,7 +116,7 @@ func is_player_dead():
 
 func get_dmg():
 	is_knockback = true
-	velocity.y = -300
+	velocity.y = -350
 	is_damage.emit()
 	
 	Global.call_dmg = false  # Resetar após o hit
@@ -184,10 +183,10 @@ func apply_skin():
 func dmg_boost():
 	if not is_damage_boost:  # Apenas ativa o boost se não estiver ativo
 		is_damage_boost = true
-		time_dmg = 0
 		timer.start(2.0)  # Inicia o timer de 2 segundos para invulnerabilidade
 
 func _on_timer_timeout():
 	if is_damage_boost:
 		is_damage_boost = false  # Desativa o damage boost
 		timer.stop()
+	pass

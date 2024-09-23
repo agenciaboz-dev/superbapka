@@ -1,18 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn3lqcyn6fy02"]
+[gd_scene load_steps=5 format=3 uid="uid://cn3lqcyn6fy02"]
 
-[ext_resource type="Texture2D" uid="uid://dpjsa4o6cmjiw" path="res://assets/scenario/açaí/layer4-0.png" id="1_dqqer"]
+[ext_resource type="Texture2D" uid="uid://dpjsa4o6cmjiw" path="res://assets/scenario/acai/layer4-0.png" id="1_dqqer"]
+[ext_resource type="Script" path="res://scenes/fg.gd" id="1_qsfpu"]
+[ext_resource type="Texture2D" uid="uid://f7c6p7nk8ber" path="res://assets/scenario/paleta/layer4-0.png" id="3_84fav"]
+[ext_resource type="Texture2D" uid="uid://dbnnno8v7ukvl" path="res://assets/scenario/premium/layer4-0.png" id="4_8pyit"]
 
 [node name="Fg" type="ParallaxBackground"]
+script = ExtResource("1_qsfpu")
 
-[node name="Layer-4" type="ParallaxLayer" parent="."]
+[node name="acai" type="ParallaxLayer" parent="."]
 z_index = 9
 position = Vector2(0, -2)
 motion_scale = Vector2(1.5, 1)
 motion_mirroring = Vector2(430, 0)
 
-[node name="0" type="Sprite2D" parent="Layer-4"]
+[node name="Layer-4" type="Sprite2D" parent="acai"]
 z_index = 9
 texture_filter = 1
 position = Vector2(0, 177)
 texture = ExtResource("1_dqqer")
+centered = false
+
+[node name="paleta" type="ParallaxLayer" parent="."]
+z_index = 9
+position = Vector2(0, -2)
+motion_scale = Vector2(1.5, 1)
+motion_mirroring = Vector2(430, 0)
+
+[node name="Layer-4" type="Sprite2D" parent="paleta"]
+z_index = 9
+texture_filter = 1
+position = Vector2(0, 177)
+texture = ExtResource("3_84fav")
+centered = false
+
+[node name="premium" type="ParallaxLayer" parent="."]
+z_index = 9
+position = Vector2(0, -2)
+motion_scale = Vector2(1.5, 1)
+motion_mirroring = Vector2(430, 0)
+
+[node name="Layer-4" type="Sprite2D" parent="premium"]
+z_index = 9
+texture_filter = 1
+position = Vector2(0, 177)
+texture = ExtResource("4_8pyit")
 centered = false

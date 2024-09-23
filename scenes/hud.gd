@@ -11,11 +11,12 @@ func _ready():
 	unpause_btn.visible = false
 
 func _process(delta):
-	print(Global.start_msg)
 	$Top_left/ScoreLabel.text = "Distância: " + str(round(Global.score))
 	$Center/Game_Info_Label.text = Global.start_msg
 	$Top_right/CoinLabel.text = "Moedas: " + str(round(Global.collected_coins))
 	#$HighScoreLabel.text = "HIGHSCORE: " + str(Global.high_score)
+	$Bottom_right/HighScoreLabel.text = "FPS: " + str(Engine.get_frames_per_second())
+		
 	if Global.game_running:
 		$Center/Game_Info_Label.visible_characters = 0
 	

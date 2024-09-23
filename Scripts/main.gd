@@ -5,14 +5,12 @@ extends Node
 @onready var ground_array := [$Ground1, $Ground2, $Ground3] as Array[StaticBody2D]
 @onready var player : CharacterBody2D
 @onready var bg := $Bg as ParallaxBackground
+@onready var fg := $Fg as ParallaxBackground
 @onready var hud := $HUD as CanvasLayer
 @onready var cam := $Camera as Camera2D
 @onready var obst_spawner := $Obst_Spawner as Area2D
 @onready var item_spawner := $Item_Spawner as Area2D 
 @onready var npc_spawner := $Npc_Spawner as Area2D
-@onready var jump_btn := $HUD/Controls/Jump_button as TouchScreenButton
-@onready var pause_btn := $HUD/Controls/pause_button as TouchScreenButton
-@onready var unpause_btn := $HUD/Controls/unpause_button as TouchScreenButton
 
 #constants
 const PLAYER_START_POS := Vector2(125, 80)
@@ -31,17 +29,23 @@ var spawn_distance: float
 var last_obst_position := 0.0
 var obst_spawner_pos : Vector2
 var is_restart : bool
-var current_speed : int
+var current_speed : float
 var position : int
 var tween : Tween
 var acceleration : float
 var is_player_dmg := false
+var scenario_number := -1
+var last_updated:= 0.0
+var acceleration_count : float
 
 #arrays
 var ground_pieces = []
 var obstacles : Array
 var scenarios : Array[int]
 var obstacle_path : Array[String]
+var speed_target := 0
+var is_current_speed := false
+var already_get_speed := false
 
 func _ready():
 	timer.start()
@@ -51,6 +55,12 @@ func _ready():
 	Global.collected_coins = 0
 	Global.skin_id = 3
 	is_restart = false
+	
+	scenario_number = Global.get_scenario_number()
+	
+	Global.scenario = scenario_number
+	
+	scenario_change()
 	
 	player = load("res://scenes/characters/ituzinho.tscn").instantiate()
 	
@@ -71,7 +81,7 @@ func _ready():
 	new_game()
 
 func new_game():
-	current_speed = START_SPEED
+	speed_target = START_SPEED
 	player.position = PLAYER_START_POS
 	player.velocity = Vector2(0, 0)
 	player.set_physics_process(false)
@@ -88,8 +98,12 @@ func _process(delta):
 		Global.skin_id -=1
 		print("skin_id: ", Global.skin_id)
 	
+	if Input.is_action_just_pressed("ui_page_up"):
+		scenario_number = Global.get_scenario_number()
+		Global.scenario = scenario_number
+		scenario_change()
+	
 	if Global.game_running:
-		
 		if not Global.is_alive:
 			Global.start_msg = "Toque para reiniciar"
 			Global.game_running = false
@@ -99,7 +113,7 @@ func _process(delta):
 			Global.start_msg = ""
 			player.set_physics_process(true)
 			
-			control_speed()
+			control_speed(delta)
 			
 			camera_x = cam.position.x
 			player.position.x += speed
@@ -115,7 +129,7 @@ func _process(delta):
 				ground_pieces[0].position.x = ground_pieces[2].position.x + Global.ground_width
 			
 			order_by_position()
-
+	
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			bg.sunshine.set_process(true)
@@ -123,29 +137,25 @@ func _process(delta):
 	
 	is_restart = false
 
-func control_speed():
-	acceleration = get_process_delta_time() * 0.05
-	if Global.call_dmg:
-		pass
+func _physics_process(delta):
 	
-	if player.is_on_floor():
-		if is_player_dmg:
-			speed = 0
-			is_player_dmg = false
-		else:
-			speed += acceleration
-	
-	if speed < current_speed * get_process_delta_time():
-		speed += acceleration
-	else:
-		speed = current_speed * get_process_delta_time()
+	pass
+
+func control_speed(delta):
+	print('passou 1 segundo ', speed)
+	get_current_speed(delta)
+	acceleration =  10 * delta
 
 func toggle_pause():
 	get_tree().paused = not get_tree().paused
 
+func get_current_speed(delta):
+	already_get_speed = true
+	current_speed = speed_target * delta
+
 func on_have_damage():
 	is_player_dmg = true
-	speed = current_speed * get_process_delta_time() * -1
+	speed = current_speed * -1
 
 func order_by_position():
 	var n = ground_pieces.size()
@@ -156,8 +166,26 @@ func order_by_position():
 				ground_pieces[j] = ground_pieces[j + 1]
 				ground_pieces[j + 1] = temp
 
+func scenario_change():
+	var texture_path = "res://assets/scenario/" + Global.get_scenario_name(Global.scenario)
+	bg.get_scenario(Global.scenario)
+	fg.get_scenario(Global.scenario)
+	for ground in ground_array:
+		ground.transition_texture(texture_path)
+
 func _on_timer_timeout():
-	pass
+	if player.is_on_floor():
+		if is_player_dmg:
+			print(get_process_delta_time())
+			speed = 0
+			is_player_dmg = false
+		else:
+			if speed < current_speed:
+				is_current_speed = false
+				speed += acceleration
+			else:
+				is_current_speed = true
+				speed = current_speed
 
 func _on_hud_on_pause_action():
 	toggle_pause()
