@@ -45,6 +45,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Top_left" type="MarginContainer" parent="."]
+self_modulate = Color(0.266667, 0.266667, 0.266667, 1)
 offset_right = 69.0
 offset_bottom = 21.0
 
@@ -84,10 +85,25 @@ offset_top = -21.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="HighScoreLabel" type="Label" parent="Bottom_right"]
+[node name="fps" type="Label" parent="Bottom_right"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gvk5n")
+horizontal_alignment = 2
+
+[node name="Bottom_left" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -21.0
+offset_right = 69.0
+grow_vertical = 0
+
+[node name="info" type="Label" parent="Bottom_left"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_gvk5n")
+text = "Versão beta"
 horizontal_alignment = 2
 
 [node name="Top_center" type="MarginContainer" parent="."]
