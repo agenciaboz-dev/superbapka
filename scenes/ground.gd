@@ -7,5 +7,5 @@ extends StaticBody2D
 func get_width():
 	return collision.size.x
 
-func transition_texture(texture_path):
-	ground_sprite.texture = load(texture_path + "/layer3-0.png")
+func transition_texture():
+	ground_sprite.texture = load("res://assets/scenario/" + Global.get_scenario_name(Global.scenario) + "/layer3-0.png")

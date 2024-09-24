@@ -1,8 +1,11 @@
+ParallaxLayer
+Node2D
+Control
+BoxContainer
 TextureRect
 Label
 ParallaxBackground
 Node
-Node2D
 Timer
 Sprite2D
 AnimatedSprite2D
@@ -10,6 +13,3 @@ TouchScreenButton
 HBoxContainer
 VBoxContainer
 MarginContainer
-SubViewport
-SubViewportContainer
-CanvasLayer

@@ -141,7 +141,7 @@ func heal():
 
 func apply_skin():
 	if texture:
-	texture.visible = false
+		texture.visible = false
 	
 	skinid = Global.skin_id
 	
