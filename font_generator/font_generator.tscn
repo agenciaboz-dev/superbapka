@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cykxoowhuq0p4"]
+
+[ext_resource type="FontFile" uid="uid://cxfp1doud3qlr" path="res://assets/fonts/custom_font.fnt" id="1_nog5w"]
+[ext_resource type="Texture2D" uid="uid://bx6gfqqtjpn1d" path="res://assets/fonts/font.png" id="2_ckeaq"]
+[ext_resource type="Script" path="res://font_generator/font_generator.gd" id="2_kkd7s"]
+
+[node name="FontGenerator" type="Label"]
+texture_filter = 1
+texture_repeat = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -924.0
+offset_top = 1.0
+offset_right = 1118.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_nog5w")
+text = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~                                  ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ"
+script = ExtResource("2_kkd7s")
+font_data_json_path = "res://font_generator/custom_font.json"
+
+[node name="Font" type="Sprite2D" parent="."]
+position = Vector2(1119, 24)
+texture = ExtResource("2_ckeaq")

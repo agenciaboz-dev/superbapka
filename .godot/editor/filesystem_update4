@@ -1,9 +1,8 @@
-res://scenes/title_screen.tscn
+res://font_generator/font_generator.tscn
+res://font_generator/font_generator.gd
 res://scenes/collectables/tubs/1l.gd
 res://Scripts/acai.gd
 res://Scripts/ituzinho.gd
 res://Scripts/main.gd
-res://scenes/characters/moreninha.tres
-res://scenes/characters/moreninha_recolor-1.tres
-res://scenes/characters/moreninha_recolor-2.tres
-res://scenes/characters/moreninha_recolor-3.tres
+res://scenes/title_screen.tscn
+res://font_generator/custom_font.json
