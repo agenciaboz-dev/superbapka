@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5es716vjhyof"]
+[gd_scene load_steps=9 format=3 uid="uid://c5es716vjhyof"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_7m711"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/fonts/retro.ttf" id="1_gvk5n"]
 [ext_resource type="Texture2D" uid="uid://5ac012152q1n" path="res://assets/interface/pause.png" id="3_tp4ph"]
 [ext_resource type="Texture2D" uid="uid://cmrt3xoknb7jk" path="res://assets/interface/pause_pressed.png" id="4_lu3ij"]
+[ext_resource type="Texture2D" uid="uid://chs03pp1q6boy" path="res://assets/temp/gameplay game over.png" id="5_4uhmh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8jrle"]
 
@@ -111,6 +112,10 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
+
+[node name="GameplayGameOver" type="Sprite2D" parent="Top_center"]
+position = Vector2(-1.5, 100)
+texture = ExtResource("5_4uhmh")
 
 [node name="pause_button" type="TouchScreenButton" parent="Top_center"]
 z_index = 1

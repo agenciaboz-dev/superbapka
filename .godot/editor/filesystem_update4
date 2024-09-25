@@ -6,3 +6,9 @@ res://Scripts/ituzinho.gd
 res://Scripts/main.gd
 res://scenes/title_screen.tscn
 res://font_generator/custom_font.json
+res://scenes/hud.tscn
+res://scenes/main.tscn
+res://scenes/ground.tscn
+res://scenes/bg.tscn
+res://scenes/fg.tscn
+res://scenes/global.tscn

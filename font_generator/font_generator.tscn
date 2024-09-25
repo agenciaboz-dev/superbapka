@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cykxoowhuq0p4"]
 
-[ext_resource type="FontFile" uid="uid://cxfp1doud3qlr" path="res://assets/fonts/custom_font.fnt" id="1_nog5w"]
-[ext_resource type="Texture2D" uid="uid://bx6gfqqtjpn1d" path="res://assets/fonts/font.png" id="2_ckeaq"]
+[ext_resource type="FontFile" uid="uid://cv76mlfjxyexq" path="res://assets/fonts/bapka_pixel_big.fnt" id="1_nog5w"]
+[ext_resource type="Texture2D" uid="uid://bx6gfqqtjpn1d" path="res://assets/fonts/bapka_pixel_big.png" id="2_ckeaq"]
 [ext_resource type="Script" path="res://font_generator/font_generator.gd" id="2_kkd7s"]
 
 [node name="FontGenerator" type="Label"]

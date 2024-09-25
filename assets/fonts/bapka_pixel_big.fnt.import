@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://cv76mlfjxyexq"
+path="res://.godot/imported/bapka_pixel_big.fnt-0d69a321dd240b02042c849ecb343bc1.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/bapka_pixel_big.fnt"
+dest_files=["res://.godot/imported/bapka_pixel_big.fnt-0d69a321dd240b02042c849ecb343bc1.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2
