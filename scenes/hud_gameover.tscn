@@ -1,0 +1,191 @@
+[gd_scene load_steps=6 format=3 uid="uid://6bc4b3apaswu"]
+
+[ext_resource type="Texture2D" uid="uid://chs03pp1q6boy" path="res://assets/temp/gameplay game over.png" id="2_kfy3v"]
+[ext_resource type="Texture2D" uid="uid://b1lwmlxw2xvp4" path="res://assets/interface/marshmallow_menu.png" id="3_o5rpc"]
+[ext_resource type="FontFile" uid="uid://cv76mlfjxyexq" path="res://assets/fonts/bapka_pixel_big.fnt" id="4_8xmfi"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i6dc0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lecd8"]
+font_size = 13
+
+[node name="HUD_gameover" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameplayGameOver" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(133.5, 100)
+texture = ExtResource("2_kfy3v")
+
+[node name="Center" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.5
+offset_top = -10.5
+offset_right = 34.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title_screen_button" type="TouchScreenButton" parent="Center"]
+modulate = Color(0, 0, 0, 0.2)
+position = Vector2(-12, 47.5)
+scale = Vector2(93, 16)
+texture_normal = SubResource("PlaceholderTexture2D_i6dc0")
+
+[node name="restart_button" type="TouchScreenButton" parent="Center"]
+modulate = Color(0, 0, 0, 0.2)
+position = Vector2(1, 22.5)
+scale = Vector2(65, 15)
+texture_normal = SubResource("PlaceholderTexture2D_i6dc0")
+
+[node name="character_img" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -85.0
+offset_right = 40.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(40, 48)
+
+[node name="TextureRect" type="TextureRect" parent="character_img"]
+layout_mode = 2
+texture = ExtResource("3_o5rpc")
+
+[node name="gameover txt" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -11.0
+offset_right = 44.5
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="game_over_msg" type="Label" parent="gameover txt"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8xmfi")
+text = "Você Derreteu..."
+label_settings = SubResource("LabelSettings_lecd8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="game_info" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = 7.0
+offset_right = -27.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="distance_msg" type="Label" parent="game_info"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8xmfi")
+text = "Distancia: "
+label_settings = SubResource("LabelSettings_lecd8")
+vertical_alignment = 1
+
+[node name="restart_txt" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = 13.0
+offset_right = 29.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="restart_msg" type="Label" parent="restart_txt"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8xmfi")
+text = "Recomeçar"
+label_settings = SubResource("LabelSettings_lecd8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="title_screen_txt" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = 39.0
+offset_right = 42.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title_screen_msg" type="Label" parent="title_screen_txt"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8xmfi")
+text = "Voltar ao Menu"
+label_settings = SubResource("LabelSettings_lecd8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="distance_value_msg" type="Label" parent="."]
+visible = false
+offset_left = 74.0
+offset_top = 97.0
+offset_right = 129.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("4_8xmfi")
+label_settings = SubResource("LabelSettings_lecd8")
+vertical_alignment = 1
+
+[node name="coins_msg" type="Label" parent="."]
+visible = false
+offset_left = 134.0
+offset_top = 97.0
+offset_right = 183.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("4_8xmfi")
+text = "Moedas: "
+label_settings = SubResource("LabelSettings_lecd8")
+vertical_alignment = 1
+
+[node name="coins_value_msg" type="Label" parent="."]
+visible = false
+offset_left = 184.0
+offset_top = 97.0
+offset_right = 233.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("4_8xmfi")
+label_settings = SubResource("LabelSettings_lecd8")
+vertical_alignment = 1

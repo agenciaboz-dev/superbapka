@@ -25,7 +25,6 @@ var is_overheal : bool
 var player_path : String
 var player_x : int
 var skin_id : int
-var start_msg : String
 var current_scenario_id := 0
 var array_id : Array[int]
 var array_id_selected : Array[int]

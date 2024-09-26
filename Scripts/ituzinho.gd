@@ -3,6 +3,10 @@ extends CharacterBody2D
 signal is_damage
 
 @onready var timer := $Timer as Timer
+@onready var jump_sfx := $jump_sfx as AudioStreamPlayer
+@onready var dead_sfx := $dead_sfx as AudioStreamPlayer
+@onready var heal_sfx := $heal_sfx as AudioStreamPlayer
+@onready var dmg_sfx := $dmg_sfx as AudioStreamPlayer
 
 const GRAVITY : int = 1500
 const JUMP_SPEED : int = -450
@@ -34,6 +38,7 @@ var is_damage_boost := false
 var is_on_ground := false
 var is_knockback := false
 var is_timer_stop := false
+var audio_played := false
 
 func _ready():
 	apply_skin()
@@ -41,11 +46,15 @@ func _ready():
 	Global.is_alive = true
 	hp = INITIAL_HP
 	state = INITIAL_STATE
+	
 
 func _physics_process(delta):
 	is_on_ground = is_on_floor()
 
 	if not Global.is_alive:
+		if not audio_played:
+			dead_sfx.play()
+			audio_played = true
 		hp = 0
 		animation_name = "s0"
 	else:
@@ -117,6 +126,8 @@ func is_player_dead():
 func get_dmg():
 	is_knockback = true
 	velocity.y = -350
+	
+	dmg_sfx.play()
 	is_damage.emit()
 	
 	Global.call_dmg = false  # Resetar após o hit
@@ -128,6 +139,7 @@ func action_move(jump):
 			animation_name = "s" + str(state) + "_run"
 			
 			if is_jump or jump:
+				jump_sfx.play()
 				velocity.y = JUMP_SPEED
 		
 		else:
@@ -155,7 +167,7 @@ func heal():
 	if mark_overheal and hp < MAX_HP:
 		mark_overheal = false
 	
-	print("heal: ", Global.player_heal)
+	heal_sfx.play()
 	Global.player_heal = 0
 	Global.is_overheal = false
 

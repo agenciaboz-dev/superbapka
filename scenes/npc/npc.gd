@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var animation := $Animation as AnimatedSprite2D
+@onready var coin_sfx := $coin_sfx as AudioStreamPlayer
 var is_passed := false
 var delta_time
 
@@ -22,8 +23,10 @@ func _on_body_entered(body):
 	tween.tween_property($Coin, "modulate:a", 0.0 , 0.3)
 	
 	if not animation.frame == 2:
+		coin_sfx.play()
 		Global.collected_coins += 1
 	animation.frame = 2
+	
 	
 	print("coins: ", Global.collected_coins)
 	#has_obst = true

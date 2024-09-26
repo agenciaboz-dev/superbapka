@@ -46,9 +46,10 @@ offset = Vector2(210, 100)
 ignore_rotation = false
 
 [node name="Obst_Spawner" parent="." instance=ExtResource("8_p4e1o")]
-position = Vector2(613, 165)
+position = Vector2(613, 173)
 
 [node name="Item_Spawner" parent="." instance=ExtResource("9_ygda1")]
+position = Vector2(480, 109)
 
 [node name="Npc_Spawner" parent="." instance=ExtResource("9_perqw")]
 position = Vector2(548, 165)

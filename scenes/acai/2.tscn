@@ -1,25 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3fjfah50xo8c"]
+[gd_scene load_steps=3 format=3 uid="uid://d3fjfah50xo8c"]
 
 [ext_resource type="Script" path="res://scenes/acai/2.gd" id="1_bm1ql"]
-[ext_resource type="Texture2D" uid="uid://cv12b3f1en8qe" path="res://assets/items/fruit1.png" id="1_qny8f"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3v3k"]
-radius = 8.0
+[ext_resource type="Texture2D" uid="uid://bqs6twfktpnkh" path="res://assets/obstacle/rock2.png" id="2_qrtcp"]
 
 [node name="Kiwi" type="Area2D" groups=["dmg"]]
 z_index = 5
-position = Vector2(15, -8)
 collision_layer = 4
 collision_mask = 33
 script = ExtResource("1_bm1ql")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["dmg"]]
 texture_filter = 1
-texture = ExtResource("1_qny8f")
+texture = ExtResource("2_qrtcp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dmg"]]
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_q3v3k")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.993421, 1)
+build_mode = 1
+polygon = PackedVector2Array(-3.01987, -16, 7.04636, -15, 14.3139, -4, 17.3338, 7, 15.3205, 16, -15, 16, -20.1325, 5, -18.1192, 0, -8.83841, -2)
+
+[node name="Height_marker" type="RayCast2D" parent="."]
+position = Vector2(0, 15)
+target_position = Vector2(0, -28)
+collide_with_bodies = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

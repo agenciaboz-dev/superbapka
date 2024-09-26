@@ -1,16 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://chssomw0uopam"]
+[gd_scene load_steps=11 format=3 uid="uid://chssomw0uopam"]
 
 [ext_resource type="Script" path="res://Scripts/ituzinho.gd" id="1_ffiio"]
 [ext_resource type="SpriteFrames" uid="uid://bvdi5cfn7y1u2" path="res://scenes/characters/moreninha.tres" id="3_8fbxm"]
 [ext_resource type="SpriteFrames" uid="uid://b6gjh21emsina" path="res://scenes/characters/moreninha_recolor-1.tres" id="4_bcnog"]
 [ext_resource type="SpriteFrames" uid="uid://clc6jfo61jl7g" path="res://scenes/characters/moreninha_recolor-2.tres" id="5_7p1mk"]
+[ext_resource type="AudioStream" uid="uid://bxxatp6gyabma" path="res://assets/sfx/jump.mp3" id="6_tl5vy"]
 [ext_resource type="SpriteFrames" uid="uid://dk73is0k2u2" path="res://scenes/characters/moreninha_recolor-3.tres" id="6_ureo0"]
+[ext_resource type="AudioStream" uid="uid://bfb6tqywvg0rf" path="res://assets/sfx/dead.mp3" id="7_wdpoa"]
+[ext_resource type="AudioStream" uid="uid://cvxu7fieradmp" path="res://assets/sfx/heal.mp3" id="8_xnj45"]
+[ext_resource type="AudioStream" uid="uid://ds30dditwr4ff" path="res://assets/sfx/melting.mp3" id="9_823eb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k2qmv"]
 radius = 7.0
 height = 36.0
 
 [node name="ituzinho" type="CharacterBody2D"]
+z_index = 6
 texture_filter = 1
 collision_mask = 2
 script = ExtResource("1_ffiio")
@@ -26,14 +31,15 @@ visible = false
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("3_8fbxm")
-animation = &"s5_hurt"
+animation = &"initial"
+autoplay = "initial"
 
 [node name="Skin_recolor" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("4_bcnog")
-animation = &"s5_hurt"
+animation = &"initial"
 autoplay = "initial"
 
 [node name="Skin_recolor2" type="AnimatedSprite2D" parent="."]
@@ -41,7 +47,7 @@ visible = false
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("5_7p1mk")
-animation = &"s5_hurt"
+animation = &"initial"
 autoplay = "initial"
 
 [node name="Skin_recolor3" type="AnimatedSprite2D" parent="."]
@@ -50,7 +56,24 @@ z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("6_ureo0")
 animation = &"initial"
+autoplay = "initial"
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="jump_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_tl5vy")
+volume_db = -15.0
+
+[node name="dead_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wdpoa")
+volume_db = -15.0
+
+[node name="heal_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xnj45")
+volume_db = -15.0
+
+[node name="dmg_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_823eb")
+volume_db = -15.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

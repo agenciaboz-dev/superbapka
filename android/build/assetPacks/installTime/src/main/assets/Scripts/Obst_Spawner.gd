@@ -38,7 +38,7 @@ func spawn_obstacle():
 			var obst = obstacle_object.instantiate()
 			
 			# Calcular a posição y com base no chão e altura do obstáculo
-			var obst_size = obst.get_node("Sprite2D").texture.get_size()
+			var obst_size = obst.get_node("Height_marker").target_position
 			var obst_scale = obst.get_node("Sprite2D").scale
 			var sprite_height = obst.get_node("Sprite2D").texture.get_height()
 			
@@ -47,7 +47,7 @@ func spawn_obstacle():
 			
 			if not has_item:
 				# Defina a posição do obstáculo
-				obst.position = Vector2i(self.position.x * i + overposition_x + last_obst_x * i, self.position.y - obst_size.y)
+				obst.position = Vector2i(self.position.x * i + overposition_x + last_obst_x * i, self.position.y + obst_size.y)
 				obst.body_entered.connect(_on_body_entered) 
 				get_parent().add_child(obst)
 				obstacles.append(obst)
@@ -76,8 +76,6 @@ func _on_timer_timeout():
 #	print("item_x ",Global.item_last_x)
 	#print("self.position: ", self.position)
 	pass # Replace with function body.
-
-	
 
 func _on_item_spawner_body_exited(body):
 	print("saiu")

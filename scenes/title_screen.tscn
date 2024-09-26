@@ -147,6 +147,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Node2D" type="Node2D" parent="MarginContainer/BoxContainer/HBoxContainer/VBoxContainer2"]
+visible = false
 position = Vector2(69.5, -49)
 
 [node name="Label2" type="Label" parent="MarginContainer/BoxContainer/HBoxContainer/VBoxContainer2/Node2D"]

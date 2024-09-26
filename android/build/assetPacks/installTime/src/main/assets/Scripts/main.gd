@@ -15,7 +15,7 @@ extends Node
 #constants
 const PLAYER_START_POS := Vector2(125, 80)
 const CAM_START_POS := Vector2(0, 0)
-const START_SPEED  := 250
+const START_SPEED  := 150
 const MAX_SPEED := 300
 
 #variables
@@ -50,10 +50,9 @@ var already_get_speed := false
 func _ready():
 	timer.start()
 	
-	Global.start_msg = "Toque para iniciar"
 	Global.score = 0
 	Global.collected_coins = 0
-	Global.skin_id = 3
+	Global.skin_id = randi_range(1 , 4)
 	is_restart = false
 	
 	scenario_number = Global.get_scenario_number()
@@ -81,6 +80,10 @@ func _ready():
 	new_game()
 
 func new_game():
+	
+	for ground in ground_pieces:
+		ground.transition_texture()
+	
 	speed_target = START_SPEED
 	player.position = PLAYER_START_POS
 	player.velocity = Vector2(0, 0)
@@ -92,10 +95,10 @@ func new_game():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_left"):
-		Global.skin_id +=1
-		print("skin_id: ", Global.skin_id)
+		
+		print("skin_id: ", )
 	if Input.is_action_just_pressed("ui_right"):
-		Global.skin_id -=1
+		
 		print("skin_id: ", Global.skin_id)
 	
 	if Input.is_action_just_pressed("ui_page_up"):
@@ -105,12 +108,10 @@ func _process(delta):
 	
 	if Global.game_running:
 		if not Global.is_alive:
-			Global.start_msg = "Toque para reiniciar"
 			Global.game_running = false
 			if Input.is_action_pressed("ui_accept"):
 				get_tree().reload_current_scene()
 		else:
-			Global.start_msg = ""
 			player.set_physics_process(true)
 			
 			control_speed(delta)
@@ -131,18 +132,13 @@ func _process(delta):
 			order_by_position()
 	
 	else:
+		bg.sunshine.set_process(false)
 		if Input.is_action_just_pressed("ui_accept"):
-			bg.sunshine.set_process(true)
 			Global.game_running = true
 	
 	is_restart = false
 
-func _physics_process(delta):
-	
-	pass
-
 func control_speed(delta):
-	print('passou 1 segundo ', speed)
 	get_current_speed(delta)
 	acceleration =  10 * delta
 
@@ -165,18 +161,16 @@ func order_by_position():
 				var temp = ground_pieces[j]
 				ground_pieces[j] = ground_pieces[j + 1]
 				ground_pieces[j + 1] = temp
+				ground_pieces[j + 1].transition_texture()
 
 func scenario_change():
 	var texture_path = "res://assets/scenario/" + Global.get_scenario_name(Global.scenario)
 	bg.get_scenario(Global.scenario)
 	fg.get_scenario(Global.scenario)
-	for ground in ground_array:
-		ground.transition_texture(texture_path)
 
 func _on_timer_timeout():
 	if player.is_on_floor():
 		if is_player_dmg:
-			print(get_process_delta_time())
 			speed = 0
 			is_player_dmg = false
 		else:
