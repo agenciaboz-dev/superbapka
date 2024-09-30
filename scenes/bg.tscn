@@ -365,6 +365,7 @@ position = Vector2(159, 142)
 texture = ExtResource("46_8ouby")
 
 [node name="Layer-1,2" type="ParallaxLayer" parent="premium"]
+position = Vector2(0, 5)
 motion_scale = Vector2(0.053, 1)
 motion_mirroring = Vector2(430, 0)
 script = ExtResource("9_ihuh8")
@@ -375,6 +376,7 @@ position = Vector2(370, 138)
 texture = ExtResource("47_wb4to")
 
 [node name="Layer-1,3" type="ParallaxLayer" parent="premium"]
+position = Vector2(0, 6)
 motion_scale = Vector2(0.059, 1)
 motion_mirroring = Vector2(430, 0)
 script = ExtResource("11_qrmn3")
@@ -385,6 +387,7 @@ position = Vector2(61, 137)
 texture = ExtResource("48_q53ci")
 
 [node name="Layer-1,4" type="ParallaxLayer" parent="premium"]
+position = Vector2(0, 7)
 motion_scale = Vector2(0.062, 1)
 motion_mirroring = Vector2(430, 0)
 script = ExtResource("13_wecdr")
@@ -395,7 +398,6 @@ position = Vector2(260, 137)
 texture = ExtResource("49_g1iog")
 
 [node name="Layer-2" type="ParallaxLayer" parent="premium"]
-visible = false
 position = Vector2(24, 32)
 motion_scale = Vector2(0.7, 1)
 motion_mirroring = Vector2(430, 0)

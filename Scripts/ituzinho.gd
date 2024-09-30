@@ -7,6 +7,7 @@ signal is_damage
 @onready var dead_sfx := $dead_sfx as AudioStreamPlayer
 @onready var heal_sfx := $heal_sfx as AudioStreamPlayer
 @onready var dmg_sfx := $dmg_sfx as AudioStreamPlayer
+@onready var anim_player := $Anim_player as AnimationPlayer
 
 const GRAVITY : int = 1500
 const JUMP_SPEED : int = -450
@@ -49,6 +50,7 @@ func _ready():
 	
 
 func _physics_process(delta):
+	print(timer.time_left)
 	is_on_ground = is_on_floor()
 
 	if not Global.is_alive:
@@ -65,6 +67,8 @@ func _physics_process(delta):
 	if is_knockback:
 		if is_on_ground:
 			hp -= 25
+			if hp > 0:
+				anim_player.play("Blink")
 			is_knockback = false
 	
 	if Global.player_heal > 0:
@@ -87,7 +91,7 @@ func _physics_process(delta):
 	
 	action_move(false)
 	
-	texture.play(animation_name)
+	play_animation()
 	move_and_slide()
 	
 	if skinid != Global.skin_id:
@@ -129,9 +133,9 @@ func get_dmg():
 	
 	dmg_sfx.play()
 	is_damage.emit()
+	dmg_boost()  # Ativa o damage boost
 	
 	Global.call_dmg = false  # Resetar após o hit
-	dmg_boost()  # Ativa o damage boost
 
 func action_move(jump):
 	if Global.is_alive:
@@ -147,6 +151,8 @@ func action_move(jump):
 		
 		if is_knockback:
 			animation_name = "s" + str(state) + "_hurt"
+	else:
+		anim_player.stop(false)
 	
 	is_jump = false
 
@@ -177,6 +183,9 @@ func apply_skin():
 	
 	skinid = Global.skin_id
 	
+	if not skinid:
+		skinid = randi_range(1,4)
+	
 	if skinid == 1:
 		texture = $Skin_default
 	elif skinid == 2:
@@ -186,19 +195,26 @@ func apply_skin():
 	elif skinid == 4:
 		texture = $Skin_recolor3
 	
+	
 	texture.visible = true
 	
 	texture.connect("animation_finished", Callable(self, "_on_animation_finished"))
 	
 	pass
 
+func play_animation():
+	texture.speed_scale
+	texture.play(animation_name)
+
 func dmg_boost():
 	if not is_damage_boost:  # Apenas ativa o boost se não estiver ativo
+		
 		is_damage_boost = true
 		timer.start(2.0)  # Inicia o timer de 2 segundos para invulnerabilidade
 
 func _on_timer_timeout():
 	if is_damage_boost:
 		is_damage_boost = false  # Desativa o damage boost
+		anim_player.stop(false)
 		timer.stop()
 	pass

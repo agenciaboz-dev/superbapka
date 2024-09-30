@@ -180,6 +180,8 @@ func _on_timer_timeout():
 			else:
 				is_current_speed = true
 				speed = current_speed
+	else:
+		pass
 
 func _on_hud_on_pause_action():
 	toggle_pause()

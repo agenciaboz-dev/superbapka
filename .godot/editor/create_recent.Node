@@ -1,3 +1,5 @@
+AnimationPlayer
+Sprite2D
 AudioStreamPlayer
 AudioStreamPlayer2D
 RayCast2D
@@ -10,6 +12,3 @@ Node
 Node2D
 PanelContainer
 Container
-LightOccluder2D
-TextureRect
-ParallaxLayer

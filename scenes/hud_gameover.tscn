@@ -161,6 +161,7 @@ vertical_alignment = 1
 
 [node name="distance_value_msg" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 74.0
 offset_top = 97.0
 offset_right = 129.0
@@ -171,6 +172,7 @@ vertical_alignment = 1
 
 [node name="coins_msg" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 134.0
 offset_top = 97.0
 offset_right = 183.0
@@ -182,6 +184,7 @@ vertical_alignment = 1
 
 [node name="coins_value_msg" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 184.0
 offset_top = 97.0
 offset_right = 233.0
