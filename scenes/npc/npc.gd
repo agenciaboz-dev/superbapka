@@ -25,9 +25,8 @@ func _on_body_entered(body):
 	if not animation.frame == 2:
 		coin_sfx.play()
 		Global.collected_coins += 1
+	
 	animation.frame = 2
 	
-	
-	print("coins: ", Global.collected_coins)
 	#has_obst = true
 	pass # Replace with function body.

@@ -3,8 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Obst_Spawner.gd" id="1_xkioc"]
 [ext_resource type="Texture2D" uid="uid://vp7mgu6nd1rm" path="res://assets/scenario/paleta/layer0-0.png" id="2_52vu7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk05s"]
-size = Vector2(52.5, 24.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtxri"]
 
 [node name="Obst_Spawner" type="Area2D"]
 position = Vector2(534, 165)
@@ -17,7 +16,7 @@ position = Vector2(0, -13)
 texture = ExtResource("2_52vu7")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(1.75, -24.75)
-shape = SubResource("RectangleShape2D_uk05s")
+position = Vector2(2, -12)
+shape = SubResource("RectangleShape2D_wtxri")
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

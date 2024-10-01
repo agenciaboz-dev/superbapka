@@ -74,15 +74,16 @@ visible = false
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("3_8fbxm")
-animation = &"initial"
+animation = &"s5_jump"
 autoplay = "initial"
+frame_progress = 0.340404
 
 [node name="Skin_recolor" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("4_bcnog")
-animation = &"initial"
+animation = &"s5_jump"
 autoplay = "initial"
 
 [node name="Skin_recolor2" type="AnimatedSprite2D" parent="."]
@@ -90,7 +91,7 @@ visible = false
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("5_7p1mk")
-animation = &"initial"
+animation = &"s5_jump"
 autoplay = "initial"
 
 [node name="Skin_recolor3" type="AnimatedSprite2D" parent="."]
@@ -98,7 +99,7 @@ visible = false
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("6_ureo0")
-animation = &"initial"
+animation = &"s5_jump"
 autoplay = "initial"
 
 [node name="Timer" type="Timer" parent="."]

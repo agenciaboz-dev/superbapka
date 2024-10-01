@@ -50,7 +50,6 @@ func _ready():
 	
 
 func _physics_process(delta):
-	print(timer.time_left)
 	is_on_ground = is_on_floor()
 
 	if not Global.is_alive:

@@ -42,8 +42,8 @@ func spawn_obstacle():
 			var obst_scale = obst.get_node("Sprite2D").scale
 			var sprite_height = obst.get_node("Sprite2D").texture.get_height()
 			
-			if obstacles.size() >= 10:
-				unload_oldest_node()
+			#if obstacles.size() >= 10:
+				#unload_oldest_node()
 			
 			if not has_item:
 				# Defina a posição do obstáculo

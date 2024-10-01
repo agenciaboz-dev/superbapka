@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqs6twfktpnkh" path="res://assets/obstacle/rock2.png" id="2_qrtcp"]
 
 [node name="Kiwi" type="Area2D" groups=["dmg"]]
-z_index = 5
+z_index = 6
 collision_layer = 4
 collision_mask = 33
 script = ExtResource("1_bm1ql")
