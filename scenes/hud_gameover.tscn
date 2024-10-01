@@ -10,6 +10,7 @@
 font_size = 13
 
 [node name="HUD_gameover" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

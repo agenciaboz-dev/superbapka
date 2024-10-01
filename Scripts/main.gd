@@ -39,7 +39,6 @@ var scenario_number := -1
 var last_updated:= 0.0
 var acceleration_count : float
 var knockback_force := 0.0
-var delta_value := 0.0
 
 #arrays
 var ground_pieces = []
@@ -97,8 +96,6 @@ func new_game():
 	speed = 0
 
 func _process(delta):
-	delta_value = delta
-	print(delta)
 	if Input.is_action_just_pressed("ui_left"):
 		
 		print("skin_id: ", )
@@ -188,8 +185,3 @@ func _on_speed_up_timer_timeout():
 			is_player_dmg = false
 	else:
 		speed = move_toward(speed, current_speed, acceleration)
-
-	#print("current_speed convertido: ", current_speed)
-	#print("current_speed normal: ", current_speed / delta_value)
-	#print("speed: ", speed)
-	#print("speed normal: ", speed / delta_value)

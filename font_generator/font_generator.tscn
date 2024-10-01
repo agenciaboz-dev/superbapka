@@ -19,7 +19,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_nog5w")
 text = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~                                  ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ"
 script = ExtResource("2_kkd7s")
-font_data_json_path = "res://font_generator/custom_font.json"
+font_data_json_path = "res://font_generator/bapka_pixel_small.json"
 
 [node name="Font" type="Sprite2D" parent="."]
 position = Vector2(1119, 24)

@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5es716vjhyof"]
+[gd_scene load_steps=13 format=3 uid="uid://c5es716vjhyof"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_7m711"]
+[ext_resource type="Texture2D" uid="uid://811jbla0w21y" path="res://assets/temp/gameplay.png" id="3_5gg2f"]
 [ext_resource type="FontFile" uid="uid://cv76mlfjxyexq" path="res://assets/fonts/bapka_pixel_big.fnt" id="3_8sjin"]
 [ext_resource type="Texture2D" uid="uid://5ac012152q1n" path="res://assets/interface/pause.png" id="3_tp4ph"]
-[ext_resource type="Texture2D" uid="uid://b1lwmlxw2xvp4" path="res://assets/interface/marshmallow_menu.png" id="3_uwlj2"]
 [ext_resource type="Texture2D" uid="uid://cmrt3xoknb7jk" path="res://assets/interface/pause_pressed.png" id="4_lu3ij"]
 [ext_resource type="Texture2D" uid="uid://chs03pp1q6boy" path="res://assets/temp/gameplay game over.png" id="5_4uhmh"]
+[ext_resource type="Texture2D" uid="uid://buiblh5orhwiv" path="res://assets/interface/premium_button.png" id="6_6fgcr"]
+[ext_resource type="Texture2D" uid="uid://1wi088wgpt0s" path="res://assets/interface/premium_button_pressed.png" id="7_qxonm"]
+[ext_resource type="Texture2D" uid="uid://bl5ekim0q0csl" path="res://assets/interface/marshmallow_gameover.png" id="9_wia48"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8jrle"]
 
@@ -24,6 +27,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -21.0
 offset_right = 83.0
+offset_bottom = -7.0
 grow_vertical = 0
 
 [node name="info" type="Label" parent="Bottom_left"]
@@ -33,58 +37,93 @@ theme_override_fonts/font = ExtResource("3_8sjin")
 text = "Versão beta"
 horizontal_alignment = 2
 
-[node name="Top_right" type="MarginContainer" parent="."]
+[node name="HUD_gameplay" type="CanvasLayer" parent="."]
+
+[node name="Gameplay-mockup" type="Sprite2D" parent="HUD_gameplay"]
+position = Vector2(133.5, 100)
+texture = ExtResource("3_5gg2f")
+
+[node name="Coin_lbl_control" type="MarginContainer" parent="HUD_gameplay"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -69.0
-offset_bottom = 21.0
+offset_left = -132.0
+offset_top = 19.0
+offset_right = -75.0
+offset_bottom = 33.0
 grow_horizontal = 0
 
-[node name="HighScoreLabel" type="Label" parent="Top_right"]
+[node name="HighScoreLabel" type="Label" parent="HUD_gameplay/Coin_lbl_control"]
+visible = false
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_8sjin")
 horizontal_alignment = 2
 
-[node name="CoinLabel" type="Label" parent="Top_right"]
+[node name="CoinLabel" type="Label" parent="HUD_gameplay/Coin_lbl_control"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_8sjin")
 horizontal_alignment = 2
 
-[node name="Top_left" type="MarginContainer" parent="."]
+[node name="Score_lbl_control" type="MarginContainer" parent="HUD_gameplay"]
 self_modulate = Color(0.266667, 0.266667, 0.266667, 1)
-offset_right = 69.0
-offset_bottom = 21.0
-
-[node name="ScoreLabel" type="Label" parent="Top_left"]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_8sjin")
-
-[node name="HUD_gameplay" type="CanvasLayer" parent="."]
-
-[node name="Top_center" type="MarginContainer" parent="HUD_gameplay"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
+offset_left = -57.5
+offset_top = 19.0
+offset_right = -0.5
+offset_bottom = 33.0
 grow_horizontal = 2
 
-[node name="pause_button" type="TouchScreenButton" parent="HUD_gameplay/Top_center"]
+[node name="ScoreLabel" type="Label" parent="HUD_gameplay/Score_lbl_control"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8sjin")
+
+[node name="Pause_btn_ctrl" type="MarginContainer" parent="HUD_gameplay"]
+offset_left = 36.0
+offset_top = 20.0
+offset_right = 36.0
+offset_bottom = 20.0
+
+[node name="pause_button" type="TouchScreenButton" parent="HUD_gameplay/Pause_btn_ctrl"]
 z_index = 1
 position = Vector2(-18, 0)
 texture_normal = ExtResource("3_tp4ph")
 action = "ui_cancel"
 
-[node name="unpause_button" type="TouchScreenButton" parent="HUD_gameplay/Top_center"]
+[node name="unpause_button" type="TouchScreenButton" parent="HUD_gameplay/Pause_btn_ctrl"]
 visible = false
 z_index = 1
 position = Vector2(-18, 0)
 texture_normal = ExtResource("4_lu3ij")
 action = "ui_cancel"
 
+[node name="Premium_btn_ctrl" type="MarginContainer" parent="HUD_gameplay"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -34.0
+offset_top = 20.0
+offset_right = -34.0
+offset_bottom = 20.0
+grow_horizontal = 0
+
+[node name="premium_button" type="TouchScreenButton" parent="HUD_gameplay/Premium_btn_ctrl"]
+z_index = 1
+position = Vector2(-18, 0)
+texture_normal = ExtResource("6_6fgcr")
+
+[node name="premium_button_press" type="TouchScreenButton" parent="HUD_gameplay/Premium_btn_ctrl"]
+visible = false
+z_index = 1
+position = Vector2(-18, 0)
+texture_normal = ExtResource("7_qxonm")
+
 [node name="Bottom_right" type="MarginContainer" parent="HUD_gameplay"]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -102,6 +141,7 @@ theme_override_fonts/font = ExtResource("3_8sjin")
 horizontal_alignment = 2
 
 [node name="Center" type="MarginContainer" parent="HUD_gameplay"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -134,7 +174,7 @@ autowrap_mode = 2
 [node name="HUD_gameover" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="GameplayGameOver" type="Sprite2D" parent="HUD_gameover"]
+[node name="GameOver-mockup" type="Sprite2D" parent="HUD_gameover"]
 visible = false
 position = Vector2(133.5, 100)
 texture = ExtResource("5_4uhmh")
@@ -182,7 +222,7 @@ pivot_offset = Vector2(40, 48)
 
 [node name="TextureRect" type="TextureRect" parent="HUD_gameover/character_img"]
 layout_mode = 2
-texture = ExtResource("3_uwlj2")
+texture = ExtResource("9_wia48")
 
 [node name="gameover txt" type="MarginContainer" parent="HUD_gameover"]
 anchors_preset = 8
@@ -300,7 +340,9 @@ theme_override_fonts/font = ExtResource("3_8sjin")
 label_settings = SubResource("LabelSettings_4uqfb")
 vertical_alignment = 1
 
-[connection signal="pressed" from="HUD_gameplay/Top_center/pause_button" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="HUD_gameplay/Top_center/unpause_button" to="." method="_on_unpause_button_pressed"]
+[connection signal="pressed" from="HUD_gameplay/Pause_btn_ctrl/pause_button" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="HUD_gameplay/Pause_btn_ctrl/unpause_button" to="." method="_on_unpause_button_pressed"]
+[connection signal="pressed" from="HUD_gameplay/Premium_btn_ctrl/premium_button" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="HUD_gameplay/Premium_btn_ctrl/premium_button_press" to="." method="_on_unpause_button_pressed"]
 [connection signal="released" from="HUD_gameover/Center/title_screen_button" to="." method="_on_title_screen_button_released"]
 [connection signal="released" from="HUD_gameover/Center/restart_button" to="." method="_on_restart_button_released"]

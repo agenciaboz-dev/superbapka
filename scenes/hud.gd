@@ -2,11 +2,11 @@ extends CanvasLayer
 
 signal on_pause_action
 
-@onready var pause_btn := $HUD_gameplay/Top_center/pause_button as TouchScreenButton
-@onready var unpause_btn := $HUD_gameplay/Top_center/unpause_button as TouchScreenButton
-@onready var coin_lbl := $Top_right/CoinLabel as Label
-@onready var score_lbl := $Top_left/ScoreLabel as Label
-@onready var gameinfo_lbl := $HUD_gameplay/Center/Game_Info_Label as Label
+@onready var pause_btn := $HUD_gameplay/Pause_btn_ctrl/pause_button as TouchScreenButton
+@onready var unpause_btn := $HUD_gameplay/Pause_btn_ctrl/unpause_button as TouchScreenButton
+@onready var coin_lbl := $HUD_gameplay/Coin_lbl_control/CoinLabel as Label
+@onready var score_lbl := $HUD_gameplay/Score_lbl_control/ScoreLabel as Label
+@onready var gameinfo_lbl := $Bottom_left/info as Label
 
 func _ready():
 	unpause_btn.visible = false
