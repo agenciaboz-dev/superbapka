@@ -45,10 +45,10 @@ func spawn_item():
 			oldest_node = obstacles.pop_front()
 			# Calcular a posição y com base no chão e altura do obstáculo
 			
-			if oldest_node:
-				if obstacles.size() > 4:
-					print(obstacles)
-					unload_oldest_node()
+			#if oldest_node:
+				#if obstacles.size() > 4:
+					#print(obstacles)
+					#unload_oldest_node()
 			
 			# Defina a posição do obstáculo
 			obst.position = Vector2i(self.position.x * i + min_distance + last_obst_x * i, self.position.y -25)

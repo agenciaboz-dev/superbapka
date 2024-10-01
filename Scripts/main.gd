@@ -1,7 +1,7 @@
 extends Node
 
 #instancied objects
-@onready var timer := $Timer as Timer
+@onready var speedup_timer := $Speed_up_timer as Timer
 @onready var ground_array := [$Ground1, $Ground2, $Ground3] as Array[StaticBody2D]
 @onready var player : CharacterBody2D
 @onready var bg := $Bg as ParallaxBackground
@@ -11,12 +11,13 @@ extends Node
 @onready var obst_spawner := $Obst_Spawner as Area2D
 @onready var item_spawner := $Item_Spawner as Area2D 
 @onready var npc_spawner := $Npc_Spawner as Area2D
+@onready var despawner := $Despawner as Area2D
 
 #constants
 const PLAYER_START_POS := Vector2(125, 80)
 const CAM_START_POS := Vector2(0, 0)
 const START_SPEED  := 150
-const MAX_SPEED := 300
+const MAX_SPEED := 150
 
 #variables
 var speed : float
@@ -37,6 +38,8 @@ var is_player_dmg := false
 var scenario_number := -1
 var last_updated:= 0.0
 var acceleration_count : float
+var knockback_force := 0.0
+var delta_value := 0.0
 
 #arrays
 var ground_pieces = []
@@ -48,7 +51,7 @@ var is_current_speed := false
 var already_get_speed := false
 
 func _ready():
-	timer.start()
+	speedup_timer.start()
 	
 	Global.score = 0
 	Global.collected_coins = 0
@@ -94,6 +97,8 @@ func new_game():
 	speed = 0
 
 func _process(delta):
+	delta_value = delta
+	print(delta)
 	if Input.is_action_just_pressed("ui_left"):
 		
 		print("skin_id: ", )
@@ -107,10 +112,12 @@ func _process(delta):
 		scenario_change()
 	
 	if Global.game_running:
+		
 		if not Global.is_alive:
 			Global.game_running = false
 			if Input.is_action_pressed("ui_accept"):
 				get_tree().reload_current_scene()
+		
 		else:
 			player.set_physics_process(true)
 			
@@ -119,11 +126,12 @@ func _process(delta):
 			camera_x = cam.position.x
 			player.position.x += speed
 			cam.position.x += speed
+			despawner.position.x += speed
 			obst_spawner.position.x += speed
 			item_spawner.position.x += speed
 			npc_spawner.position.x += speed
-			Global.player_x = player.position.x
 			
+			Global.player_x = player.position.x
 			Global.score += speed / 30
 			
 			if camera_x - ground_pieces[1].position.x > Global.ground_width:
@@ -133,25 +141,26 @@ func _process(delta):
 	
 	else:
 		bg.sunshine.set_process(false)
+		
 		if Input.is_action_just_pressed("ui_accept"):
 			Global.game_running = true
 	
 	is_restart = false
 
 func control_speed(delta):
-	get_current_speed(delta)
+	knockback_force = -100 * delta
+	current_speed = get_current_speed(delta)
 	acceleration =  10 * delta
 
 func toggle_pause():
 	get_tree().paused = not get_tree().paused
 
 func get_current_speed(delta):
-	already_get_speed = true
-	current_speed = speed_target * delta
+	return speed_target * delta
 
 func on_have_damage():
 	is_player_dmg = true
-	speed = current_speed * -1
+	speed = knockback_force
 
 func order_by_position():
 	var n = ground_pieces.size()
@@ -168,21 +177,19 @@ func scenario_change():
 	bg.get_scenario(Global.scenario)
 	fg.get_scenario(Global.scenario)
 
-func _on_timer_timeout():
-	if player.is_on_floor():
-		if is_player_dmg:
-			speed = 0
-			is_player_dmg = false
-		else:
-			if speed < current_speed:
-				is_current_speed = false
-				speed += acceleration
-			else:
-				is_current_speed = true
-				speed = current_speed
-	else:
-		pass
-
 func _on_hud_on_pause_action():
 	toggle_pause()
 	pass # Replace with function body.
+
+func _on_speed_up_timer_timeout():
+	if is_player_dmg:
+		if player.is_on_floor():
+			speed = 0
+			is_player_dmg = false
+	else:
+		speed = move_toward(speed, current_speed, acceleration)
+
+	#print("current_speed convertido: ", current_speed)
+	#print("current_speed normal: ", current_speed / delta_value)
+	#print("speed: ", speed)
+	#print("speed normal: ", speed / delta_value)
