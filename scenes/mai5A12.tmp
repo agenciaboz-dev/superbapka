@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://3aqu40718bhh"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_bwdyh"]
+[ext_resource type="PackedScene" uid="uid://crmmsuoy4ieq8" path="res://scenes/bg.tscn" id="1_q5ql8"]
+[ext_resource type="PackedScene" uid="uid://dhh0w3iw5ckn7" path="res://scenes/ground.tscn" id="3_dflgr"]
+[ext_resource type="PackedScene" uid="uid://cn3lqcyn6fy02" path="res://scenes/fg.tscn" id="4_kw8wr"]
+[ext_resource type="PackedScene" uid="uid://bljq4lbvihfk" path="res://scenes/despawner.tscn" id="6_g3cd8"]
+[ext_resource type="PackedScene" uid="uid://c5es716vjhyof" path="res://scenes/hud.tscn" id="7_4gitb"]
+[ext_resource type="Texture2D" uid="uid://c5wfge7d2yj3i" path="res://References/mockup açai.png" id="7_qmkrr"]
+[ext_resource type="PackedScene" uid="uid://crp0u3c8w3hwl" path="res://scenes/obst_spawner.tscn" id="8_p4e1o"]
+[ext_resource type="PackedScene" uid="uid://bbaxnvbum3cl7" path="res://scenes/npc_spawner.tscn" id="9_perqw"]
+[ext_resource type="PackedScene" uid="uid://d2j4o33xywh0x" path="res://scenes/item_spawner.tscn" id="9_ygda1"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_bwdyh")
+
+[node name="Bg" parent="." instance=ExtResource("1_q5ql8")]
+
+[node name="Ground1" parent="." instance=ExtResource("3_dflgr")]
+z_index = 1
+
+[node name="Ground2" parent="." instance=ExtResource("3_dflgr")]
+z_index = 1
+position = Vector2(420, 0)
+
+[node name="Ground3" parent="." instance=ExtResource("3_dflgr")]
+z_index = 1
+position = Vector2(840, 0)
+
+[node name="Ground0" parent="." instance=ExtResource("3_dflgr")]
+z_index = 1
+position = Vector2(-420, 0)
+
+[node name="Fg" parent="." instance=ExtResource("4_kw8wr")]
+layer = 0
+
+[node name="Acceleration_timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="Speed_up_timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="MockupAçai" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_qmkrr")
+centered = false
+
+[node name="Camera" type="Camera2D" parent="."]
+offset = Vector2(210, 100)
+ignore_rotation = false
+
+[node name="Despawner" parent="." instance=ExtResource("6_g3cd8")]
+collision_layer = 0
+
+[node name="Obst_Spawner" parent="." instance=ExtResource("8_p4e1o")]
+position = Vector2(613, 173)
+collision_mask = 92
+
+[node name="Item_Spawner" parent="." instance=ExtResource("9_ygda1")]
+position = Vector2(480, 109)
+disable_mode = 2
+collision_mask = 92
+
+[node name="Npc_Spawner" parent="." instance=ExtResource("9_perqw")]
+position = Vector2(548, 165)
+disable_mode = 2
+collision_mask = 92
+
+[node name="HUD" parent="." instance=ExtResource("7_4gitb")]
+
+[connection signal="timeout" from="Acceleration_timer" to="." method="_on_acceleration_timer_timeout"]
+[connection signal="timeout" from="Speed_up_timer" to="." method="_on_speed_up_timer_timeout"]
+[connection signal="on_pause_action" from="HUD" to="." method="_on_hud_on_pause_action"]
+[connection signal="on_restart_action" from="HUD" to="." method="_on_hud_on_restart_action"]

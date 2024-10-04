@@ -1,0 +1,144 @@
+[gd_scene load_steps=11 format=3 uid="uid://bk18u25tv4o5a"]
+
+[ext_resource type="Texture2D" uid="uid://811jbla0w21y" path="res://assets/temp/gameplay.png" id="1_nidde"]
+[ext_resource type="Script" path="res://Scripts/hud_gameplay.gd" id="1_qlj33"]
+[ext_resource type="Texture2D" uid="uid://5ac012152q1n" path="res://assets/interface/pause.png" id="2_pqfio"]
+[ext_resource type="Texture2D" uid="uid://cmrt3xoknb7jk" path="res://assets/interface/pause_pressed.png" id="3_wyibe"]
+[ext_resource type="Texture2D" uid="uid://buiblh5orhwiv" path="res://assets/interface/premium_button.png" id="4_afoub"]
+[ext_resource type="Texture2D" uid="uid://1wi088wgpt0s" path="res://assets/interface/premium_button_pressed.png" id="5_cc3b5"]
+[ext_resource type="FontFile" uid="uid://8lokxxtbxgik" path="res://assets/fonts/bapka_pixel_small.fnt" id="6_acxsr"]
+[ext_resource type="Texture2D" uid="uid://dxtybi337q1m6" path="res://assets/interface/ingame_counter.png" id="7_xacul"]
+[ext_resource type="FontFile" uid="uid://cv76mlfjxyexq" path="res://assets/fonts/bapka_pixel_big.fnt" id="8_4fmii"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8jrle"]
+
+[node name="HUD_gameplay" type="CanvasLayer"]
+process_mode = 1
+script = ExtResource("1_qlj33")
+
+[node name="Gameplay-mockup" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(133.5, 100)
+texture = ExtResource("1_nidde")
+
+[node name="Pause_btn_ctrl" type="MarginContainer" parent="."]
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 20.0
+
+[node name="pause_button" type="TouchScreenButton" parent="Pause_btn_ctrl"]
+z_index = 1
+position = Vector2(-18, 0)
+texture_normal = ExtResource("2_pqfio")
+texture_pressed = ExtResource("3_wyibe")
+action = "ui_cancel"
+
+[node name="Premium_btn_ctrl" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_top = 38.0
+offset_right = -29.0
+offset_bottom = 52.0
+grow_horizontal = 0
+
+[node name="premium_button" type="TouchScreenButton" parent="Premium_btn_ctrl"]
+modulate = Color(1, 1, 1, 0.392157)
+z_index = 1
+position = Vector2(-10, -18)
+texture_normal = ExtResource("4_afoub")
+texture_pressed = ExtResource("5_cc3b5")
+
+[node name="premium_counter_label" type="Label" parent="Premium_btn_ctrl"]
+visible = false
+z_index = 1
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_acxsr")
+text = "-/-"
+horizontal_alignment = 1
+
+[node name="Coin_lbl_control" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 1.5
+offset_top = 19.0
+offset_right = 58.5
+offset_bottom = 33.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin_lbl_control"]
+position = Vector2(28, 7)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("7_xacul")
+
+[node name="CoinLabel" type="Label" parent="Coin_lbl_control"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_acxsr")
+horizontal_alignment = 1
+
+[node name="Score_lbl_control" type="MarginContainer" parent="."]
+self_modulate = Color(0.266667, 0.266667, 0.266667, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_top = 19.0
+offset_right = 0.5
+offset_bottom = 33.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Score_lbl_control"]
+position = Vector2(28, 7)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+texture = ExtResource("7_xacul")
+
+[node name="ScoreLabel" type="Label" parent="Score_lbl_control"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_acxsr")
+horizontal_alignment = 1
+
+[node name="Bottom_right" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="fps" type="Label" parent="Bottom_right"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_4fmii")
+horizontal_alignment = 2
+
+[node name="jump_control" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -24.0
+offset_right = 0.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Jump_button" type="TouchScreenButton" parent="jump_control"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-395, -22)
+scale = Vector2(791, 135.5)
+texture_normal = SubResource("PlaceholderTexture2D_8jrle")
+action = "ui_accept"

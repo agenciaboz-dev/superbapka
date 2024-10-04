@@ -1,126 +1,128 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5es716vjhyof"]
+[gd_scene load_steps=25 format=3 uid="uid://c5es716vjhyof"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_7m711"]
 [ext_resource type="Texture2D" uid="uid://811jbla0w21y" path="res://assets/temp/gameplay.png" id="3_5gg2f"]
 [ext_resource type="FontFile" uid="uid://cv76mlfjxyexq" path="res://assets/fonts/bapka_pixel_big.fnt" id="3_8sjin"]
 [ext_resource type="Texture2D" uid="uid://5ac012152q1n" path="res://assets/interface/pause.png" id="3_tp4ph"]
+[ext_resource type="Texture2D" uid="uid://dxtybi337q1m6" path="res://assets/interface/ingame_counter.png" id="4_dosys"]
 [ext_resource type="Texture2D" uid="uid://cmrt3xoknb7jk" path="res://assets/interface/pause_pressed.png" id="4_lu3ij"]
 [ext_resource type="Texture2D" uid="uid://chs03pp1q6boy" path="res://assets/temp/gameplay game over.png" id="5_4uhmh"]
+[ext_resource type="FontFile" uid="uid://8lokxxtbxgik" path="res://assets/fonts/bapka_pixel_small.fnt" id="5_sfic4"]
 [ext_resource type="Texture2D" uid="uid://buiblh5orhwiv" path="res://assets/interface/premium_button.png" id="6_6fgcr"]
-[ext_resource type="Texture2D" uid="uid://1wi088wgpt0s" path="res://assets/interface/premium_button_pressed.png" id="7_qxonm"]
 [ext_resource type="Texture2D" uid="uid://bl5ekim0q0csl" path="res://assets/interface/marshmallow_gameover.png" id="9_wia48"]
+[ext_resource type="Texture2D" uid="uid://bma0g4rsoxghh" path="res://assets/temp/gameplay pause.png" id="10_f7w0a"]
+[ext_resource type="Texture2D" uid="uid://e0yabot2co1l" path="res://assets/interface/retry.png" id="11_00hmh"]
+[ext_resource type="Texture2D" uid="uid://cexer5qphwp11" path="res://assets/interface/marshmallow_pause.png" id="11_mov4p"]
+[ext_resource type="Texture2D" uid="uid://bp1qdyn6cnvx0" path="res://assets/interface/resume.png" id="11_t26hl"]
+[ext_resource type="Texture2D" uid="uid://bt8nd84pul43g" path="res://assets/interface/resume_pressed.png" id="12_do5gs"]
+[ext_resource type="Texture2D" uid="uid://cmrs5hme1if8x" path="res://assets/interface/returntomenu.png" id="13_0ntky"]
+[ext_resource type="Texture2D" uid="uid://dl1vu02s7i8qg" path="res://assets/interface/giveup.png" id="13_6v1gm"]
+[ext_resource type="Texture2D" uid="uid://bor3r3hgasdc5" path="res://assets/interface/giveup_pressed.png" id="14_3ldyg"]
+[ext_resource type="Texture2D" uid="uid://pkp6ugaunbhu" path="res://assets/interface/returntomenu_pressed.png" id="14_6khhn"]
+[ext_resource type="Texture2D" uid="uid://dhumeqaqku43j" path="res://assets/interface/retry_pressed.png" id="17_g71re"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i3wyy"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8jrle"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ilgqc"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4r5lf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4uqfb"]
 font_size = 13
 
 [node name="HUD" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_7m711")
-
-[node name="Bottom_left" type="MarginContainer" parent="."]
-visible = false
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -21.0
-offset_right = 83.0
-offset_bottom = -7.0
-grow_vertical = 0
-
-[node name="info" type="Label" parent="Bottom_left"]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_8sjin")
-text = "Versão beta"
-horizontal_alignment = 2
 
 [node name="HUD_gameplay" type="CanvasLayer" parent="."]
 
 [node name="Gameplay-mockup" type="Sprite2D" parent="HUD_gameplay"]
+visible = false
 position = Vector2(133.5, 100)
 texture = ExtResource("3_5gg2f")
 
-[node name="Coin_lbl_control" type="MarginContainer" parent="HUD_gameplay"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -132.0
-offset_top = 19.0
-offset_right = -75.0
-offset_bottom = 33.0
-grow_horizontal = 0
-
-[node name="HighScoreLabel" type="Label" parent="HUD_gameplay/Coin_lbl_control"]
-visible = false
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_8sjin")
-horizontal_alignment = 2
-
-[node name="CoinLabel" type="Label" parent="HUD_gameplay/Coin_lbl_control"]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_8sjin")
-horizontal_alignment = 2
-
-[node name="Score_lbl_control" type="MarginContainer" parent="HUD_gameplay"]
-self_modulate = Color(0.266667, 0.266667, 0.266667, 1)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -57.5
-offset_top = 19.0
-offset_right = -0.5
-offset_bottom = 33.0
-grow_horizontal = 2
-
-[node name="ScoreLabel" type="Label" parent="HUD_gameplay/Score_lbl_control"]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_8sjin")
-
 [node name="Pause_btn_ctrl" type="MarginContainer" parent="HUD_gameplay"]
-offset_left = 36.0
+offset_left = 40.0
 offset_top = 20.0
-offset_right = 36.0
+offset_right = 40.0
 offset_bottom = 20.0
 
 [node name="pause_button" type="TouchScreenButton" parent="HUD_gameplay/Pause_btn_ctrl"]
 z_index = 1
 position = Vector2(-18, 0)
 texture_normal = ExtResource("3_tp4ph")
-action = "ui_cancel"
-
-[node name="unpause_button" type="TouchScreenButton" parent="HUD_gameplay/Pause_btn_ctrl"]
-visible = false
-z_index = 1
-position = Vector2(-18, 0)
-texture_normal = ExtResource("4_lu3ij")
+texture_pressed = ExtResource("4_lu3ij")
 action = "ui_cancel"
 
 [node name="Premium_btn_ctrl" type="MarginContainer" parent="HUD_gameplay"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -34.0
-offset_top = 20.0
-offset_right = -34.0
-offset_bottom = 20.0
+offset_left = -45.0
+offset_top = 38.0
+offset_right = -33.0
+offset_bottom = 52.0
 grow_horizontal = 0
 
 [node name="premium_button" type="TouchScreenButton" parent="HUD_gameplay/Premium_btn_ctrl"]
+modulate = Color(1, 1, 1, 0.392157)
 z_index = 1
-position = Vector2(-18, 0)
+position = Vector2(-10, -18)
 texture_normal = ExtResource("6_6fgcr")
 
-[node name="premium_button_press" type="TouchScreenButton" parent="HUD_gameplay/Premium_btn_ctrl"]
+[node name="premium_counter_label" type="Label" parent="HUD_gameplay/Premium_btn_ctrl"]
 visible = false
 z_index = 1
-position = Vector2(-18, 0)
-texture_normal = ExtResource("7_qxonm")
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_sfic4")
+text = "-/-"
+horizontal_alignment = 1
+
+[node name="Coin_lbl_control" type="MarginContainer" parent="HUD_gameplay"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 1.5
+offset_top = 19.0
+offset_right = 58.5
+offset_bottom = 33.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD_gameplay/Coin_lbl_control"]
+position = Vector2(28, 7)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("4_dosys")
+
+[node name="CoinLabel" type="Label" parent="HUD_gameplay/Coin_lbl_control"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_sfic4")
+horizontal_alignment = 1
+
+[node name="Score_lbl_control" type="MarginContainer" parent="HUD_gameplay"]
+self_modulate = Color(0.266667, 0.266667, 0.266667, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_top = 19.0
+offset_right = 0.5
+offset_bottom = 33.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD_gameplay/Score_lbl_control"]
+position = Vector2(28, 7)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+texture = ExtResource("4_dosys")
+
+[node name="ScoreLabel" type="Label" parent="HUD_gameplay/Score_lbl_control"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_sfic4")
+horizontal_alignment = 1
 
 [node name="Bottom_right" type="MarginContainer" parent="HUD_gameplay"]
 visible = false
@@ -140,8 +142,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_8sjin")
 horizontal_alignment = 2
 
-[node name="Center" type="MarginContainer" parent="HUD_gameplay"]
-visible = false
+[node name="jump_control" type="MarginContainer" parent="HUD_gameplay"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -154,22 +155,221 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Jump_button" type="TouchScreenButton" parent="HUD_gameplay/Center"]
+[node name="Jump_button" type="TouchScreenButton" parent="HUD_gameplay/jump_control"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(-395, -38)
-scale = Vector2(791, 151.5)
-texture_normal = SubResource("PlaceholderTexture2D_8jrle")
+position = Vector2(-395, -15)
+scale = Vector2(791, 149)
+texture_normal = SubResource("PlaceholderTexture2D_i3wyy")
 action = "ui_accept"
 
-[node name="Game_Info_Label" type="Label" parent="HUD_gameplay/Center"]
+[node name="HUD_gameidle" type="CanvasLayer" parent="."]
+
+[node name="Pause_btn_ctrl" type="MarginContainer" parent="HUD_gameidle"]
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 20.0
+
+[node name="pause_button" type="TouchScreenButton" parent="HUD_gameidle/Pause_btn_ctrl"]
+z_index = 1
+position = Vector2(-18, 0)
+texture_normal = ExtResource("3_tp4ph")
+action = "ui_cancel"
+
+[node name="Premium_btn_ctrl" type="MarginContainer" parent="HUD_gameidle"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_top = 38.0
+offset_right = -33.0
+offset_bottom = 52.0
+grow_horizontal = 0
+
+[node name="premium_button" type="TouchScreenButton" parent="HUD_gameidle/Premium_btn_ctrl"]
+modulate = Color(1, 1, 1, 0.392157)
+z_index = 1
+position = Vector2(-10, -18)
+texture_normal = ExtResource("6_6fgcr")
+
+[node name="premium_counter_label" type="Label" parent="HUD_gameidle/Premium_btn_ctrl"]
+visible = false
+z_index = 1
 texture_filter = 1
-custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_sfic4")
+text = "-/-"
+horizontal_alignment = 1
+
+[node name="Coin_lbl_control" type="MarginContainer" parent="HUD_gameidle"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 1.5
+offset_top = 19.0
+offset_right = 58.5
+offset_bottom = 33.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD_gameidle/Coin_lbl_control"]
+position = Vector2(28, 7)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("4_dosys")
+
+[node name="CoinLabel" type="Label" parent="HUD_gameidle/Coin_lbl_control"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_sfic4")
+text = "0 ¢"
+horizontal_alignment = 1
+
+[node name="Score_lbl_control" type="MarginContainer" parent="HUD_gameidle"]
+self_modulate = Color(0.266667, 0.266667, 0.266667, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_top = 19.0
+offset_right = 0.5
+offset_bottom = 33.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD_gameidle/Score_lbl_control"]
+position = Vector2(28, 7)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+texture = ExtResource("4_dosys")
+
+[node name="ScoreLabel" type="Label" parent="HUD_gameidle/Score_lbl_control"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_sfic4")
+text = "0 m"
+horizontal_alignment = 1
+
+[node name="Control_gameinfo" type="MarginContainer" parent="HUD_gameidle"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -7.0
+offset_right = 69.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="info" type="Label" parent="HUD_gameidle/Control_gameinfo"]
+texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_8sjin")
 text = "Toque para começar"
 horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+
+[node name="start_control" type="MarginContainer" parent="HUD_gameidle"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -24.0
+offset_right = 0.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start_button" type="TouchScreenButton" parent="HUD_gameidle/start_control"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-395, -22)
+scale = Vector2(791, 135.5)
+texture_normal = SubResource("PlaceholderTexture2D_8jrle")
+action = "ui_accept"
+
+[node name="HUD_paused" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="GameOver-mockup" type="Sprite2D" parent="HUD_paused"]
+visible = false
+position = Vector2(133.5, 100)
+texture = ExtResource("10_f7w0a")
+
+[node name="overlay" type="MarginContainer" parent="HUD_paused"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="overlay_texture" type="TextureRect" parent="HUD_paused/overlay"]
+modulate = Color(0, 0, 0, 0.34902)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_4r5lf")
+
+[node name="character_img" type="MarginContainer" parent="HUD_paused"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -83.0
+offset_right = 39.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(40, 48)
+
+[node name="TextureRect" type="TextureRect" parent="HUD_paused/character_img"]
+layout_mode = 2
+texture = ExtResource("11_mov4p")
+
+[node name="Control_gameinfo" type="MarginContainer" parent="HUD_paused"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -10.0
+offset_right = 70.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="info_paused" type="Label" parent="HUD_paused/Control_gameinfo"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8sjin")
+text = "Jogo Pausado"
+horizontal_alignment = 1
+
+[node name="Center" type="MarginContainer" parent="HUD_paused"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.5
+offset_top = -10.0
+offset_right = 34.5
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume_button" type="TouchScreenButton" parent="HUD_paused/Center"]
+position = Vector2(-11, 38)
+texture_normal = ExtResource("11_t26hl")
+texture_pressed = ExtResource("12_do5gs")
+action = "ui_accept"
+
+[node name="title_screen_button" type="TouchScreenButton" parent="HUD_paused/Center"]
+position = Vector2(-1, 66)
+texture_normal = ExtResource("13_6v1gm")
+texture_pressed = ExtResource("14_3ldyg")
 
 [node name="HUD_gameover" type="CanvasLayer" parent="."]
 visible = false
@@ -179,6 +379,18 @@ visible = false
 position = Vector2(133.5, 100)
 texture = ExtResource("5_4uhmh")
 
+[node name="overlay" type="MarginContainer" parent="HUD_gameover"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="overlay_texture" type="TextureRect" parent="HUD_gameover/overlay"]
+modulate = Color(0, 0, 0, 0.34902)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_4r5lf")
+
 [node name="Center" type="MarginContainer" parent="HUD_gameover"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -186,24 +398,21 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -34.5
-offset_top = -10.5
+offset_top = -10.0
 offset_right = 34.5
-offset_bottom = 10.5
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="title_screen_button" type="TouchScreenButton" parent="HUD_gameover/Center"]
-modulate = Color(0, 0, 0, 0.2)
-position = Vector2(-12, 47.5)
-scale = Vector2(93, 16)
-texture_normal = SubResource("PlaceholderTexture2D_ilgqc")
-
 [node name="restart_button" type="TouchScreenButton" parent="HUD_gameover/Center"]
-modulate = Color(0, 0, 0, 0.2)
-position = Vector2(1, 22.5)
-scale = Vector2(65, 15)
-texture_normal = SubResource("PlaceholderTexture2D_ilgqc")
-action = "ui_accept"
+position = Vector2(-11, 38)
+texture_normal = ExtResource("11_00hmh")
+texture_pressed = ExtResource("17_g71re")
+
+[node name="title_screen_button" type="TouchScreenButton" parent="HUD_gameover/Center"]
+position = Vector2(-25, 66)
+texture_normal = ExtResource("13_0ntky")
+texture_pressed = ExtResource("14_6khhn")
 
 [node name="character_img" type="MarginContainer" parent="HUD_gameover"]
 anchors_preset = 8
@@ -230,12 +439,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -44.5
-offset_top = -11.0
-offset_right = 44.5
-offset_bottom = 1.0
+offset_left = -52.5
+offset_top = -10.0
+offset_right = 36.5
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 
 [node name="game_over_msg" type="Label" parent="HUD_gameover/gameover txt"]
 layout_mode = 2
@@ -245,104 +455,51 @@ label_settings = SubResource("LabelSettings_4uqfb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="game_info" type="MarginContainer" parent="HUD_gameover"]
-visible = false
+[node name="distance_txt" type="MarginContainer" parent="HUD_gameover"]
+layout_direction = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -85.0
-offset_top = 7.0
-offset_right = -27.0
+offset_left = 18.0
+offset_top = 7.00001
+offset_right = 88.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 
-[node name="distance_msg" type="Label" parent="HUD_gameover/game_info"]
-visible = false
+[node name="distance_value_msg" type="Label" parent="HUD_gameover/distance_txt"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_8sjin")
-text = "Distancia: "
+theme_override_fonts/font = ExtResource("5_sfic4")
 label_settings = SubResource("LabelSettings_4uqfb")
-vertical_alignment = 1
-
-[node name="restart_txt" type="MarginContainer" parent="HUD_gameover"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -29.5
-offset_top = 13.0
-offset_right = 29.5
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="restart_msg" type="Label" parent="HUD_gameover/restart_txt"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_8sjin")
-text = "Recomeçar"
-label_settings = SubResource("LabelSettings_4uqfb")
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="title_screen_txt" type="MarginContainer" parent="HUD_gameover"]
+layout_direction = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = 39.0
-offset_right = 42.0
-offset_bottom = 51.0
+offset_left = -95.0
+offset_top = 7.0
+offset_right = -11.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 
-[node name="title_screen_msg" type="Label" parent="HUD_gameover/title_screen_txt"]
+[node name="coins_value_msg" type="Label" parent="HUD_gameover/title_screen_txt"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_8sjin")
-text = "Voltar ao Menu"
+theme_override_fonts/font = ExtResource("5_sfic4")
 label_settings = SubResource("LabelSettings_4uqfb")
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="distance_value_msg" type="Label" parent="HUD_gameover"]
-visible = false
-offset_left = 74.0
-offset_top = 97.0
-offset_right = 129.0
-offset_bottom = 109.0
-theme_override_fonts/font = ExtResource("3_8sjin")
-label_settings = SubResource("LabelSettings_4uqfb")
-vertical_alignment = 1
-
-[node name="coins_msg" type="Label" parent="HUD_gameover"]
-visible = false
-offset_left = 134.0
-offset_top = 97.0
-offset_right = 183.0
-offset_bottom = 109.0
-theme_override_fonts/font = ExtResource("3_8sjin")
-text = "Moedas: "
-label_settings = SubResource("LabelSettings_4uqfb")
-vertical_alignment = 1
-
-[node name="coins_value_msg" type="Label" parent="HUD_gameover"]
-visible = false
-offset_left = 184.0
-offset_top = 97.0
-offset_right = 233.0
-offset_bottom = 109.0
-theme_override_fonts/font = ExtResource("3_8sjin")
-label_settings = SubResource("LabelSettings_4uqfb")
-vertical_alignment = 1
-
-[connection signal="pressed" from="HUD_gameplay/Pause_btn_ctrl/pause_button" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="HUD_gameplay/Pause_btn_ctrl/unpause_button" to="." method="_on_unpause_button_pressed"]
-[connection signal="pressed" from="HUD_gameplay/Premium_btn_ctrl/premium_button" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="HUD_gameplay/Premium_btn_ctrl/premium_button_press" to="." method="_on_unpause_button_pressed"]
-[connection signal="released" from="HUD_gameover/Center/title_screen_button" to="." method="_on_title_screen_button_released"]
+[connection signal="released" from="HUD_gameplay/Pause_btn_ctrl/pause_button" to="." method="_on_pause_button_released"]
+[connection signal="released" from="HUD_paused/Center/resume_button" to="." method="_on_resume_button_released"]
+[connection signal="released" from="HUD_paused/Center/title_screen_button" to="." method="_on_title_screen_button_released"]
 [connection signal="released" from="HUD_gameover/Center/restart_button" to="." method="_on_restart_button_released"]
+[connection signal="released" from="HUD_gameover/Center/title_screen_button" to="." method="_on_title_screen_button_released"]

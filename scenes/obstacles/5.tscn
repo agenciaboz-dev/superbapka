@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf11tw0mke48s"]
+
+[ext_resource type="Script" path="res://scenes/obstacles/obstacles.gd" id="1_0dx04"]
+[ext_resource type="Texture2D" uid="uid://syh36a5mdfgr" path="res://assets/obstacle/rock5.png" id="2_feam5"]
+
+[node name="5" type="Area2D" groups=["dmg"]]
+z_index = 6
+collision_layer = 4
+collision_mask = 33
+script = ExtResource("1_0dx04")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["dmg"]]
+texture_filter = 1
+texture = ExtResource("2_feam5")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." groups=["dmg"]]
+z_index = 5
+position = Vector2(-1, 0)
+rotation = 4.71239
+polygon = PackedVector2Array(8.99999, -9.00001, 9, -3.00001, 12, -1.15633e-05, 12, 7.99999, 9.00001, 11, 3.00001, 11, -3.99999, 15, -11, 12, -11, -7.99999, -5.00001, -14, 1.99999, -14)
+
+[node name="Height_marker" type="RayCast2D" parent="."]
+position = Vector2(0, 10)
+target_position = Vector2(0, -22)
+collide_with_bodies = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
