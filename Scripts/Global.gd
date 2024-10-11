@@ -1,11 +1,15 @@
 extends Node
 
+signal use_premium
+
+const MAX_PREMIUM = 3
 const stage_names = [
 	{"id": 1, "name": "acai"},
 	{"id": 2, "name": "paleta"},
 	{"id": 3, "name": "premium"}
 	]
 
+var premium_count := 0
 var game_running : bool
 var ground_width : float
 var scenario : int
@@ -34,8 +38,9 @@ var is_array_shuffled := false
 func _ready():
 	for item in stage_names:
 		array_id.append(item["id"])
+	
 	array_id.shuffle()
-	print(array_id)
+	pass
 
 func get_scenario_number():
 	var return_number = 0
@@ -57,3 +62,7 @@ func get_scenario_name(num):
 			scenario_name = item["name"]
 			
 			return scenario_name
+
+func use_premium_action():
+	use_premium.emit()
+	premium_count -= 1

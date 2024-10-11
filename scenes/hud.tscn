@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5es716vjhyof"]
+[gd_scene load_steps=26 format=3 uid="uid://c5es716vjhyof"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_7m711"]
 [ext_resource type="Texture2D" uid="uid://811jbla0w21y" path="res://assets/temp/gameplay.png" id="3_5gg2f"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cmrt3xoknb7jk" path="res://assets/interface/pause_pressed.png" id="4_lu3ij"]
 [ext_resource type="Texture2D" uid="uid://chs03pp1q6boy" path="res://assets/temp/gameplay game over.png" id="5_4uhmh"]
 [ext_resource type="FontFile" uid="uid://8lokxxtbxgik" path="res://assets/fonts/bapka_pixel_small.fnt" id="5_sfic4"]
+[ext_resource type="Texture2D" uid="uid://1wi088wgpt0s" path="res://assets/interface/premium_button_pressed.png" id="6_0er3i"]
 [ext_resource type="Texture2D" uid="uid://buiblh5orhwiv" path="res://assets/interface/premium_button.png" id="6_6fgcr"]
 [ext_resource type="Texture2D" uid="uid://bl5ekim0q0csl" path="res://assets/interface/marshmallow_gameover.png" id="9_wia48"]
 [ext_resource type="Texture2D" uid="uid://bma0g4rsoxghh" path="res://assets/temp/gameplay pause.png" id="10_f7w0a"]
@@ -65,13 +66,18 @@ offset_bottom = 52.0
 grow_horizontal = 0
 
 [node name="premium_button" type="TouchScreenButton" parent="HUD_gameplay/Premium_btn_ctrl"]
-modulate = Color(1, 1, 1, 0.392157)
 z_index = 1
 position = Vector2(-10, -18)
 texture_normal = ExtResource("6_6fgcr")
+texture_pressed = ExtResource("6_0er3i")
+
+[node name="premium_button_disabled" type="TouchScreenButton" parent="HUD_gameplay/Premium_btn_ctrl"]
+visible = false
+z_index = 1
+position = Vector2(-10, -18)
+texture_normal = ExtResource("6_0er3i")
 
 [node name="premium_counter_label" type="Label" parent="HUD_gameplay/Premium_btn_ctrl"]
-visible = false
 z_index = 1
 texture_filter = 1
 layout_mode = 2
@@ -187,13 +193,11 @@ offset_bottom = 52.0
 grow_horizontal = 0
 
 [node name="premium_button" type="TouchScreenButton" parent="HUD_gameidle/Premium_btn_ctrl"]
-modulate = Color(1, 1, 1, 0.392157)
 z_index = 1
 position = Vector2(-10, -18)
 texture_normal = ExtResource("6_6fgcr")
 
 [node name="premium_counter_label" type="Label" parent="HUD_gameidle/Premium_btn_ctrl"]
-visible = false
 z_index = 1
 texture_filter = 1
 layout_mode = 2
@@ -499,6 +503,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [connection signal="released" from="HUD_gameplay/Pause_btn_ctrl/pause_button" to="." method="_on_pause_button_released"]
+[connection signal="released" from="HUD_gameplay/Premium_btn_ctrl/premium_button" to="." method="_on_premium_button_released"]
 [connection signal="released" from="HUD_paused/Center/resume_button" to="." method="_on_resume_button_released"]
 [connection signal="released" from="HUD_paused/Center/title_screen_button" to="." method="_on_title_screen_button_released"]
 [connection signal="released" from="HUD_gameover/Center/restart_button" to="." method="_on_restart_button_released"]

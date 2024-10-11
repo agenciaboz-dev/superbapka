@@ -40,6 +40,9 @@ wait_time = 0.05
 [node name="Speed_up_timer" type="Timer" parent="."]
 wait_time = 25.0
 
+[node name="Scenario_timer" type="Timer" parent="."]
+wait_time = 30.0
+
 [node name="MockupAçai" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("7_qmkrr")
@@ -70,5 +73,6 @@ collision_mask = 92
 
 [connection signal="timeout" from="Acceleration_timer" to="." method="_on_acceleration_timer_timeout"]
 [connection signal="timeout" from="Speed_up_timer" to="." method="_on_speed_up_timer_timeout"]
+[connection signal="timeout" from="Scenario_timer" to="." method="_on_scenario_timer_timeout"]
 [connection signal="on_pause_action" from="HUD" to="." method="_on_hud_on_pause_action"]
 [connection signal="on_restart_action" from="HUD" to="." method="_on_hud_on_restart_action"]

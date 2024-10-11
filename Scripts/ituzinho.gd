@@ -47,6 +47,7 @@ func _ready():
 	Global.is_alive = true
 	hp = INITIAL_HP
 	state = INITIAL_STATE
+	Global.connect("use_premium", Callable(self, "_on_use_premium"))
 	
 
 func _physics_process(delta):
@@ -82,7 +83,10 @@ func _physics_process(delta):
 		get_dmg(150)
 	
 	if Input.is_action_just_pressed("ui_up"):
-		heal(25)
+		heal(25, false)
+	
+	if Input.is_action_just_pressed("ui_home"):
+		_on_use_premium()
 	
 	get_all_stages()
 	
@@ -157,19 +161,19 @@ func action_move(jump):
 	
 	is_jump = false
 
-func heal(heal_value):
-	#if Global.is_overheal:
-		#mark_overheal = true
-		#if (hp + Global.player_heal) > :
-			#hp = MAX_OVERHP
-		#else:
-			#hp += Global.player_heal
-	#else:
-	if not mark_overheal:
-		if hp > MAX_OVERHP:
-			hp = MAX_OVERHP
-		else:
-			hp += heal_value
+func heal(heal_value, mark_overheal):
+	#Estamos analisando remover o max_overheal, pois o premium é raro
+	var is_overheal = hp > MAX_HP
+	
+	if mark_overheal:
+		hp += heal_value
+	else:
+		if not is_overheal:
+			if hp < MAX_HP:
+				hp += heal_value
+			
+			if hp > MAX_HP:
+				hp = MAX_HP
 	
 	heal_sfx.play()
 
@@ -213,3 +217,6 @@ func _on_timer_timeout():
 		anim_player.stop(false)
 		timer.stop()
 	pass
+
+func _on_use_premium():
+	heal(30, true)

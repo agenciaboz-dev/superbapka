@@ -1,6 +1,6 @@
 extends Node
 
-#instancied objects
+@onready var scenario_timer := $Scenario_timer as Timer
 @onready var speed_up_timer := $Speed_up_timer as Timer
 @onready var acceleration_timer := $Acceleration_timer as Timer
 @onready var ground_array := [$Ground1, $Ground2, $Ground3] as Array[StaticBody2D]
@@ -40,6 +40,8 @@ var scenario_number := -1
 var last_updated:= 0.0
 var acceleration_count : float
 var knockback_force := 0.0
+var is_current_speed := false
+var already_get_speed := false
 
 #arrays
 var ground_pieces = []
@@ -47,18 +49,12 @@ var obstacles : Array
 var scenarios : Array[int]
 var obstacle_path : Array[String]
 var speed_target := 0
-var is_current_speed := false
-var already_get_speed := false
 
 func _ready():
 	Global.score = 0
 	Global.collected_coins = 0
 	Global.skin_id = randi_range(1 , 4)
 	is_restart = false
-	
-	scenario_number = Global.get_scenario_number()
-	
-	Global.scenario = scenario_number
 	
 	scenario_change()
 	
@@ -79,7 +75,6 @@ func _ready():
 	new_game()
 
 func new_game():
-	
 	for ground in ground_pieces:
 		ground.transition_texture()
 	
@@ -94,10 +89,9 @@ func new_game():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_left"):
-		
 		print("skin_id: ", Global.skin_id)
-	if Input.is_action_just_pressed("ui_right"):
 		
+	if Input.is_action_just_pressed("ui_right"):
 		print("skin_id: ", Global.skin_id)
 	
 	if Input.is_action_just_pressed("ui_page_up"):
@@ -106,7 +100,6 @@ func _process(delta):
 		scenario_change()
 	
 	if Global.game_running:
-		
 		if not Global.is_alive:
 			Global.game_running = false
 		
@@ -135,6 +128,8 @@ func _process(delta):
 		bg.sunshine.set_process(false)
 		
 		if Input.is_action_just_pressed("ui_accept"):
+			bg.sunshine.set_process(true)
+			scenario_timer.start()
 			speed_up_timer.start()
 			acceleration_timer.start()
 			Global.game_running = true
@@ -167,7 +162,10 @@ func order_by_position():
 				ground_pieces[j + 1].transition_texture()
 
 func scenario_change():
+	scenario_number = Global.get_scenario_number()
+	Global.scenario = scenario_number
 	var texture_path = "res://assets/scenario/" + Global.get_scenario_name(Global.scenario)
+	
 	bg.get_scenario(Global.scenario)
 	fg.get_scenario(Global.scenario)
 
@@ -190,4 +188,10 @@ func _on_speed_up_timer_timeout():
 
 func _on_hud_on_restart_action():
 	get_tree().reload_current_scene()
+	pass # Replace with function body.
+
+func _on_scenario_timer_timeout():
+	scenario_number = Global.get_scenario_number()
+	Global.scenario = scenario_number
+	scenario_change()
 	pass # Replace with function body.

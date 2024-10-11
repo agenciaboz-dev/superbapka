@@ -1,4 +1,4 @@
-res://scenes/item_spawner.tscn
+res://scenes/main.tscn
 res://font_generator/font_generator.gd
 res://scenes/collectables/tubs/1l.gd
 res://scenes/despawner.gd
@@ -7,3 +7,13 @@ res://Scripts/Item_Spawner.gd
 res://Scripts/ituzinho.gd
 res://Scripts/main.gd
 res://scenes/hud_gameover.gdshader
+res://scenes/global.tscn
+res://scenes/title_screen.tscn
+res://scenes/hud.tscn
+res://scenes/bg.tscn
+res://scenes/bg-layer.gd
+res://scenes/bg.gd
+res://scenes/bg-layer-item.gd
+res://scenes/fg.tscn
+res://scenes/fg.gd
+res://Scripts/Sunshine.gd
