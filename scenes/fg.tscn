@@ -9,7 +9,6 @@
 script = ExtResource("1_qsfpu")
 
 [node name="acai" type="ParallaxLayer" parent="."]
-visible = false
 z_index = 9
 position = Vector2(0, -2)
 motion_scale = Vector2(1.5, 1)
@@ -23,7 +22,6 @@ texture = ExtResource("1_dqqer")
 centered = false
 
 [node name="paleta" type="ParallaxLayer" parent="."]
-visible = false
 z_index = 9
 position = Vector2(0, -2)
 motion_scale = Vector2(1.5, 1)
@@ -37,7 +35,6 @@ texture = ExtResource("3_84fav")
 centered = false
 
 [node name="premium" type="ParallaxLayer" parent="."]
-visible = false
 z_index = 9
 position = Vector2(0, -2)
 motion_scale = Vector2(1.5, 1)
