@@ -126,6 +126,7 @@ func _process(delta):
 	
 	else:
 		bg.sunshine.set_process(false)
+		scenario_timer.stop()
 		
 		if Input.is_action_just_pressed("ui_accept"):
 			bg.sunshine.set_process(true)
