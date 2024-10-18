@@ -18,9 +18,6 @@ extends Node
 				printerr("Font Generator: Couldn't load font data from \"",font_data_json_path,"\".")
 			create_font_button = false
 
-
-
-
 func load_font_data_json() -> Dictionary:
 	var json_file = FileAccess.open(font_data_json_path, FileAccess.READ)
 	var json = JSON.new()
@@ -33,8 +30,6 @@ func load_font_data_json() -> Dictionary:
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", font_data_json_path, " at line ", json.get_error_line())
 	return Dictionary()
-
-
 
 func create_font(font_data: Dictionary) -> void:
 	var file = FileAccess.open(font_data["font_file_path"], FileAccess.WRITE)
@@ -51,18 +46,8 @@ func create_font(font_data: Dictionary) -> void:
 		"{","|","}","~",
 		" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ",
 		"¡","¢","£","¤","¥","¦","§","¨","©","ª","«","¬","­","®","¯","°","±","²","³","´","µ","¶","·","¸","¹","º","»","¼","½","¾","¿","À","Á","Â","Ã","Ä","Å","Æ","Ç","È","É","Ê","Ë","Ì","Í","Î","Ï","Ð","Ñ","Ò","Ó","Ô","Õ","Ö","×","Ø","Ù","Ú","Û","Ü","Ý","Þ","ß","à","á","â","ã","ä","å","æ","ç","è","é","ê","ë","ì","í","î","ï","ð","ñ","ò","ó","ô","õ","ö","÷","ø","ù","ú","û","ü","ý","þ","ÿ",
-		
-		#" ", "!","\"","#","$","%","&","'","(",")","*","+",",","-",".","/","0","1","2","3","4","5","6","7","8","9",":",";","<","=",">","?","@",
-		#"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
-		#"[","\\","]","^","_","`",
-		#"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-		#"{","|","}","~",
-		
-		#proxied
-		#"\u201C","\u201D","\u201E", "\u201F", #german quotation marks
-		
-		#"’" #acute accent
-	]
+		]
+	
 	content += get_char_block(char_array, font_data["char_width"], font_data["char_height"], font_data["xadvance_default"], font_data["xadvances"])
 	content += get_kerning_pair_block(font_data["kerning"])
 	file.store_string(content)

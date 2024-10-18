@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4wphxjawpg2w"
-path="res://.godot/imported/premium-acai.png-e331905d39c3f8397c16054198276eaf.ctex"
+uid="uid://dv42ege0h03oo"
+path="res://.godot/imported/2-1.png-1ae061472a367595e038230e136f773a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/test/premium-acai.png"
-dest_files=["res://.godot/imported/premium-acai.png-e331905d39c3f8397c16054198276eaf.ctex"]
+source_file="res://assets/scenario/transition/2-1.png"
+dest_files=["res://.godot/imported/2-1.png-1ae061472a367595e038230e136f773a.ctex"]
 
 [params]
 

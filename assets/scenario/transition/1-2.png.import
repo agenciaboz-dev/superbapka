@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tm8ikfqg7po"
-path="res://.godot/imported/premium-paleta.png-73517419db8e82fa303a92b8ead36b50.ctex"
+uid="uid://bsoar13xo4pme"
+path="res://.godot/imported/1-2.png-18a9b82896e1becf60930db07f26c6e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/test/premium-paleta.png"
-dest_files=["res://.godot/imported/premium-paleta.png-73517419db8e82fa303a92b8ead36b50.ctex"]
+source_file="res://assets/scenario/transition/1-2.png"
+dest_files=["res://.godot/imported/1-2.png-18a9b82896e1becf60930db07f26c6e7.ctex"]
 
 [params]
 

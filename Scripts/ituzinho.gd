@@ -32,7 +32,6 @@ const states = [
 #var hp : float
 var state : int
 var animation_name : String
-var mark_overheal := false
 var skinid := 0
 var is_jump := false
 var is_damage_boost := false
@@ -202,7 +201,6 @@ func apply_skin():
 	pass
 
 func play_animation():
-	texture.speed_scale
 	texture.play(animation_name)
 
 func dmg_boost():

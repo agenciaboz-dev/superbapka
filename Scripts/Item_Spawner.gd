@@ -12,7 +12,6 @@ const item_path : Array = [
 var last_obst_pos : Vector2
 var spawn_distance: float
 var last_obst_position_x : float = 0.0
-var range : int
 var pos : int
 var min_distance := 10
 var has_obst : bool
@@ -25,10 +24,7 @@ var obstacles: Array = []
 
 func _ready():
 	is_game_started = false
-	var range = 0
 	has_obst = false
-#	self.collision_mask = 4
-#	self.collision_layer = 6
 	set_path("res://scenes/collectables/tubs/")
 
 func _process(delta):
@@ -44,8 +40,6 @@ func spawn_scenario_trigger():
 
 func spawn_item():
 	var max_obst = 3
-	var range = randi_range(0, max_obst)
-	var last_obst_x = 0
 	var obst_path = ""
 	
 	item_path_custom = item_path.duplicate(true)
@@ -59,7 +53,6 @@ func spawn_item():
 	
 	var obstacle_object = load(obst_path)
 	
-	var attempt = true
 	if obstacle_object:
 		var obst = obstacle_object.instantiate()
 		oldest_node = obstacles.pop_front()
@@ -70,7 +63,6 @@ func spawn_item():
 		obstacles.append(obst)
 		
 		last_obst_pos = self.position
-		last_obst_x = 28
 	else:
 		print("Erro ao carregar o obstáculo: ", obst_path)
 	

@@ -36,7 +36,6 @@ var position : int
 var tween : Tween
 var acceleration : float
 var is_player_dmg := false
-var scenario_number := -1
 var last_updated:= 0.0
 var acceleration_count : float
 var knockback_force := 0.0
@@ -55,8 +54,11 @@ func _ready():
 	Global.collected_coins = 0
 	Global.skin_id = randi_range(1 , 4)
 	is_restart = false
+	Global.is_transitioning = false
 	
-	scenario_change()
+	Global.scenario = 0
+	
+	scenario_change(false)
 	
 	player = load("res://scenes/characters/ituzinho.tscn").instantiate()
 	
@@ -95,9 +97,7 @@ func _process(delta):
 		print("skin_id: ", Global.skin_id)
 	
 	if Input.is_action_just_pressed("ui_page_up"):
-		scenario_number = Global.get_scenario_number()
-		Global.scenario = scenario_number
-		scenario_change()
+		scenario_change(true)
 	
 	if Global.game_running:
 		if not Global.is_alive:
@@ -107,6 +107,8 @@ func _process(delta):
 			player.set_physics_process(true)
 			
 			control_speed(delta)
+			
+			$"MockupAcai".position.x += speed
 			
 			camera_x = cam.position.x
 			player.position.x += speed
@@ -119,11 +121,14 @@ func _process(delta):
 			Global.player_x = player.position.x
 			Global.score += speed / 30
 			
+			#ground_pieces[0].position.x = ground_pieces[2].position.x + Global.ground_width
+			
 			if camera_x - ground_pieces[1].position.x > Global.ground_width:
+				ground_pieces[0].transition_texture()
 				ground_pieces[0].position.x = ground_pieces[2].position.x + Global.ground_width
 			
 			order_by_position()
-	
+			
 	else:
 		bg.sunshine.set_process(false)
 		scenario_timer.stop()
@@ -160,12 +165,10 @@ func order_by_position():
 				var temp = ground_pieces[j]
 				ground_pieces[j] = ground_pieces[j + 1]
 				ground_pieces[j + 1] = temp
-				ground_pieces[j + 1].transition_texture()
 
-func scenario_change():
-	scenario_number = Global.get_scenario_number()
-	Global.scenario = scenario_number
-	var texture_path = "res://assets/scenario/" + Global.get_scenario_name(Global.scenario)
+func scenario_change(transition_enable : bool):
+	Global.is_transitioning = transition_enable
+	Global.scenario = Global.get_scenario_number()
 	
 	bg.get_scenario(Global.scenario)
 	fg.get_scenario(Global.scenario)
@@ -192,7 +195,5 @@ func _on_hud_on_restart_action():
 	pass # Replace with function body.
 
 func _on_scenario_timer_timeout():
-	scenario_number = Global.get_scenario_number()
-	Global.scenario = scenario_number
-	scenario_change()
+	scenario_change(true)
 	pass # Replace with function body.

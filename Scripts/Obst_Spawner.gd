@@ -20,7 +20,6 @@ func _ready():
 		"res://scenes/obstacles/3.tscn",
 		"res://scenes/obstacles/2.tscn",
 		"res://scenes/obstacles/1.tscn"])
-	var range = 0
 	has_item = false
 
 func _process(delta):
@@ -46,7 +45,6 @@ func spawn_obstacle():
 			
 			# Calcular a posição y com base no chão e altura do obstáculo
 			var obst_size = obst.get_node("Height_marker").target_position
-			var obst_scale = obst.get_node("Sprite2D").scale
 			var sprite_height = obst.get_node("Sprite2D").texture.get_height()
 			
 			#if obstacles.size() >= 10:
@@ -88,7 +86,6 @@ func _on_item_spawner_body_exited(body):
 	print("saiu")
 	has_item = false
 	pass # Replace with function body.
-
 
 func _on_body_entered(body):
 	#has_item = true

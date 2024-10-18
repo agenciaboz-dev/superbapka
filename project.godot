@@ -22,7 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
-GlobalPause="res://scenes/global_pause.tscn"
+HighscoreManager="*res://Scripts/Highscore_Manager.gd"
 
 [debug]
 

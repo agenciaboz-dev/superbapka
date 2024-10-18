@@ -15,7 +15,7 @@ func get_scenario(id):
 	
 	var new_bg = null
 	for item in bg_array:
-		if item.name.ends_with(scenario_name):
+		if item.name == scenario_name:
 			new_bg = item
 			break
 	
@@ -29,7 +29,7 @@ func get_scenario(id):
 		
 		transition_bg()
 	else:
-		print("No change in background or invalid scenario name. ",  new_bg)
+		print("No change in background or invalid scenario name. - new_bg = ",  new_bg.name, " bg_current.name = ", bg_current.name)
 
 func transition_bg():
 	if bg_previous:

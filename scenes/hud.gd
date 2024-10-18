@@ -21,7 +21,6 @@ func _ready():
 func _process(delta):
 	distance = str(round(Global.score)) + " m"
 	coins = str(round(Global.collected_coins)) + " ¢"
-	var sizes = get_window().size
 	score_lbl.text = distance
 	coin_lbl.text = coins
 	if Global.game_running:

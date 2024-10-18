@@ -33,10 +33,9 @@ func transition_fg():
 	tween_out = create_tween()
 	
 	if fg_previous:
-		tween_out.tween_property(fg_previous, "modulate:a", 0, 1)
+		fade_out()
 	if fg_current:
-		fg_current.visible = true
-		tween_in.tween_property(fg_current, "modulate:a", 1, 1)
+		fade_in()
 	
 	await tween_out.finished
 	fg_previous.visible = false
@@ -44,13 +43,15 @@ func transition_fg():
 func fade_in():
 	var tween = create_tween()
 	fg_current.visible = true
-	tween.tween_property(fg_current, "modulate:a", 1, 1)
+	if Global.previous_scenario:
+		tween.tween_property(fg_current, "modulate:a", 1, 15)
+	else:
+		fg_current.modulate.a = 1
 	
 func fade_out():
 	var tween = create_tween()
 	
-	tween.tween_property(fg_previous, "modulate:a", 0, 1)
+	tween.tween_property(fg_previous, "modulate:a", 0, 2)
 	
-	await tween_out.finished
-	
+	await tween.finished
 	fg_previous.visible = false

@@ -9,12 +9,17 @@ const stage_names = [
 	{"id": 3, "name": "premium"}
 	]
 
+var set_score : float : set = add_score
+
+var score : float
+
+var is_transitioning : bool
 var premium_count := 0
 var game_running : bool
 var ground_width : float
 var scenario : int
+var previous_scenario : int
 var character : int
-var score : float
 var score_modifier : int = 1
 var collected_coins: int
 var high_score : int
@@ -38,15 +43,20 @@ var is_array_shuffled := false
 func _ready():
 	for item in stage_names:
 		array_id.append(item["id"])
-	
 	array_id.shuffle()
+	
+	pass
+
+func _process(delta):
 	pass
 
 func get_scenario_number():
 	var return_number = 0
 	
+	if Global.scenario:
+		Global.previous_scenario = Global.scenario
+	
 	if current_scenario_id == stage_names.size():
-		array_id.shuffle()
 		current_scenario_id = 0 
 	
 	return_number = array_id[current_scenario_id]
@@ -66,3 +76,10 @@ func get_scenario_name(num):
 func use_premium_action():
 	use_premium.emit()
 	premium_count -= 1
+
+func get_previous_and_current():
+	return str(previous_scenario) + "-" + str(scenario)
+
+func add_score(score_point):
+	if score_point > score:
+		score += score_point

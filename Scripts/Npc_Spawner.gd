@@ -14,10 +14,7 @@ var oldest_node
 var obstacles: Array = []
 
 func _ready():
-	var range = 0
 	has_obst = false
-#	self.collision_mask = 4
-#	self.collision_layer = 6
 
 func _process(delta):
 	if Global.game_running:

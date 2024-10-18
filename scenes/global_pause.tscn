@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1ovhvtokwxhw"]
-
-[ext_resource type="Script" path="res://Scripts/Global_pause.gd" id="1_nacvr"]
-
-[node name="Global_pause" type="Node"]
-script = ExtResource("1_nacvr")
